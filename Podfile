@@ -7,6 +7,7 @@ target 'WariCan' do
 
   # Pods for WariCan
   pod 'R.swift'
+  pod 'Google-Mobile-Ads-SDK'
 
   target 'WariCanTests' do
     inherit! :search_paths
