@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  WCBaseViewController.swift
 //  WariCan
 //
 //  Created by Narumi Nogawa on 2021/03/21.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class WCBaseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

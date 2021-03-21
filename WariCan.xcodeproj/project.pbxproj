@@ -10,7 +10,7 @@
 		05A7F1A526075DC200C05D38 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A7F1A426075DC200C05D38 /* R.generated.swift */; };
 		05DCC10C26075A0C00297E2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DCC10B26075A0C00297E2F /* AppDelegate.swift */; };
 		05DCC10E26075A0C00297E2F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DCC10D26075A0C00297E2F /* SceneDelegate.swift */; };
-		05DCC11026075A0C00297E2F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DCC10F26075A0C00297E2F /* ViewController.swift */; };
+		05DCC11026075A0C00297E2F /* WCBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DCC10F26075A0C00297E2F /* WCBaseViewController.swift */; };
 		05DCC11326075A0C00297E2F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05DCC11126075A0C00297E2F /* Main.storyboard */; };
 		05DCC11526075A0E00297E2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05DCC11426075A0E00297E2F /* Assets.xcassets */; };
 		05DCC11826075A0E00297E2F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05DCC11626075A0E00297E2F /* LaunchScreen.storyboard */; };
@@ -43,7 +43,7 @@
 		05DCC10826075A0C00297E2F /* WariCan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WariCan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05DCC10B26075A0C00297E2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		05DCC10D26075A0C00297E2F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		05DCC10F26075A0C00297E2F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		05DCC10F26075A0C00297E2F /* WCBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCBaseViewController.swift; sourceTree = "<group>"; };
 		05DCC11226075A0C00297E2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		05DCC11426075A0E00297E2F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		05DCC11726075A0E00297E2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -93,6 +93,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		05A7F1A926075EBA00C05D38 /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				05DCC10B26075A0C00297E2F /* AppDelegate.swift */,
+				05DCC10D26075A0C00297E2F /* SceneDelegate.swift */,
+				05DCC11626075A0E00297E2F /* LaunchScreen.storyboard */,
+			);
+			name = Launch;
+			sourceTree = "<group>";
+		};
 		05DCC0FF26075A0C00297E2F = {
 			isa = PBXGroup;
 			children = (
@@ -119,12 +129,10 @@
 		05DCC10A26075A0C00297E2F /* WariCan */ = {
 			isa = PBXGroup;
 			children = (
-				05DCC10B26075A0C00297E2F /* AppDelegate.swift */,
-				05DCC10D26075A0C00297E2F /* SceneDelegate.swift */,
-				05DCC10F26075A0C00297E2F /* ViewController.swift */,
+				05DCC10F26075A0C00297E2F /* WCBaseViewController.swift */,
 				05DCC11126075A0C00297E2F /* Main.storyboard */,
+				05A7F1A926075EBA00C05D38 /* Launch */,
 				05DCC11426075A0E00297E2F /* Assets.xcassets */,
-				05DCC11626075A0E00297E2F /* LaunchScreen.storyboard */,
 				05DCC11926075A0E00297E2F /* Info.plist */,
 			);
 			path = WariCan;
@@ -430,7 +438,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05DCC11026075A0C00297E2F /* ViewController.swift in Sources */,
+				05DCC11026075A0C00297E2F /* WCBaseViewController.swift in Sources */,
 				05DCC10C26075A0C00297E2F /* AppDelegate.swift in Sources */,
 				05DCC10E26075A0C00297E2F /* SceneDelegate.swift in Sources */,
 				05A7F1A526075DC200C05D38 /* R.generated.swift in Sources */,
