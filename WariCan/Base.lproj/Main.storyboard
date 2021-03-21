@@ -15,9 +15,26 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o4H-ru-dbP" userLabel="Bottom Banner View" customClass="GADBannerView">
+                                <rect key="frame" x="47" y="812" width="320" height="50"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="UFp-wU-qUE"/>
+                                    <constraint firstAttribute="height" constant="50" id="mHS-U9-CXg"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="o4H-ru-dbP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="JhY-Wh-Te9"/>
+                            <constraint firstItem="o4H-ru-dbP" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="XRC-o2-hSF"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="bottomBannerView" destination="o4H-ru-dbP" id="Paw-P7-6YH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
