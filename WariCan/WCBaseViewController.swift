@@ -10,7 +10,8 @@ import UIKit
 
 class WCBaseViewController: UIViewController {
     
-    @IBOutlet weak var bottomBannerView: GADBannerView!
+    @IBOutlet private weak var bottomBannerView: GADBannerView!
+    @IBOutlet private weak var startButton: UIButton!
     
     private let adTestId = "ca-app-pub-3940256099942544/2934735716"
     private let adId = "ca-app-pub-6492692627915720/6116539333"
@@ -19,6 +20,7 @@ class WCBaseViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.setupAd()
+        self.setupButtonLayout()
     }
     
     private func setupAd() {
@@ -28,7 +30,18 @@ class WCBaseViewController: UIViewController {
 //        self.bottomBannerView.delegate = self
     }
     
-//    /// Tells the delegate an ad request loaded an ad.
+    private func setupButtonLayout() {
+        self.startButton.layer.cornerRadius = 25
+        self.startButton.layer.shadowColor = UIColor.black.cgColor
+        self.startButton.layer.shadowRadius = 4.0
+        self.startButton.layer.shadowOffset = CGSize(width: 2, height: 2)
+        self.startButton.layer.shadowOpacity = 0.4
+    }
+    
+    @IBAction func startButtonTapped(_ sender: Any) {
+    }
+    
+    //    /// Tells the delegate an ad request loaded an ad.
 //    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
 //      print("adViewDidReceiveAd")
 //    }

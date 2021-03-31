@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+    <key>NSUserTrackingUsageDescription</key>
+    <string>あなたに最適な広告を配信するために、トラッキングを許可しましょう。</string>
     <key>GADApplicationIdentifier</key>
     <string>ca-app-pub-6492692627915720~7678222381</string>
     <key>SKAdNetworkItems</key>
