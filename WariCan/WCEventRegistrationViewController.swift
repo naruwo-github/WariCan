@@ -54,12 +54,13 @@ class WCEventRegistrationViewController: UIViewController, UICollectionViewDeleg
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // TODO: 参加者の数を返すようにする
-        return 0 // なんかこれを1に書き換えると落ちる。セル定義してないからかな。
+        return 1 // なんかこれを1に書き換えると落ちる。セル定義してないからかな。
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         // TODO: 追加した参加者の名前を表示して返すようにする
-        return UICollectionViewCell()
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PeopleCell", for: indexPath)
+        return cell
     }
     
 }

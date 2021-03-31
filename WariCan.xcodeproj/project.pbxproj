@@ -131,9 +131,8 @@
 		05DCC10A26075A0C00297E2F /* WariCan */ = {
 			isa = PBXGroup;
 			children = (
-				05DCC10F26075A0C00297E2F /* WCBaseViewController.swift */,
-				05FA6B3F261431E00054531B /* WCEventRegistrationViewController.swift */,
-				05DCC11126075A0C00297E2F /* Main.storyboard */,
+				05FA6B47261466930054531B /* ViewController */,
+				05FA6B48261466AA0054531B /* Parts */,
 				05A7F1A926075EBA00C05D38 /* Launch */,
 				05DCC11426075A0E00297E2F /* Assets.xcassets */,
 				05DCC11926075A0E00297E2F /* Info.plist */,
@@ -157,6 +156,23 @@
 				05DCC12F26075A0F00297E2F /* Info.plist */,
 			);
 			path = WariCanUITests;
+			sourceTree = "<group>";
+		};
+		05FA6B47261466930054531B /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				05DCC10F26075A0C00297E2F /* WCBaseViewController.swift */,
+				05FA6B3F261431E00054531B /* WCEventRegistrationViewController.swift */,
+				05DCC11126075A0C00297E2F /* Main.storyboard */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		05FA6B48261466AA0054531B /* Parts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Parts;
 			sourceTree = "<group>";
 		};
 		9B2E6FFAC57080E9DC9AD760 /* Frameworks */ = {
