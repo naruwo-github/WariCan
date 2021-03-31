@@ -45,6 +45,8 @@ class WCBaseViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     @IBAction func startButtonTapped(_ sender: Any) {
+        let vc = R.storyboard.main.wcEventRegistrationViewController()!
+        self.present(vc, animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -127,6 +127,46 @@
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="113.83928571428571"/>
         </scene>
+        <!--Event Registration View Controller-->
+        <scene sceneID="LEJ-Pb-whk">
+            <objects>
+                <viewController storyboardIdentifier="WCEventRegistrationViewController" id="m1L-OB-zdc" customClass="WCEventRegistrationViewController" customModule="WariCan" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gsR-dU-FCo">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o5l-ab-wMw" userLabel="Background View">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" red="0.3921568627" green="0.82352941180000006" blue="1" alpha="0.19945197710000001" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YjM-tR-eGH" userLabel="Bottom Banner View" customClass="GADBannerView">
+                                <rect key="frame" x="47" y="812" width="320" height="50"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="3PC-nt-j6f"/>
+                                    <constraint firstAttribute="width" constant="320" id="g39-jg-ayy"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="8oa-B3-iqo"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="8oa-B3-iqo" firstAttribute="bottom" secondItem="YjM-tR-eGH" secondAttribute="bottom" id="A65-f6-abt"/>
+                            <constraint firstItem="o5l-ab-wMw" firstAttribute="top" secondItem="gsR-dU-FCo" secondAttribute="top" id="for-He-rGg"/>
+                            <constraint firstItem="o5l-ab-wMw" firstAttribute="trailing" secondItem="8oa-B3-iqo" secondAttribute="trailing" id="hbM-qR-WLO"/>
+                            <constraint firstAttribute="bottom" secondItem="o5l-ab-wMw" secondAttribute="bottom" id="mDi-DC-wtI"/>
+                            <constraint firstItem="YjM-tR-eGH" firstAttribute="centerX" secondItem="gsR-dU-FCo" secondAttribute="centerX" id="oy5-lr-Ebx"/>
+                            <constraint firstItem="o5l-ab-wMw" firstAttribute="leading" secondItem="8oa-B3-iqo" secondAttribute="leading" id="t7k-oR-niN"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="bottomBannerView" destination="YjM-tR-eGH" id="PdH-tH-23S"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TUp-LG-FQk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="865" y="114"/>
+        </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">

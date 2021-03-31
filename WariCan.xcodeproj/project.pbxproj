@@ -16,6 +16,7 @@
 		05DCC11826075A0E00297E2F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05DCC11626075A0E00297E2F /* LaunchScreen.storyboard */; };
 		05DCC12326075A0F00297E2F /* WariCanTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DCC12226075A0F00297E2F /* WariCanTests.swift */; };
 		05DCC12E26075A0F00297E2F /* WariCanUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DCC12D26075A0F00297E2F /* WariCanUITests.swift */; };
+		05FA6B40261431E00054531B /* WCEventRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FA6B3F261431E00054531B /* WCEventRegistrationViewController.swift */; };
 		4978E34DFA90772BE31CD85D /* Pods_WariCan_WariCanUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E85B261FC72B1A57726A05F4 /* Pods_WariCan_WariCanUITests.framework */; };
 		5E4939A5ADEDE7F6B7ED296B /* Pods_WariCanTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88365027541EF2471D1229B2 /* Pods_WariCanTests.framework */; };
 		E897E4FCD5B67F497CFB6F5F /* Pods_WariCan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45E0966D803293ECF519CA94 /* Pods_WariCan.framework */; };
@@ -54,6 +55,7 @@
 		05DCC12926075A0F00297E2F /* WariCanUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WariCanUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		05DCC12D26075A0F00297E2F /* WariCanUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WariCanUITests.swift; sourceTree = "<group>"; };
 		05DCC12F26075A0F00297E2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		05FA6B3F261431E00054531B /* WCEventRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCEventRegistrationViewController.swift; sourceTree = "<group>"; };
 		11D049E4686EA0E15B712167 /* Pods-WariCanTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WariCanTests.debug.xcconfig"; path = "Target Support Files/Pods-WariCanTests/Pods-WariCanTests.debug.xcconfig"; sourceTree = "<group>"; };
 		45E0966D803293ECF519CA94 /* Pods_WariCan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WariCan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BF916C6F4591E25A4A237D4 /* Pods-WariCan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WariCan.release.xcconfig"; path = "Target Support Files/Pods-WariCan/Pods-WariCan.release.xcconfig"; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				05DCC10F26075A0C00297E2F /* WCBaseViewController.swift */,
+				05FA6B3F261431E00054531B /* WCEventRegistrationViewController.swift */,
 				05DCC11126075A0C00297E2F /* Main.storyboard */,
 				05A7F1A926075EBA00C05D38 /* Launch */,
 				05DCC11426075A0E00297E2F /* Assets.xcassets */,
@@ -440,6 +443,7 @@
 			files = (
 				05DCC11026075A0C00297E2F /* WCBaseViewController.swift in Sources */,
 				05DCC10C26075A0C00297E2F /* AppDelegate.swift in Sources */,
+				05FA6B40261431E00054531B /* WCEventRegistrationViewController.swift in Sources */,
 				05DCC10E26075A0C00297E2F /* SceneDelegate.swift in Sources */,
 				05A7F1A526075DC200C05D38 /* R.generated.swift in Sources */,
 			);
