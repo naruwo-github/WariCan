@@ -8,18 +8,20 @@
 import GoogleMobileAds
 import UIKit
 
-class WCBaseViewController: UIViewController {
+class WCBaseViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet private weak var bottomBannerView: GADBannerView!
+    @IBOutlet private weak var eventTableView: UITableView!
     @IBOutlet private weak var startButton: UIButton!
     
     private let adTestId = "ca-app-pub-3940256099942544/2934735716"
+    // TODO: リリースビルドでは、本物の広告IDを使う！
     private let adId = "ca-app-pub-6492692627915720/6116539333"
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         self.setupAd()
+        self.setupTableView()
         self.setupButtonLayout()
     }
     
@@ -28,6 +30,10 @@ class WCBaseViewController: UIViewController {
         self.bottomBannerView.rootViewController = self
         self.bottomBannerView.load(GADRequest())
 //        self.bottomBannerView.delegate = self
+    }
+    
+    private func setupTableView() {
+        // TODO: セルの登録などを行うべし
     }
     
     private func setupButtonLayout() {
@@ -39,6 +45,16 @@ class WCBaseViewController: UIViewController {
     }
     
     @IBAction func startButtonTapped(_ sender: Any) {
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // TODO: Realmデータからイベント数を取得する
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // TODO: Realmデータからイベントを取得し、セルを修正して返す
+        return UITableViewCell()
     }
     
     //    /// Tells the delegate an ad request loaded an ad.

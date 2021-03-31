@@ -50,6 +50,10 @@
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5EH-kO-GsW">
                                         <rect key="frame" x="20" y="80.5" width="374" height="322.5"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="BYZ-38-t0r" id="L2i-m7-T3t"/>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="62V-TO-GCT"/>
+                                        </connections>
                                     </tableView>
                                 </subviews>
                                 <constraints>
@@ -115,6 +119,7 @@
                     </view>
                     <connections>
                         <outlet property="bottomBannerView" destination="o4H-ru-dbP" id="Paw-P7-6YH"/>
+                        <outlet property="eventTableView" destination="5EH-kO-GsW" id="FMR-qV-a3A"/>
                         <outlet property="startButton" destination="MX4-y1-VH9" id="MqQ-Ek-I9I"/>
                     </connections>
                 </viewController>
