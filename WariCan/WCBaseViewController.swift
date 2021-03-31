@@ -44,7 +44,7 @@ class WCBaseViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.startButton.layer.shadowOpacity = 0.4
     }
     
-    @IBAction func startButtonTapped(_ sender: Any) {
+    @IBAction private func startButtonTapped(_ sender: Any) {
         let vc = R.storyboard.main.wcEventRegistrationViewController()!
         self.present(vc, animated: true, completion: nil)
     }

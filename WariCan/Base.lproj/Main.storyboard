@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -137,7 +138,122 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o5l-ab-wMw" userLabel="Background View">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="イベント名は？" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="w5d-KP-sVX" userLabel="Event Title Label">
+                                        <rect key="frame" x="103.5" y="121.5" width="207.5" height="30"/>
+                                        <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="30"/>
+                                        <color key="textColor" systemColor="systemTealColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="geS-5c-fXT" userLabel="Center View">
+                                        <rect key="frame" x="0.0" y="246.5" width="414" height="403"/>
+                                        <subviews>
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="w9b-Jr-bMi">
+                                                <rect key="frame" x="20" y="80.5" width="374" height="322.5"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="2KF-22-O4q">
+                                                    <size key="itemSize" width="128" height="128"/>
+                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                </collectionViewFlowLayout>
+                                                <cells>
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="nSD-Mt-mC4">
+                                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="cc7-Mk-Shq">
+                                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                        </collectionViewCellContentView>
+                                                    </collectionViewCell>
+                                                </cells>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="m1L-OB-zdc" id="q54-xY-fJZ"/>
+                                                    <outlet property="delegate" destination="m1L-OB-zdc" id="3VC-5z-SAf"/>
+                                                </connections>
+                                            </collectionView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vyA-dc-xoo" userLabel="Event Top View">
+                                                <rect key="frame" x="20" y="0.0" width="374" height="80.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="参加者は？" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="Ljf-nY-l7f" userLabel="People Label">
+                                                        <rect key="frame" x="112" y="25" width="150" height="30"/>
+                                                        <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="30"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4yk-1O-WTJ" userLabel="Add People Button">
+                                                        <rect key="frame" x="267" y="14" width="52" height="52"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="4yk-1O-WTJ" secondAttribute="height" multiplier="1:1" id="RWf-Jc-Buo"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="40"/>
+                                                        <state key="normal" title="＋">
+                                                            <color key="titleColor" systemColor="systemTealColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="addPeopleButtonTapped:" destination="m1L-OB-zdc" eventType="touchUpInside" id="aFo-TD-1Hy"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemTealColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="Ljf-nY-l7f" firstAttribute="centerY" secondItem="vyA-dc-xoo" secondAttribute="centerY" id="Hpe-uf-Cha"/>
+                                                    <constraint firstItem="4yk-1O-WTJ" firstAttribute="centerY" secondItem="vyA-dc-xoo" secondAttribute="centerY" id="KIr-U8-C57"/>
+                                                    <constraint firstItem="4yk-1O-WTJ" firstAttribute="leading" secondItem="Ljf-nY-l7f" secondAttribute="trailing" constant="5" id="QVW-k7-3bd"/>
+                                                    <constraint firstItem="Ljf-nY-l7f" firstAttribute="centerX" secondItem="vyA-dc-xoo" secondAttribute="centerX" id="hap-Ik-nbP"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="w9b-Jr-bMi" firstAttribute="top" secondItem="vyA-dc-xoo" secondAttribute="bottom" id="1Hq-iH-D0C"/>
+                                            <constraint firstItem="vyA-dc-xoo" firstAttribute="leading" secondItem="geS-5c-fXT" secondAttribute="leading" constant="20" id="3IW-nX-9ul"/>
+                                            <constraint firstAttribute="bottom" secondItem="w9b-Jr-bMi" secondAttribute="bottom" id="4L8-yF-WV2"/>
+                                            <constraint firstItem="w9b-Jr-bMi" firstAttribute="centerX" secondItem="geS-5c-fXT" secondAttribute="centerX" id="6if-kb-YR2"/>
+                                            <constraint firstItem="vyA-dc-xoo" firstAttribute="centerX" secondItem="geS-5c-fXT" secondAttribute="centerX" id="8c6-PF-jKn"/>
+                                            <constraint firstItem="w9b-Jr-bMi" firstAttribute="height" secondItem="geS-5c-fXT" secondAttribute="height" multiplier="0.8" id="HD0-0f-PBm"/>
+                                            <constraint firstItem="vyA-dc-xoo" firstAttribute="top" secondItem="geS-5c-fXT" secondAttribute="top" id="eeQ-eh-qbm"/>
+                                            <constraint firstItem="w9b-Jr-bMi" firstAttribute="leading" secondItem="geS-5c-fXT" secondAttribute="leading" constant="20" id="yOa-vl-ww3"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JQ2-GJ-beo" userLabel="Start Button">
+                                        <rect key="frame" x="97" y="679.5" width="220" height="50"/>
+                                        <color key="backgroundColor" systemColor="systemTealColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="d5x-jG-egV"/>
+                                            <constraint firstAttribute="width" constant="220" id="kSJ-4C-zyg"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="25"/>
+                                        <state key="normal" title="はじめる">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="startButtonTapped:" destination="m1L-OB-zdc" eventType="touchUpInside" id="9vs-yH-eUt"/>
+                                        </connections>
+                                    </button>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ワリキャン旅行" textAlignment="center" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="B7c-kT-enA" userLabel="Event Title Text Field">
+                                        <rect key="frame" x="97" y="166.5" width="220" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="SCH-9e-3Q0"/>
+                                            <constraint firstAttribute="width" constant="220" id="zj0-v9-qCs"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="25"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
                                 <color key="backgroundColor" red="0.3921568627" green="0.82352941180000006" blue="1" alpha="0.19945197710000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="JQ2-GJ-beo" firstAttribute="top" secondItem="geS-5c-fXT" secondAttribute="bottom" constant="30" id="AGH-dk-2cK"/>
+                                    <constraint firstItem="JQ2-GJ-beo" firstAttribute="centerX" secondItem="o5l-ab-wMw" secondAttribute="centerX" id="GLK-gI-Fje"/>
+                                    <constraint firstItem="w5d-KP-sVX" firstAttribute="centerX" secondItem="o5l-ab-wMw" secondAttribute="centerX" id="MfW-qS-nbl"/>
+                                    <constraint firstItem="geS-5c-fXT" firstAttribute="leading" secondItem="o5l-ab-wMw" secondAttribute="leading" id="UYE-or-U0G"/>
+                                    <constraint firstItem="geS-5c-fXT" firstAttribute="centerX" secondItem="o5l-ab-wMw" secondAttribute="centerX" id="cv9-IT-JJ5"/>
+                                    <constraint firstItem="geS-5c-fXT" firstAttribute="centerY" secondItem="o5l-ab-wMw" secondAttribute="centerY" id="fYV-u6-WzR"/>
+                                    <constraint firstItem="geS-5c-fXT" firstAttribute="height" secondItem="o5l-ab-wMw" secondAttribute="height" multiplier="0.45" id="hOo-BX-Jly"/>
+                                    <constraint firstItem="geS-5c-fXT" firstAttribute="top" secondItem="B7c-kT-enA" secondAttribute="bottom" constant="30" id="pWl-dg-9kq"/>
+                                    <constraint firstItem="B7c-kT-enA" firstAttribute="top" secondItem="w5d-KP-sVX" secondAttribute="bottom" constant="15" id="vv2-9F-kvw"/>
+                                    <constraint firstItem="B7c-kT-enA" firstAttribute="centerX" secondItem="o5l-ab-wMw" secondAttribute="centerX" id="ycK-0Q-5DI"/>
+                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YjM-tR-eGH" userLabel="Bottom Banner View" customClass="GADBannerView">
                                 <rect key="frame" x="47" y="812" width="320" height="50"/>
@@ -160,7 +276,11 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addPeopleButton" destination="4yk-1O-WTJ" id="yP7-T1-MiL"/>
                         <outlet property="bottomBannerView" destination="YjM-tR-eGH" id="PdH-tH-23S"/>
+                        <outlet property="eventTitleTextField" destination="B7c-kT-enA" id="8di-go-UJd"/>
+                        <outlet property="peopleCollectionView" destination="w9b-Jr-bMi" id="PWt-bT-bAM"/>
+                        <outlet property="startButton" destination="JQ2-GJ-beo" id="4Jd-ec-YQx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TUp-LG-FQk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
