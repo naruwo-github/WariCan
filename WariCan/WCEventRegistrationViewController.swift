@@ -13,6 +13,7 @@ class WCEventRegistrationViewController: UIViewController, UICollectionViewDeleg
     @IBOutlet private weak var eventTitleTextField: UITextField!
     @IBOutlet private weak var addPeopleButton: UIButton!
     @IBOutlet private weak var peopleCollectionView: UICollectionView!
+    @IBOutlet private weak var peopleCollectionViewFlowLayout: UICollectionViewFlowLayout!
     @IBOutlet private weak var startButton: UIButton!
     @IBOutlet private weak var bottomBannerView: GADBannerView!
     
@@ -20,10 +21,13 @@ class WCEventRegistrationViewController: UIViewController, UICollectionViewDeleg
     // TODO: リリースビルドでは、本物の広告IDを使う！
     private let adId = "ca-app-pub-6492692627915720/6116539333"
     
+    private var peopleNumber = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupAd()
         self.setupButtonsLayout()
+        self.setupCollectionView()
     }
     
     private func setupAd() {
@@ -46,7 +50,14 @@ class WCEventRegistrationViewController: UIViewController, UICollectionViewDeleg
         self.startButton.layer.shadowOpacity = 0.4
     }
     
+    private func setupCollectionView() {
+        let colViewWid = self.peopleCollectionView.frame.width
+        self.peopleCollectionViewFlowLayout.estimatedItemSize = CGSize(width: colViewWid / 3.0 - colViewWid / 10.0, height: 60)
+    }
+    
     @IBAction private func addPeopleButtonTapped(_ sender: Any) {
+        peopleNumber += 1
+        self.peopleCollectionView.reloadData()
     }
     
     @IBAction private func startButtonTapped(_ sender: Any) {
@@ -54,12 +65,12 @@ class WCEventRegistrationViewController: UIViewController, UICollectionViewDeleg
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // TODO: 参加者の数を返すようにする
-        return 1 // なんかこれを1に書き換えると落ちる。セル定義してないからかな。
+        return peopleNumber
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        // TODO: 追加した参加者の名前を表示して返すようにする
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PeopleCell", for: indexPath)
+        // TODO: ここでセルを整形して返す
         return cell
     }
     

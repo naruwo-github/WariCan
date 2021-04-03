@@ -17,6 +17,8 @@
 		05DCC12326075A0F00297E2F /* WariCanTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DCC12226075A0F00297E2F /* WariCanTests.swift */; };
 		05DCC12E26075A0F00297E2F /* WariCanUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DCC12D26075A0F00297E2F /* WariCanUITests.swift */; };
 		05FA6B40261431E00054531B /* WCEventRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FA6B3F261431E00054531B /* WCEventRegistrationViewController.swift */; };
+		05FA6B4D261467160054531B /* WCPeopleCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05FA6B4C261467160054531B /* WCPeopleCollectionViewCell.xib */; };
+		05FA6B52261467430054531B /* WCPeopleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FA6B51261467430054531B /* WCPeopleCollectionViewCell.swift */; };
 		4978E34DFA90772BE31CD85D /* Pods_WariCan_WariCanUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E85B261FC72B1A57726A05F4 /* Pods_WariCan_WariCanUITests.framework */; };
 		5E4939A5ADEDE7F6B7ED296B /* Pods_WariCanTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88365027541EF2471D1229B2 /* Pods_WariCanTests.framework */; };
 		E897E4FCD5B67F497CFB6F5F /* Pods_WariCan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45E0966D803293ECF519CA94 /* Pods_WariCan.framework */; };
@@ -56,6 +58,8 @@
 		05DCC12D26075A0F00297E2F /* WariCanUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WariCanUITests.swift; sourceTree = "<group>"; };
 		05DCC12F26075A0F00297E2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		05FA6B3F261431E00054531B /* WCEventRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCEventRegistrationViewController.swift; sourceTree = "<group>"; };
+		05FA6B4C261467160054531B /* WCPeopleCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WCPeopleCollectionViewCell.xib; sourceTree = "<group>"; };
+		05FA6B51261467430054531B /* WCPeopleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCPeopleCollectionViewCell.swift; sourceTree = "<group>"; };
 		11D049E4686EA0E15B712167 /* Pods-WariCanTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WariCanTests.debug.xcconfig"; path = "Target Support Files/Pods-WariCanTests/Pods-WariCanTests.debug.xcconfig"; sourceTree = "<group>"; };
 		45E0966D803293ECF519CA94 /* Pods_WariCan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WariCan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BF916C6F4591E25A4A237D4 /* Pods-WariCan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WariCan.release.xcconfig"; path = "Target Support Files/Pods-WariCan/Pods-WariCan.release.xcconfig"; sourceTree = "<group>"; };
@@ -171,6 +175,8 @@
 		05FA6B48261466AA0054531B /* Parts */ = {
 			isa = PBXGroup;
 			children = (
+				05FA6B4C261467160054531B /* WCPeopleCollectionViewCell.xib */,
+				05FA6B51261467430054531B /* WCPeopleCollectionViewCell.swift */,
 			);
 			name = Parts;
 			sourceTree = "<group>";
@@ -308,6 +314,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				05DCC11826075A0E00297E2F /* LaunchScreen.storyboard in Resources */,
+				05FA6B4D261467160054531B /* WCPeopleCollectionViewCell.xib in Resources */,
 				05DCC11526075A0E00297E2F /* Assets.xcassets in Resources */,
 				05DCC11326075A0C00297E2F /* Main.storyboard in Resources */,
 			);
@@ -459,6 +466,7 @@
 			files = (
 				05DCC11026075A0C00297E2F /* WCBaseViewController.swift in Sources */,
 				05DCC10C26075A0C00297E2F /* AppDelegate.swift in Sources */,
+				05FA6B52261467430054531B /* WCPeopleCollectionViewCell.swift in Sources */,
 				05FA6B40261431E00054531B /* WCEventRegistrationViewController.swift in Sources */,
 				05DCC10E26075A0C00297E2F /* SceneDelegate.swift in Sources */,
 				05A7F1A526075DC200C05D38 /* R.generated.swift in Sources */,
