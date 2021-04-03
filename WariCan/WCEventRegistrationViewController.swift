@@ -8,11 +8,11 @@
 import GoogleMobileAds
 import UIKit
 
-class WCEventRegistrationViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class WCEventRegistrationViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet private weak var eventTitleTextField: UITextField!
     @IBOutlet private weak var addPeopleButton: UIButton!
-    @IBOutlet private weak var peopleCollectionView: UICollectionView!
+    @IBOutlet private weak var peopleTableView: UITableView!
     @IBOutlet private weak var startButton: UIButton!
     @IBOutlet private weak var bottomBannerView: GADBannerView!
     
@@ -24,6 +24,7 @@ class WCEventRegistrationViewController: UIViewController, UICollectionViewDeleg
         super.viewDidLoad()
         self.setupAd()
         self.setupButtonsLayout()
+        self.peopleTableView.register(UINib(resource: R.nib.wcPeopleCell), forCellReuseIdentifier: "PeopleCell")
     }
     
     private func setupAd() {
@@ -52,14 +53,12 @@ class WCEventRegistrationViewController: UIViewController, UICollectionViewDeleg
     @IBAction private func startButtonTapped(_ sender: Any) {
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // TODO: 参加者の数を返すようにする
-        return 1 // なんかこれを1に書き換えると落ちる。セル定義してないからかな。
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        // TODO: 追加した参加者の名前を表示して返すようにする
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PeopleCell", for: indexPath)
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PeopleCell") as! WCPeopleCell
         return cell
     }
     
