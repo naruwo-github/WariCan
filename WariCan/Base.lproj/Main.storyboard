@@ -5,7 +5,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -148,30 +147,14 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="geS-5c-fXT" userLabel="Center View">
                                         <rect key="frame" x="0.0" y="246.5" width="414" height="403"/>
                                         <subviews>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="w9b-Jr-bMi">
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JEu-IA-uHu" userLabel="People Table View">
                                                 <rect key="frame" x="20" y="80.5" width="374" height="322.5"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="2KF-22-O4q">
-                                                    <size key="itemSize" width="128" height="128"/>
-                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                </collectionViewFlowLayout>
-                                                <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PeopleCell" id="nSD-Mt-mC4">
-                                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="cc7-Mk-Shq">
-                                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
-                                                        </collectionViewCellContentView>
-                                                    </collectionViewCell>
-                                                </cells>
                                                 <connections>
-                                                    <outlet property="dataSource" destination="m1L-OB-zdc" id="q54-xY-fJZ"/>
-                                                    <outlet property="delegate" destination="m1L-OB-zdc" id="3VC-5z-SAf"/>
+                                                    <outlet property="dataSource" destination="m1L-OB-zdc" id="RkD-5u-ZUy"/>
+                                                    <outlet property="delegate" destination="m1L-OB-zdc" id="OFD-Ld-Zm9"/>
                                                 </connections>
-                                            </collectionView>
+                                            </tableView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vyA-dc-xoo" userLabel="Event Top View">
                                                 <rect key="frame" x="20" y="0.0" width="374" height="80.5"/>
                                                 <subviews>
@@ -206,14 +189,14 @@
                                             </view>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="w9b-Jr-bMi" firstAttribute="top" secondItem="vyA-dc-xoo" secondAttribute="bottom" id="1Hq-iH-D0C"/>
                                             <constraint firstItem="vyA-dc-xoo" firstAttribute="leading" secondItem="geS-5c-fXT" secondAttribute="leading" constant="20" id="3IW-nX-9ul"/>
-                                            <constraint firstAttribute="bottom" secondItem="w9b-Jr-bMi" secondAttribute="bottom" id="4L8-yF-WV2"/>
-                                            <constraint firstItem="w9b-Jr-bMi" firstAttribute="centerX" secondItem="geS-5c-fXT" secondAttribute="centerX" id="6if-kb-YR2"/>
                                             <constraint firstItem="vyA-dc-xoo" firstAttribute="centerX" secondItem="geS-5c-fXT" secondAttribute="centerX" id="8c6-PF-jKn"/>
-                                            <constraint firstItem="w9b-Jr-bMi" firstAttribute="height" secondItem="geS-5c-fXT" secondAttribute="height" multiplier="0.8" id="HD0-0f-PBm"/>
+                                            <constraint firstItem="JEu-IA-uHu" firstAttribute="top" secondItem="vyA-dc-xoo" secondAttribute="bottom" id="Bme-6r-2Sn"/>
+                                            <constraint firstAttribute="bottom" secondItem="JEu-IA-uHu" secondAttribute="bottom" id="WGj-T8-RUg"/>
+                                            <constraint firstItem="JEu-IA-uHu" firstAttribute="leading" secondItem="geS-5c-fXT" secondAttribute="leading" constant="20" id="YXR-eL-UGZ"/>
+                                            <constraint firstItem="JEu-IA-uHu" firstAttribute="height" secondItem="geS-5c-fXT" secondAttribute="height" multiplier="0.8" id="aG4-eh-Anm"/>
                                             <constraint firstItem="vyA-dc-xoo" firstAttribute="top" secondItem="geS-5c-fXT" secondAttribute="top" id="eeQ-eh-qbm"/>
-                                            <constraint firstItem="w9b-Jr-bMi" firstAttribute="leading" secondItem="geS-5c-fXT" secondAttribute="leading" constant="20" id="yOa-vl-ww3"/>
+                                            <constraint firstItem="JEu-IA-uHu" firstAttribute="centerX" secondItem="geS-5c-fXT" secondAttribute="centerX" id="fMQ-yK-WKT"/>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JQ2-GJ-beo" userLabel="Start Button">
@@ -279,7 +262,7 @@
                         <outlet property="addPeopleButton" destination="4yk-1O-WTJ" id="yP7-T1-MiL"/>
                         <outlet property="bottomBannerView" destination="YjM-tR-eGH" id="PdH-tH-23S"/>
                         <outlet property="eventTitleTextField" destination="B7c-kT-enA" id="8di-go-UJd"/>
-                        <outlet property="peopleCollectionView" destination="w9b-Jr-bMi" id="PWt-bT-bAM"/>
+                        <outlet property="peopleTableView" destination="JEu-IA-uHu" id="FfX-4r-e8p"/>
                         <outlet property="startButton" destination="JQ2-GJ-beo" id="4Jd-ec-YQx"/>
                     </connections>
                 </viewController>
