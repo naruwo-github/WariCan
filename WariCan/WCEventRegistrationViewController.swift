@@ -24,6 +24,7 @@ class WCEventRegistrationViewController: UIViewController, UITableViewDelegate, 
         super.viewDidLoad()
         self.setupAd()
         self.setupButtonsLayout()
+        self.peopleTableView.register(UINib(resource: R.nib.wcPeopleCell), forCellReuseIdentifier: "PeopleCell")
     }
     
     private func setupAd() {
@@ -57,7 +58,8 @@ class WCEventRegistrationViewController: UIViewController, UITableViewDelegate, 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PeopleCell") as! WCPeopleCell
+        return cell
     }
     
 }
