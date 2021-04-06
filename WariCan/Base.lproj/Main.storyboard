@@ -35,7 +35,7 @@
                                         <rect key="frame" x="20" y="0.0" width="374" height="80.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="イベント一覧" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="CNk-EX-NmT">
-                                                <rect key="frame" x="98.5" y="25" width="177.5" height="30"/>
+                                                <rect key="frame" x="98" y="25" width="178" height="30"/>
                                                 <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="30"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -139,7 +139,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="イベント名は？" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="w5d-KP-sVX" userLabel="Event Title Label">
-                                        <rect key="frame" x="103.5" y="121.5" width="207.5" height="30"/>
+                                        <rect key="frame" x="103" y="121.5" width="208" height="30"/>
                                         <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="30"/>
                                         <color key="textColor" systemColor="systemTealColor"/>
                                         <nil key="highlightedColor"/>
@@ -298,6 +298,9 @@
                                         <state key="normal" title="支払いを追加">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="addPaymentButtonTapped:" destination="q3D-XR-HA2" eventType="touchUpInside" id="C5z-m3-Kzs"/>
+                                        </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yJv-zN-CXw" userLabel="Center View">
                                         <rect key="frame" x="0.0" y="246.5" width="414" height="403"/>
@@ -338,16 +341,37 @@
                                             <constraint firstItem="zP3-mx-qkm" firstAttribute="top" secondItem="Ldk-lb-HeR" secondAttribute="bottom" id="tvM-6H-eDH"/>
                                         </constraints>
                                     </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ワリカン結果" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="vIx-qN-AzF">
+                                        <rect key="frame" x="117" y="669.5" width="180" height="30"/>
+                                        <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="30"/>
+                                        <color key="textColor" systemColor="systemTealColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="GKf-2G-o0u" userLabel="Result Label">
+                                        <rect key="frame" x="65" y="714.5" width="284" height="60"/>
+                                        <string key="text">割り勘太郎→割り勘二郎 1400
+割り勘太郎→割り勘三郎 700
+割り勘三郎→割り勘二郎 1800</string>
+                                        <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="20"/>
+                                        <color key="textColor" systemColor="systemTealColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.3921568627" green="0.82352941180000006" blue="1" alpha="0.19945197710000001" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="VnS-oa-1dv" firstAttribute="centerX" secondItem="rEH-4C-TlI" secondAttribute="centerX" id="6Je-A9-LPP"/>
+                                    <constraint firstItem="GKf-2G-o0u" firstAttribute="centerX" secondItem="rEH-4C-TlI" secondAttribute="centerX" id="8Pm-g9-hYk"/>
+                                    <constraint firstItem="GKf-2G-o0u" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="rEH-4C-TlI" secondAttribute="leading" constant="20" id="BtG-Tw-Kto"/>
                                     <constraint firstItem="yJv-zN-CXw" firstAttribute="leading" secondItem="rEH-4C-TlI" secondAttribute="leading" id="CPL-9m-DfQ"/>
                                     <constraint firstItem="yJv-zN-CXw" firstAttribute="centerY" secondItem="rEH-4C-TlI" secondAttribute="centerY" id="F31-NQ-cas"/>
+                                    <constraint firstItem="GKf-2G-o0u" firstAttribute="top" secondItem="vIx-qN-AzF" secondAttribute="bottom" constant="15" id="S6a-sa-VmZ"/>
                                     <constraint firstItem="yJv-zN-CXw" firstAttribute="height" secondItem="rEH-4C-TlI" secondAttribute="height" multiplier="0.45" id="cYn-Zd-Zkc"/>
                                     <constraint firstItem="VnS-oa-1dv" firstAttribute="top" secondItem="26h-oD-DWY" secondAttribute="bottom" constant="15" id="ckW-lc-IGh"/>
                                     <constraint firstItem="yJv-zN-CXw" firstAttribute="top" secondItem="VnS-oa-1dv" secondAttribute="bottom" constant="30" id="fdu-0y-Tnv"/>
                                     <constraint firstItem="26h-oD-DWY" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="rEH-4C-TlI" secondAttribute="leading" constant="20" id="h5Z-Ki-DmL"/>
+                                    <constraint firstItem="vIx-qN-AzF" firstAttribute="top" secondItem="yJv-zN-CXw" secondAttribute="bottom" constant="20" id="jr8-f5-g1c"/>
+                                    <constraint firstItem="vIx-qN-AzF" firstAttribute="centerX" secondItem="rEH-4C-TlI" secondAttribute="centerX" id="pma-2d-vUA"/>
+                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="GKf-2G-o0u" secondAttribute="bottom" constant="100" id="q7a-bC-0iG"/>
                                     <constraint firstItem="26h-oD-DWY" firstAttribute="centerX" secondItem="rEH-4C-TlI" secondAttribute="centerX" id="qvA-dN-F9M"/>
                                     <constraint firstItem="yJv-zN-CXw" firstAttribute="centerX" secondItem="rEH-4C-TlI" secondAttribute="centerX" id="sT6-tX-wPH"/>
                                 </constraints>
@@ -376,6 +400,7 @@
                         <outlet property="addPaymentButton" destination="VnS-oa-1dv" id="sLs-Pb-OhZ"/>
                         <outlet property="bottomBannerView" destination="d1Y-Jr-Vno" id="fgv-ph-Hcn"/>
                         <outlet property="paymentTableView" destination="zP3-mx-qkm" id="kRy-2V-uFf"/>
+                        <outlet property="resultLabel" destination="GKf-2G-o0u" id="nzg-mt-WkI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dq6-nz-I6K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

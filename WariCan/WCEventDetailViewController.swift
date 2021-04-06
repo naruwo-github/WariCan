@@ -12,6 +12,7 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
     
     @IBOutlet private weak var addPaymentButton: UIButton!
     @IBOutlet private weak var paymentTableView: UITableView!
+    @IBOutlet private weak var resultLabel: UILabel!
     @IBOutlet private weak var bottomBannerView: GADBannerView!
     
     private let adTestId = "ca-app-pub-3940256099942544/2934735716"
@@ -38,13 +39,17 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
         self.addPaymentButton.layer.shadowOpacity = 0.4
     }
     
+    @IBAction private func addPaymentButtonTapped(_ sender: Any) {
+        // TODO: 支払い追加モーダルの表示
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // TODO:
         return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // TODO: 
+        // TODO:
         return UITableViewCell()
     }
     
