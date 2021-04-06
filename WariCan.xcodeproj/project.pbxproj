@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		053C5817261C975E0068185D /* WCEventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053C5816261C975E0068185D /* WCEventDetailViewController.swift */; };
 		05A7F1A526075DC200C05D38 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A7F1A426075DC200C05D38 /* R.generated.swift */; };
 		05DCC10C26075A0C00297E2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DCC10B26075A0C00297E2F /* AppDelegate.swift */; };
 		05DCC10E26075A0C00297E2F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DCC10D26075A0C00297E2F /* SceneDelegate.swift */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		053C5816261C975E0068185D /* WCEventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCEventDetailViewController.swift; sourceTree = "<group>"; };
 		05A7F1A426075DC200C05D38 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		05DCC10826075A0C00297E2F /* WariCan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WariCan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05DCC10B26075A0C00297E2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				05DCC10F26075A0C00297E2F /* WCBaseViewController.swift */,
 				05FA6B3F261431E00054531B /* WCEventRegistrationViewController.swift */,
 				05DCC11126075A0C00297E2F /* Main.storyboard */,
+				053C5816261C975E0068185D /* WCEventDetailViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -464,6 +467,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				053C5817261C975E0068185D /* WCEventDetailViewController.swift in Sources */,
 				05FD0D1E261875A8006C34CA /* WCPeopleCell.swift in Sources */,
 				05DCC11026075A0C00297E2F /* WCBaseViewController.swift in Sources */,
 				05DCC10C26075A0C00297E2F /* AppDelegate.swift in Sources */,

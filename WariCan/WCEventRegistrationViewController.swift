@@ -48,9 +48,12 @@ class WCEventRegistrationViewController: UIViewController, UITableViewDelegate, 
     }
     
     @IBAction private func addPeopleButtonTapped(_ sender: Any) {
+        // TODO: モーダルで名前入力画面を出す
     }
     
     @IBAction private func startButtonTapped(_ sender: Any) {
+        let vc = R.storyboard.main.wcEventDetailViewController()!
+        self.present(vc, animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
