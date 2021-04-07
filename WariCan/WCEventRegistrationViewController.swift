@@ -70,6 +70,7 @@ class WCEventRegistrationViewController: UIViewController, UITableViewDelegate, 
     @IBAction private func startButtonTapped(_ sender: Any) {
         // TODO: 旅行名or参加者が空の場合は赤文字で警告出す
         let vc = R.storyboard.main.wcEventDetailViewController()!
+        vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true, completion: nil)
     }
     

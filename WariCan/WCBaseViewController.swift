@@ -46,6 +46,7 @@ class WCBaseViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     @IBAction private func startButtonTapped(_ sender: Any) {
         let vc = R.storyboard.main.wcEventRegistrationViewController()!
+        vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true, completion: nil)
     }
     
