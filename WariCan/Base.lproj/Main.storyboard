@@ -461,9 +461,71 @@
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IBW-TR-6Xy" userLabel="Above View">
                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="420"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cEc-qy-36D" userLabel="Left View">
+                                                        <rect key="frame" x="0.0" y="0.0" width="187" height="420"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="誰が？" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="ann-EX-lsA" userLabel="Payer Title Label">
+                                                                <rect key="frame" x="48.5" y="30" width="90" height="30"/>
+                                                                <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="30"/>
+                                                                <color key="textColor" systemColor="systemTealColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RZp-h5-qJg" userLabel="Payer Table View">
+                                                                <rect key="frame" x="20" y="80" width="147" height="320"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                            </tableView>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstItem="ann-EX-lsA" firstAttribute="top" secondItem="cEc-qy-36D" secondAttribute="top" constant="30" id="0rO-Ts-OEb"/>
+                                                            <constraint firstItem="RZp-h5-qJg" firstAttribute="top" secondItem="ann-EX-lsA" secondAttribute="bottom" constant="20" id="Bik-B1-Cpe"/>
+                                                            <constraint firstItem="RZp-h5-qJg" firstAttribute="leading" secondItem="cEc-qy-36D" secondAttribute="leading" constant="20" id="FYa-7R-JJm"/>
+                                                            <constraint firstItem="ann-EX-lsA" firstAttribute="centerX" secondItem="cEc-qy-36D" secondAttribute="centerX" id="Mpo-JK-QNE"/>
+                                                            <constraint firstItem="ann-EX-lsA" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="cEc-qy-36D" secondAttribute="leading" constant="20" id="Zp9-ba-cy5"/>
+                                                            <constraint firstAttribute="bottom" secondItem="RZp-h5-qJg" secondAttribute="bottom" constant="20" id="cDs-m7-jot"/>
+                                                            <constraint firstItem="RZp-h5-qJg" firstAttribute="centerX" secondItem="cEc-qy-36D" secondAttribute="centerX" id="f0W-Ia-RoI"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e4b-gy-o3o" userLabel="Right View">
+                                                        <rect key="frame" x="187" y="0.0" width="187" height="420"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="誰の？" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="ffZ-79-sFU" userLabel="Debtor Title Label">
+                                                                <rect key="frame" x="48.5" y="30" width="90" height="30"/>
+                                                                <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="30"/>
+                                                                <color key="textColor" systemColor="systemTealColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Fn9-Am-DcL" userLabel="Debtor Table View">
+                                                                <rect key="frame" x="20" y="80" width="147" height="320"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                            </tableView>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstItem="ffZ-79-sFU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="e4b-gy-o3o" secondAttribute="leading" constant="20" id="3zx-Lh-PP9"/>
+                                                            <constraint firstItem="ffZ-79-sFU" firstAttribute="centerX" secondItem="e4b-gy-o3o" secondAttribute="centerX" id="F2u-cD-c9i"/>
+                                                            <constraint firstItem="Fn9-Am-DcL" firstAttribute="centerX" secondItem="e4b-gy-o3o" secondAttribute="centerX" id="bg5-H1-peE"/>
+                                                            <constraint firstItem="Fn9-Am-DcL" firstAttribute="top" secondItem="ffZ-79-sFU" secondAttribute="bottom" constant="20" id="e4s-jy-OPC"/>
+                                                            <constraint firstItem="ffZ-79-sFU" firstAttribute="top" secondItem="e4b-gy-o3o" secondAttribute="top" constant="30" id="gNz-uY-L0u"/>
+                                                            <constraint firstItem="Fn9-Am-DcL" firstAttribute="leading" secondItem="e4b-gy-o3o" secondAttribute="leading" constant="20" id="ohO-zs-NKq"/>
+                                                            <constraint firstAttribute="bottom" secondItem="Fn9-Am-DcL" secondAttribute="bottom" constant="20" id="pUW-eD-hvu"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="e4b-gy-o3o" firstAttribute="width" secondItem="IBW-TR-6Xy" secondAttribute="width" multiplier="0.5" id="08W-XN-Tkm"/>
+                                                    <constraint firstAttribute="bottom" secondItem="cEc-qy-36D" secondAttribute="bottom" id="22G-N2-WIc"/>
+                                                    <constraint firstAttribute="bottom" secondItem="e4b-gy-o3o" secondAttribute="bottom" id="30Q-8k-TRP"/>
+                                                    <constraint firstItem="cEc-qy-36D" firstAttribute="top" secondItem="IBW-TR-6Xy" secondAttribute="top" id="Bry-H8-Mlr"/>
+                                                    <constraint firstItem="cEc-qy-36D" firstAttribute="width" secondItem="IBW-TR-6Xy" secondAttribute="width" multiplier="0.5" id="HWt-lR-LKg"/>
+                                                    <constraint firstItem="e4b-gy-o3o" firstAttribute="centerY" secondItem="IBW-TR-6Xy" secondAttribute="centerY" id="jP7-5e-A0f"/>
+                                                    <constraint firstAttribute="trailing" secondItem="e4b-gy-o3o" secondAttribute="trailing" id="mgD-Cn-aeU"/>
+                                                    <constraint firstItem="cEc-qy-36D" firstAttribute="leading" secondItem="IBW-TR-6Xy" secondAttribute="leading" id="n7s-fM-UaN"/>
+                                                    <constraint firstItem="cEc-qy-36D" firstAttribute="centerY" secondItem="IBW-TR-6Xy" secondAttribute="centerY" id="uRF-Gg-hlN"/>
+                                                    <constraint firstItem="e4b-gy-o3o" firstAttribute="top" secondItem="IBW-TR-6Xy" secondAttribute="top" id="vc3-WE-5S7"/>
+                                                </constraints>
                                             </view>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="何の代金？" textAlignment="center" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="LwX-o7-zcd" userLabel="Type Text Field">
-                                                <rect key="frame" x="77" y="430" width="220" height="35"/>
+                                                <rect key="frame" x="77" y="420" width="220" height="35"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="220" id="PDM-QF-lkj"/>
                                                 </constraints>
@@ -471,7 +533,7 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="いくら？" textAlignment="center" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="xmM-4W-ky9" userLabel="Price Text Field">
-                                                <rect key="frame" x="77" y="475" width="220" height="35"/>
+                                                <rect key="frame" x="77" y="470" width="220" height="35"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="220" id="4uf-tc-0Bx"/>
                                                 </constraints>
@@ -497,12 +559,12 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="LwX-o7-zcd" firstAttribute="centerX" secondItem="h1U-dS-rHx" secondAttribute="centerX" id="CFX-QY-HXn"/>
-                                            <constraint firstItem="xmM-4W-ky9" firstAttribute="top" secondItem="LwX-o7-zcd" secondAttribute="bottom" constant="10" id="EOs-RF-fpo"/>
-                                            <constraint firstItem="byU-iV-oBc" firstAttribute="top" secondItem="xmM-4W-ky9" secondAttribute="bottom" constant="10" id="GtQ-un-9gS"/>
+                                            <constraint firstItem="xmM-4W-ky9" firstAttribute="top" secondItem="LwX-o7-zcd" secondAttribute="bottom" constant="15" id="EOs-RF-fpo"/>
+                                            <constraint firstItem="byU-iV-oBc" firstAttribute="top" secondItem="xmM-4W-ky9" secondAttribute="bottom" constant="15" id="GtQ-un-9gS"/>
                                             <constraint firstItem="IBW-TR-6Xy" firstAttribute="centerX" secondItem="h1U-dS-rHx" secondAttribute="centerX" id="Oj8-7M-TBp"/>
                                             <constraint firstItem="IBW-TR-6Xy" firstAttribute="leading" secondItem="h1U-dS-rHx" secondAttribute="leading" id="UEo-tW-LJa"/>
                                             <constraint firstItem="byU-iV-oBc" firstAttribute="centerX" secondItem="h1U-dS-rHx" secondAttribute="centerX" id="bGg-lq-FMF"/>
-                                            <constraint firstItem="LwX-o7-zcd" firstAttribute="top" secondItem="IBW-TR-6Xy" secondAttribute="bottom" constant="10" id="oSs-fg-Nwg"/>
+                                            <constraint firstItem="LwX-o7-zcd" firstAttribute="top" secondItem="IBW-TR-6Xy" secondAttribute="bottom" id="oSs-fg-Nwg"/>
                                             <constraint firstItem="xmM-4W-ky9" firstAttribute="centerX" secondItem="h1U-dS-rHx" secondAttribute="centerX" id="p3p-fE-oAt"/>
                                             <constraint firstAttribute="height" constant="600" id="qoa-BS-hah"/>
                                             <constraint firstItem="IBW-TR-6Xy" firstAttribute="height" secondItem="h1U-dS-rHx" secondAttribute="height" multiplier="0.7" id="rXF-zn-5Yy"/>
@@ -542,6 +604,8 @@
                         <outlet property="addButton" destination="byU-iV-oBc" id="khW-8e-1YU"/>
                         <outlet property="addPaymentButton" destination="VnS-oa-1dv" id="sLs-Pb-OhZ"/>
                         <outlet property="bottomBannerView" destination="d1Y-Jr-Vno" id="fgv-ph-Hcn"/>
+                        <outlet property="debtorTableView" destination="Fn9-Am-DcL" id="XA0-qO-yy4"/>
+                        <outlet property="payerTableView" destination="RZp-h5-qJg" id="Ga9-kg-8qu"/>
                         <outlet property="paymentModalView" destination="uUI-TT-t9E" id="kpv-EI-dFj"/>
                         <outlet property="paymentTableView" destination="zP3-mx-qkm" id="kRy-2V-uFf"/>
                         <outlet property="priceTextField" destination="xmM-4W-ky9" id="mqX-TR-wvp"/>

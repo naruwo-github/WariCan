@@ -17,6 +17,8 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
     
     // 支払い追加モーダル上の要素
     @IBOutlet private weak var paymentModalView: UIView!
+    @IBOutlet private weak var payerTableView: UITableView!
+    @IBOutlet private weak var debtorTableView: UITableView!
     @IBOutlet private weak var typeTextField: UITextField!
     @IBOutlet private weak var priceTextField: UITextField!
     @IBOutlet private weak var addButton: UIButton!
