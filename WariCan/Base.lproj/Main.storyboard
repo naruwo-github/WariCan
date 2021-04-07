@@ -453,7 +453,7 @@
                                     <constraint firstAttribute="width" constant="320" id="tWf-n2-0Iz"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uUI-TT-t9E" userLabel="Gray Opaque View">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uUI-TT-t9E" userLabel="Gray Opaque View">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h1U-dS-rHx" userLabel="Base View">
@@ -471,9 +471,13 @@
                                                                 <color key="textColor" systemColor="systemTealColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RZp-h5-qJg" userLabel="Payer Table View">
+                                                            <tableView clipsSubviews="YES" tag="1" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RZp-h5-qJg" userLabel="Payer Table View">
                                                                 <rect key="frame" x="20" y="80" width="147" height="320"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <connections>
+                                                                    <outlet property="dataSource" destination="q3D-XR-HA2" id="hi5-ja-TL1"/>
+                                                                    <outlet property="delegate" destination="q3D-XR-HA2" id="KXh-1X-LBc"/>
+                                                                </connections>
                                                             </tableView>
                                                         </subviews>
                                                         <constraints>
@@ -495,9 +499,13 @@
                                                                 <color key="textColor" systemColor="systemTealColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Fn9-Am-DcL" userLabel="Debtor Table View">
+                                                            <tableView clipsSubviews="YES" tag="2" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Fn9-Am-DcL" userLabel="Debtor Table View">
                                                                 <rect key="frame" x="20" y="80" width="147" height="320"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <connections>
+                                                                    <outlet property="dataSource" destination="q3D-XR-HA2" id="V8E-w5-PVS"/>
+                                                                    <outlet property="delegate" destination="q3D-XR-HA2" id="h4o-P8-Rv5"/>
+                                                                </connections>
                                                             </tableView>
                                                         </subviews>
                                                         <constraints>

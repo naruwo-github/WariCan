@@ -11,14 +11,14 @@ import GoogleMobileAds
 class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet private weak var addPaymentButton: UIButton!
-    @IBOutlet private weak var paymentTableView: UITableView!
+    @IBOutlet private weak var paymentTableView: UITableView! // tag=0
     @IBOutlet private weak var resultLabel: UILabel!
     @IBOutlet private weak var bottomBannerView: GADBannerView!
     
     // 支払い追加モーダル上の要素
     @IBOutlet private weak var paymentModalView: UIView!
-    @IBOutlet private weak var payerTableView: UITableView!
-    @IBOutlet private weak var debtorTableView: UITableView!
+    @IBOutlet private weak var payerTableView: UITableView! // tag=1
+    @IBOutlet private weak var debtorTableView: UITableView! // tag=2
     @IBOutlet private weak var typeTextField: UITextField!
     @IBOutlet private weak var priceTextField: UITextField!
     @IBOutlet private weak var addButton: UIButton!
@@ -64,12 +64,32 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // TODO:
+        switch tableView.tag {
+        case 0:         // 支払いのテーブルビュー
+            print()
+        case 1:         // 「誰が？」のテーブルビュー
+            print()
+        case 2:         // 「誰の？」のテーブルビュー
+            print()
+        default:        // ここにはこない想定
+            fatalError()
+        }
+        
         return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // TODO:
+        switch tableView.tag {
+        case 0:         // 支払いのテーブルビュー
+            print()
+        case 1:         // 「誰が？」のテーブルビュー
+            print()
+        case 2:         // 「誰の？」のテーブルビュー
+            print()
+        default:        // ここにはこない想定
+            fatalError()
+        }
+        
         return UITableViewCell()
     }
     
