@@ -9,6 +9,8 @@ import UIKit
 
 class WCPeopleCell: UITableViewCell {
     
+    @IBOutlet private weak var nameLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         self.setup()
@@ -26,7 +28,7 @@ class WCPeopleCell: UITableViewCell {
     }
     
     public func displayName(name: String) {
-        // TODO: aaa
+        self.nameLabel.text = name
     }
     
 }
