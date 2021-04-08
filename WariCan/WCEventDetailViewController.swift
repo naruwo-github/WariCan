@@ -10,6 +10,8 @@ import GoogleMobileAds
 
 class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    public var tripTitle: String?
+    @IBOutlet private weak var tripTitleLabel: UILabel!
     @IBOutlet private weak var addPaymentButton: UIButton!
     @IBOutlet private weak var paymentTableView: UITableView! // tag=0
     @IBOutlet private weak var resultLabel: UILabel!
@@ -29,6 +31,8 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tripTitleLabel.text = self.tripTitle
+        
         self.setupAd()
         self.setupButtonLayout()
     }

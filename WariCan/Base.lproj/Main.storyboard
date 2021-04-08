@@ -631,6 +631,7 @@
                         <outlet property="paymentTableView" destination="zP3-mx-qkm" id="kRy-2V-uFf"/>
                         <outlet property="priceTextField" destination="xmM-4W-ky9" id="mqX-TR-wvp"/>
                         <outlet property="resultLabel" destination="GKf-2G-o0u" id="nzg-mt-WkI"/>
+                        <outlet property="tripTitleLabel" destination="26h-oD-DWY" id="fNd-Mc-cNz"/>
                         <outlet property="typeTextField" destination="LwX-o7-zcd" id="Jh1-o4-lOf"/>
                     </connections>
                 </viewController>

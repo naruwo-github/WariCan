@@ -77,6 +77,7 @@ class WCEventRegistrationViewController: UIViewController, UITableViewDelegate, 
             self.topWarningLabel.isHidden = false
         } else {
             let vc = R.storyboard.main.wcEventDetailViewController()!
+            vc.tripTitle = self.eventTitleTextField.text!
             vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true, completion: nil)
         }
@@ -84,7 +85,7 @@ class WCEventRegistrationViewController: UIViewController, UITableViewDelegate, 
     
     @IBAction private func addButtonTapped(_ sender: Any) {
         if (self.nameRegisterTextField.text ?? "").isEmpty {
-            // TODO: 旅行名or参加者が空の場合は赤文字で警告出す
+            // TODO: 旅行名or参加者が空の場合は赤文字で警告出す？
         } else {
             self.participantList.append(self.nameRegisterTextField.text!)
             self.nameRegisterModalView.isHidden = true
