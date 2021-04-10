@@ -35,6 +35,7 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
         
         self.setupAd()
         self.setupButtonLayout()
+        self.setupTableViews()
     }
     
     private func setupAd() {
@@ -59,6 +60,12 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
         self.addButton.layer.shadowOpacity = 0.4
     }
     
+    private func setupTableViews() {
+        self.paymentTableView.register(UINib(resource: R.nib.wcPaymentCell), forCellReuseIdentifier: "PaymentCell")
+        self.payerTableView.register(UINib(resource: R.nib.wcPayerCell), forCellReuseIdentifier: "PayerCell")
+        self.debtorTableView.register(UINib(resource: R.nib.wcDebtorCell), forCellReuseIdentifier: "DebtorCell")
+    }
+    
     @IBAction private func addPaymentButtonTapped(_ sender: Any) {
         self.paymentModalView.isHidden = false
     }
@@ -70,31 +77,34 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch tableView.tag {
         case 0:         // 支払いのテーブルビュー
-            print()
+            return 1
         case 1:         // 「誰が？」のテーブルビュー
-            print()
+            return 2
         case 2:         // 「誰の？」のテーブルビュー
-            print()
+            return 3
         default:        // ここにはこない想定
             fatalError()
         }
-        
-        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch tableView.tag {
         case 0:         // 支払いのテーブルビュー
-            print()
+            let cell = tableView.dequeueReusableCell(withIdentifier: "PaymentCell") as! WCPaymentCell
+            return cell
         case 1:         // 「誰が？」のテーブルビュー
-            print()
+            let cell = tableView.dequeueReusableCell(withIdentifier: "PayerCell") as! WCPayerCell
+            return cell
         case 2:         // 「誰の？」のテーブルビュー
-            print()
+            let cell = tableView.dequeueReusableCell(withIdentifier: "DebtorCell") as! WCDebtorCell
+            return cell
         default:        // ここにはこない想定
             fatalError()
         }
-        
-        return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
     }
     
 }
