@@ -35,6 +35,7 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
         
         self.setupAd()
         self.setupButtonLayout()
+        self.setupTextFieldKeyboard()
         self.setupTableViews()
     }
     
@@ -58,6 +59,34 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
         self.addButton.layer.shadowRadius = 4.0
         self.addButton.layer.shadowOffset = CGSize(width: 2, height: 2)
         self.addButton.layer.shadowOpacity = 0.4
+    }
+    
+    private func setupTextFieldKeyboard() {
+        // イベント名入力のキーボードに対して
+        let typeToolbar = UIToolbar()
+        typeToolbar.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 40)
+        let typeSpacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self.typeTextField, action: nil)
+        let typeKeyboardCloseButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.typeKeyboardCloseButtonTapped))
+        typeToolbar.items = [typeSpacer, typeKeyboardCloseButton]
+        self.typeTextField.inputAccessoryView = typeToolbar
+        
+        // 人名入力のキーボードに対して
+        let priceToolbar = UIToolbar()
+        priceToolbar.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 40)
+        let priceSpacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self.priceTextField, action: nil)
+        let priceKeyboardCloseButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.priceKeyboardCloseButtonTapped))
+        priceToolbar.items = [priceSpacer, priceKeyboardCloseButton]
+        self.priceTextField.inputAccessoryView = priceToolbar
+    }
+    
+    @objc private func typeKeyboardCloseButtonTapped() {
+        self.typeTextField.endEditing(true)
+        self.typeTextField.resignFirstResponder()
+    }
+    
+    @objc private func priceKeyboardCloseButtonTapped() {
+        self.priceTextField.endEditing(true)
+        self.priceTextField.resignFirstResponder()
     }
     
     private func setupTableViews() {
