@@ -33,6 +33,7 @@ class WCEventRegistrationViewController: UIViewController, UITableViewDelegate, 
         super.viewDidLoad()
         self.setupAd()
         self.setupButtonsLayout()
+        self.setupTextFieldKeyboard()
         self.peopleTableView.register(UINib(resource: R.nib.wcPeopleCell), forCellReuseIdentifier: "PeopleCell")
     }
     
@@ -64,6 +65,34 @@ class WCEventRegistrationViewController: UIViewController, UITableViewDelegate, 
         self.addButton.layer.shadowRadius = 4.0
         self.addButton.layer.shadowOffset = CGSize(width: 2, height: 2)
         self.addButton.layer.shadowOpacity = 0.4
+    }
+    
+    private func setupTextFieldKeyboard() {
+        // イベント名入力のキーボードに対して
+        let eventToolbar = UIToolbar()
+        eventToolbar.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 40)
+        let eventSpacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self.eventTitleTextField, action: nil)
+        let eventTitleKeyboardCloseButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.eventTitleKeyboardCloseButtonTapped))
+        eventToolbar.items = [eventSpacer, eventTitleKeyboardCloseButton]
+        self.eventTitleTextField.inputAccessoryView = eventToolbar
+        
+        // 人名入力のキーボードに対して
+        let nameToolbar = UIToolbar()
+        nameToolbar.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 40)
+        let nameSpacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self.nameRegisterTextField, action: nil)
+        let nameTitleKeyboardCloseButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.nameRegisterKeyboardCloseButtonTapped))
+        nameToolbar.items = [nameSpacer, nameTitleKeyboardCloseButton]
+        self.nameRegisterTextField.inputAccessoryView = nameToolbar
+    }
+    
+    @objc private func eventTitleKeyboardCloseButtonTapped() {
+        self.eventTitleTextField.endEditing(true)
+        self.eventTitleTextField.resignFirstResponder()
+    }
+    
+    @objc private func nameRegisterKeyboardCloseButtonTapped() {
+        self.nameRegisterTextField.endEditing(true)
+        self.nameRegisterTextField.resignFirstResponder()
     }
     
     @IBAction private func addPeopleButtonTapped(_ sender: Any) {
