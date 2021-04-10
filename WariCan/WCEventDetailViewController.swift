@@ -115,6 +115,12 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
         self.paymentModalView.isHidden = true
     }
     
+    @IBAction private func backToBaseButtonTapped(_ sender: Any) {
+        let vc = R.storyboard.main.wcBaseViewController()!
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch tableView.tag {
         case 0:         // 支払いのテーブルビュー
