@@ -104,7 +104,16 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
+        switch tableView.tag {
+        case 0:         // 支払いのテーブルビュー
+            return 80
+        case 1:         // 「誰が？」のテーブルビュー
+            return 50
+        case 2:         // 「誰の？」のテーブルビュー
+            return 50
+        default:        // ここにはこない想定
+            fatalError()
+        }
     }
     
 }
