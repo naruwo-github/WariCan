@@ -15,6 +15,7 @@ class WCEventRegistrationViewController: UIViewController, UITableViewDelegate, 
     @IBOutlet private weak var addPeopleButton: UIButton!
     @IBOutlet private weak var peopleTableView: UITableView!
     @IBOutlet private weak var startButton: UIButton!
+    @IBOutlet private weak var backButton: UIButton!
     @IBOutlet private weak var bottomBannerView: GADBannerView!
     
     // 参加者追加モーダル
@@ -58,6 +59,13 @@ class WCEventRegistrationViewController: UIViewController, UITableViewDelegate, 
         self.startButton.layer.shadowRadius = 4.0
         self.startButton.layer.shadowOffset = CGSize(width: 2, height: 2)
         self.startButton.layer.shadowOpacity = 0.4
+        
+        // 画面下部の「はじめる」ボタン
+        self.backButton.layer.cornerRadius = 20
+        self.backButton.layer.shadowColor = UIColor.black.cgColor
+        self.backButton.layer.shadowRadius = 4.0
+        self.backButton.layer.shadowOffset = CGSize(width: 2, height: 2)
+        self.backButton.layer.shadowOpacity = 0.4
         
         // モーダル上の「追加」ボタン
         self.addButton.layer.cornerRadius = 25
@@ -110,6 +118,12 @@ class WCEventRegistrationViewController: UIViewController, UITableViewDelegate, 
             vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true, completion: nil)
         }
+    }
+    
+    @IBAction private func backButtonTapped(_ sender: Any) {
+        let vc = R.storyboard.main.wcBaseViewController()!
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
     }
     
     @IBAction private func addButtonTapped(_ sender: Any) {
