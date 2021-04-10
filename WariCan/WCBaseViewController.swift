@@ -59,5 +59,14 @@ class WCBaseViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // TODO: どのイベントかindexPath.rowより判定し、イベント詳細画面へ遷移する
+        let cell = tableView.cellForRow(at: indexPath) as! WCEventCell
+        let vc = R.storyboard.main.wcEventDetailViewController()!
+        vc.tripTitle = cell.getEventTitle()
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
+    }
+    
 }
 
