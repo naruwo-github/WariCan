@@ -29,11 +29,10 @@ class WCBaseViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.bottomBannerView.adUnitID = adTestId
         self.bottomBannerView.rootViewController = self
         self.bottomBannerView.load(GADRequest())
-//        self.bottomBannerView.delegate = self
     }
     
     private func setupTableView() {
-        // TODO: セルの登録などを行うべし
+        self.eventTableView.register(UINib(resource: R.nib.wcEventCell), forCellReuseIdentifier: "EventCell")
     }
     
     private func setupButtonLayout() {
@@ -52,46 +51,13 @@ class WCBaseViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // TODO: Realmデータからイベント数を取得する
-        return 1
+        return 11
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // TODO: Realmデータからイベントを取得し、セルを修正して返す
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell") as! WCEventCell
+        return cell
     }
-    
-    //    /// Tells the delegate an ad request loaded an ad.
-//    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
-//      print("adViewDidReceiveAd")
-//    }
-//
-//    /// Tells the delegate an ad request failed.
-//    func adView(_ bannerView: GADBannerView,
-//        didFailToReceiveAdWithError error: GADRequestError) {
-//      print("adView:didFailToReceiveAdWithError: \(error.localizedDescription)")
-//    }
-//
-//    /// Tells the delegate that a full-screen view will be presented in response
-//    /// to the user clicking on an ad.
-//    func adViewWillPresentScreen(_ bannerView: GADBannerView) {
-//      print("adViewWillPresentScreen")
-//    }
-//
-//    /// Tells the delegate that the full-screen view will be dismissed.
-//    func adViewWillDismissScreen(_ bannerView: GADBannerView) {
-//      print("adViewWillDismissScreen")
-//    }
-//
-//    /// Tells the delegate that the full-screen view has been dismissed.
-//    func adViewDidDismissScreen(_ bannerView: GADBannerView) {
-//      print("adViewDidDismissScreen")
-//    }
-//
-//    /// Tells the delegate that a user click will open another app (such as
-//    /// the App Store), backgrounding the current app.
-//    func adViewWillLeaveApplication(_ bannerView: GADBannerView) {
-//      print("adViewWillLeaveApplication")
-//    }
     
 }
 

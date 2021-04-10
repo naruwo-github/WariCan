@@ -13,6 +13,8 @@
 		0519F07F2621304600C9F71D /* WCPaymentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0519F07E2621304600C9F71D /* WCPaymentCell.xib */; };
 		0519F084262130B100C9F71D /* WCPayerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0519F083262130B100C9F71D /* WCPayerCell.xib */; };
 		0519F089262130D500C9F71D /* WCDebtorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0519F088262130D500C9F71D /* WCDebtorCell.xib */; };
+		0519F09B262151FF00C9F71D /* WCEventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0519F09A262151FF00C9F71D /* WCEventCell.xib */; };
+		0519F0A02621525700C9F71D /* WCEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0519F09F2621525700C9F71D /* WCEventCell.swift */; };
 		053C5817261C975E0068185D /* WCEventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053C5816261C975E0068185D /* WCEventDetailViewController.swift */; };
 		05A7F1A526075DC200C05D38 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A7F1A426075DC200C05D38 /* R.generated.swift */; };
 		05DCC10C26075A0C00297E2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DCC10B26075A0C00297E2F /* AppDelegate.swift */; };
@@ -55,6 +57,8 @@
 		0519F07E2621304600C9F71D /* WCPaymentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WCPaymentCell.xib; sourceTree = "<group>"; };
 		0519F083262130B100C9F71D /* WCPayerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WCPayerCell.xib; sourceTree = "<group>"; };
 		0519F088262130D500C9F71D /* WCDebtorCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WCDebtorCell.xib; sourceTree = "<group>"; };
+		0519F09A262151FF00C9F71D /* WCEventCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WCEventCell.xib; sourceTree = "<group>"; };
+		0519F09F2621525700C9F71D /* WCEventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCEventCell.swift; sourceTree = "<group>"; };
 		053C5816261C975E0068185D /* WCEventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCEventDetailViewController.swift; sourceTree = "<group>"; };
 		05A7F1A426075DC200C05D38 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		05DCC10826075A0C00297E2F /* WariCan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WariCan.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -135,6 +139,15 @@
 			name = EventDetailView;
 			sourceTree = "<group>";
 		};
+		0519F099262151DC00C9F71D /* BaseView */ = {
+			isa = PBXGroup;
+			children = (
+				0519F09F2621525700C9F71D /* WCEventCell.swift */,
+				0519F09A262151FF00C9F71D /* WCEventCell.xib */,
+			);
+			name = BaseView;
+			sourceTree = "<group>";
+		};
 		05A7F1A926075EBA00C05D38 /* Launch */ = {
 			isa = PBXGroup;
 			children = (
@@ -212,6 +225,7 @@
 		05FA6B48261466AA0054531B /* Parts */ = {
 			isa = PBXGroup;
 			children = (
+				0519F099262151DC00C9F71D /* BaseView */,
 				0519F06B26212F4100C9F71D /* EventDetailView */,
 				0519F06A26212F2000C9F71D /* RegistrationView */,
 			);
@@ -354,6 +368,7 @@
 				05DCC11826075A0E00297E2F /* LaunchScreen.storyboard in Resources */,
 				05DCC11526075A0E00297E2F /* Assets.xcassets in Resources */,
 				05DCC11326075A0C00297E2F /* Main.storyboard in Resources */,
+				0519F09B262151FF00C9F71D /* WCEventCell.xib in Resources */,
 				0519F07F2621304600C9F71D /* WCPaymentCell.xib in Resources */,
 				0519F084262130B100C9F71D /* WCPayerCell.xib in Resources */,
 				0519F089262130D500C9F71D /* WCDebtorCell.xib in Resources */,
@@ -504,6 +519,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0519F0A02621525700C9F71D /* WCEventCell.swift in Sources */,
 				053C5817261C975E0068185D /* WCEventDetailViewController.swift in Sources */,
 				0519F07A2621300900C9F71D /* WCDebtorCell.swift in Sources */,
 				05FD0D1E261875A8006C34CA /* WCPeopleCell.swift in Sources */,
