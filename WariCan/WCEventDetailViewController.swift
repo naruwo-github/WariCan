@@ -24,6 +24,7 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet private weak var typeTextField: UITextField!
     @IBOutlet private weak var priceTextField: UITextField!
     @IBOutlet private weak var addButton: UIButton!
+    @IBOutlet private weak var closeButton: UIButton!
     
     private let adTestId = "ca-app-pub-3940256099942544/2934735716"
     // TODO: リリースビルドでは、本物の広告IDを使う！
@@ -59,6 +60,13 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
         self.addButton.layer.shadowRadius = 4.0
         self.addButton.layer.shadowOffset = CGSize(width: 2, height: 2)
         self.addButton.layer.shadowOpacity = 0.4
+        
+        // 「もどる」ボタン
+        self.closeButton.layer.cornerRadius = 20
+        self.closeButton.layer.shadowColor = UIColor.black.cgColor
+        self.closeButton.layer.shadowRadius = 4.0
+        self.closeButton.layer.shadowOffset = CGSize(width: 2, height: 2)
+        self.closeButton.layer.shadowOpacity = 0.4
     }
     
     private func setupTextFieldKeyboard() {
@@ -100,6 +108,10 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     @IBAction private func addButtonTapped(_ sender: Any) {
+        self.paymentModalView.isHidden = true
+    }
+    
+    @IBAction private func closeButtonTapped(_ sender: Any) {
         self.paymentModalView.isHidden = true
     }
     
