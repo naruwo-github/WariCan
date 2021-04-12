@@ -594,6 +594,12 @@
                                                 <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="25"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="＊入力してください" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="RfA-Vd-KeF" userLabel="Type Warning Label">
+                                                <rect key="frame" x="78" y="367.5" width="179" height="20"/>
+                                                <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="20"/>
+                                                <color key="textColor" systemColor="systemRedColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="いくら？" textAlignment="center" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="xmM-4W-ky9" userLabel="Price Text Field">
                                                 <rect key="frame" x="57.5" y="410" width="220" height="35"/>
                                                 <constraints>
@@ -602,6 +608,12 @@
                                                 <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="25"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="＊入力してください" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="SPa-HM-RuU" userLabel="Price Warning Label">
+                                                <rect key="frame" x="78" y="417.5" width="179" height="20"/>
+                                                <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="20"/>
+                                                <color key="textColor" systemColor="systemRedColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="byU-iV-oBc" userLabel="Add Button">
                                                 <rect key="frame" x="57.5" y="460" width="220" height="50"/>
                                                 <color key="backgroundColor" systemColor="systemTealColor"/>
@@ -636,18 +648,22 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="PSh-Gt-XUc" firstAttribute="centerX" secondItem="h1U-dS-rHx" secondAttribute="centerX" id="1Q7-cW-mud"/>
+                                            <constraint firstItem="SPa-HM-RuU" firstAttribute="centerY" secondItem="xmM-4W-ky9" secondAttribute="centerY" id="By1-ho-xhx"/>
                                             <constraint firstItem="LwX-o7-zcd" firstAttribute="centerX" secondItem="h1U-dS-rHx" secondAttribute="centerX" id="CFX-QY-HXn"/>
                                             <constraint firstItem="xmM-4W-ky9" firstAttribute="top" secondItem="LwX-o7-zcd" secondAttribute="bottom" constant="15" id="EOs-RF-fpo"/>
                                             <constraint firstItem="byU-iV-oBc" firstAttribute="top" secondItem="xmM-4W-ky9" secondAttribute="bottom" constant="15" id="GtQ-un-9gS"/>
                                             <constraint firstItem="IBW-TR-6Xy" firstAttribute="centerX" secondItem="h1U-dS-rHx" secondAttribute="centerX" id="Oj8-7M-TBp"/>
                                             <constraint firstItem="IBW-TR-6Xy" firstAttribute="leading" secondItem="h1U-dS-rHx" secondAttribute="leading" id="UEo-tW-LJa"/>
+                                            <constraint firstItem="SPa-HM-RuU" firstAttribute="centerX" secondItem="xmM-4W-ky9" secondAttribute="centerX" id="aIh-LW-58O"/>
                                             <constraint firstItem="byU-iV-oBc" firstAttribute="centerX" secondItem="h1U-dS-rHx" secondAttribute="centerX" id="bGg-lq-FMF"/>
                                             <constraint firstItem="PSh-Gt-XUc" firstAttribute="top" secondItem="byU-iV-oBc" secondAttribute="bottom" constant="15" id="dz3-qq-0ot"/>
+                                            <constraint firstItem="RfA-Vd-KeF" firstAttribute="centerY" secondItem="LwX-o7-zcd" secondAttribute="centerY" id="gUF-TU-GpF"/>
                                             <constraint firstItem="LwX-o7-zcd" firstAttribute="top" secondItem="IBW-TR-6Xy" secondAttribute="bottom" id="oSs-fg-Nwg"/>
                                             <constraint firstItem="xmM-4W-ky9" firstAttribute="centerX" secondItem="h1U-dS-rHx" secondAttribute="centerX" id="p3p-fE-oAt"/>
                                             <constraint firstAttribute="height" constant="600" id="qoa-BS-hah"/>
                                             <constraint firstItem="IBW-TR-6Xy" firstAttribute="height" secondItem="h1U-dS-rHx" secondAttribute="height" multiplier="0.6" id="rXF-zn-5Yy"/>
                                             <constraint firstItem="IBW-TR-6Xy" firstAttribute="top" secondItem="h1U-dS-rHx" secondAttribute="top" id="t3i-Pb-N1I"/>
+                                            <constraint firstItem="RfA-Vd-KeF" firstAttribute="centerX" secondItem="LwX-o7-zcd" secondAttribute="centerX" id="zWc-Jz-XeM"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -689,9 +705,11 @@
                         <outlet property="paymentModalView" destination="uUI-TT-t9E" id="kpv-EI-dFj"/>
                         <outlet property="paymentTableView" destination="zP3-mx-qkm" id="kRy-2V-uFf"/>
                         <outlet property="priceTextField" destination="xmM-4W-ky9" id="mqX-TR-wvp"/>
+                        <outlet property="priceWarningLabel" destination="SPa-HM-RuU" id="yZ2-iV-fcv"/>
                         <outlet property="resultLabel" destination="GKf-2G-o0u" id="nzg-mt-WkI"/>
                         <outlet property="tripTitleLabel" destination="26h-oD-DWY" id="fNd-Mc-cNz"/>
                         <outlet property="typeTextField" destination="LwX-o7-zcd" id="Jh1-o4-lOf"/>
+                        <outlet property="typeWarningLabel" destination="RfA-Vd-KeF" id="zdI-zx-eGW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dq6-nz-I6K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

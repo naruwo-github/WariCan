@@ -22,7 +22,9 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet private weak var payerTableView: UITableView! // tag=1
     @IBOutlet private weak var debtorTableView: UITableView! // tag=2
     @IBOutlet private weak var typeTextField: UITextField!
+    @IBOutlet private weak var typeWarningLabel: UILabel!
     @IBOutlet private weak var priceTextField: UITextField!
+    @IBOutlet private weak var priceWarningLabel: UILabel!
     @IBOutlet private weak var addButton: UIButton!
     @IBOutlet private weak var closeButton: UIButton!
     
@@ -85,6 +87,8 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
         let priceKeyboardCloseButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.priceKeyboardCloseButtonTapped))
         priceToolbar.items = [priceSpacer, priceKeyboardCloseButton]
         self.priceTextField.inputAccessoryView = priceToolbar
+        
+        self.priceTextField.keyboardType = .numberPad
     }
     
     @objc private func typeKeyboardCloseButtonTapped() {
@@ -105,10 +109,25 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
     
     @IBAction private func addPaymentButtonTapped(_ sender: Any) {
         self.paymentModalView.isHidden = false
+        
+        self.typeWarningLabel.isHidden = true
+        self.priceWarningLabel.isHidden = true
     }
     
     @IBAction private func addButtonTapped(_ sender: Any) {
-        self.paymentModalView.isHidden = true
+        self.typeWarningLabel.isHidden = true
+        self.priceWarningLabel.isHidden = true
+        if !(self.typeTextField.text ?? "").isEmpty
+            && !(self.priceTextField.text ?? "").isEmpty {
+            // typeとpriceが両方入ってれば、OK
+            self.paymentModalView.isHidden = true
+        }
+        if (self.typeTextField.text ?? "").isEmpty {
+            self.typeWarningLabel.isHidden = false
+        }
+        if (self.priceTextField.text ?? "").isEmpty {
+            self.priceWarningLabel.isHidden = false
+        }
     }
     
     @IBAction private func closeButtonTapped(_ sender: Any) {
