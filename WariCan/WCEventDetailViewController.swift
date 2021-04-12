@@ -32,6 +32,12 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
     // TODO: リリースビルドでは、本物の広告IDを使う！
     private let adId = "ca-app-pub-6492692627915720/6116539333"
     
+    // TODO: 参加者はRealmで後々持とう
+    private let participantList = ["太郎", "二郎", "三郎", "四郎"]
+    private var payerList: [String] = []
+    private var debtorList: [String] = []
+    private var paymentCount = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tripTitleLabel.text = self.tripTitle
@@ -110,6 +116,8 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
     @IBAction private func addPaymentButtonTapped(_ sender: Any) {
         self.paymentModalView.isHidden = false
         
+        self.typeTextField.text = ""
+        self.priceTextField.text = ""
         self.typeWarningLabel.isHidden = true
         self.priceWarningLabel.isHidden = true
     }
@@ -121,6 +129,10 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
             && !(self.priceTextField.text ?? "").isEmpty {
             // typeとpriceが両方入ってれば、OK
             self.paymentModalView.isHidden = true
+            
+            // TODO: 書き換えるべし
+            self.paymentCount += 1
+            self.paymentTableView.reloadData()
         }
         if (self.typeTextField.text ?? "").isEmpty {
             self.typeWarningLabel.isHidden = false
@@ -143,11 +155,11 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch tableView.tag {
         case 0:         // 支払いのテーブルビュー
-            return 1
+            return self.paymentCount
         case 1:         // 「誰が？」のテーブルビュー
-            return 2
+            return self.participantList.count
         case 2:         // 「誰の？」のテーブルビュー
-            return 3
+            return self.participantList.count
         default:        // ここにはこない想定
             fatalError()
         }
@@ -160,9 +172,11 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
             return cell
         case 1:         // 「誰が？」のテーブルビュー
             let cell = tableView.dequeueReusableCell(withIdentifier: "PayerCell") as! WCPayerCell
+            cell.setupPayer(payer: self.participantList[indexPath.row])
             return cell
         case 2:         // 「誰の？」のテーブルビュー
             let cell = tableView.dequeueReusableCell(withIdentifier: "DebtorCell") as! WCDebtorCell
+            cell.setupDebtor(debtor: self.participantList[indexPath.row])
             return cell
         default:        // ここにはこない想定
             fatalError()
