@@ -140,9 +140,15 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
         if (self.priceTextField.text ?? "").isEmpty {
             self.priceWarningLabel.isHidden = false
         }
+        
+        self.typeTextField.resignFirstResponder()
+        self.priceTextField.resignFirstResponder()
     }
     
     @IBAction private func closeButtonTapped(_ sender: Any) {
+        self.typeTextField.resignFirstResponder()
+        self.priceTextField.resignFirstResponder()
+        
         self.paymentModalView.isHidden = true
     }
     
@@ -150,6 +156,16 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
         let vc = R.storyboard.main.wcBaseViewController()!
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true, completion: nil)
+    }
+    
+    @IBAction func typeFieldFocused(_ sender: Any) {
+        // テキストフィールドをタップした時
+        self.typeWarningLabel.isHidden = true
+    }
+    
+    @IBAction func priceFieldFocused(_ sender: Any) {
+        // テキストフィールドをタップした時
+        self.priceWarningLabel.isHidden = true
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -160,6 +176,23 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
             return self.participantList.count
         case 2:         // 「誰の？」のテーブルビュー
             return self.participantList.count
+        default:        // ここにはこない想定
+            fatalError()
+        }
+    }
+    
+    // セルがタップされた時の処理
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch tableView.tag {
+        case 0:         // 支払いのテーブルビュー
+        // TODO: 編集画面に遷移する
+        print()
+        case 1:         // 「誰が？」のテーブルビュー
+        // チェックマークの付与処理
+        print()
+        case 2:         // 「誰の？」のテーブルビュー
+        // チェックマークの付与処理
+        print()
         default:        // ここにはこない想定
             fatalError()
         }

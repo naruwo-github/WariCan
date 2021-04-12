@@ -593,6 +593,9 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="25"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="typeFieldFocused:" destination="q3D-XR-HA2" eventType="editingDidBegin" id="y2u-jn-PUD"/>
+                                                </connections>
                                             </textField>
                                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="＊入力してください" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="RfA-Vd-KeF" userLabel="Type Warning Label">
                                                 <rect key="frame" x="78" y="367.5" width="179" height="20"/>
@@ -607,6 +610,9 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="25"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="priceFieldFocused:" destination="q3D-XR-HA2" eventType="editingDidBegin" id="FYq-3a-hrf"/>
+                                                </connections>
                                             </textField>
                                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="＊入力してください" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="SPa-HM-RuU" userLabel="Price Warning Label">
                                                 <rect key="frame" x="78" y="417.5" width="179" height="20"/>
