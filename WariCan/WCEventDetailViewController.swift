@@ -19,6 +19,7 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
     
     // 支払い追加モーダル上の要素
     @IBOutlet private weak var paymentModalView: UIView!
+    @IBOutlet private weak var debtorWarningLabel: UILabel!
     @IBOutlet private weak var payerTableView: UITableView! // tag=1
     @IBOutlet private weak var debtorTableView: UITableView! // tag=2
     @IBOutlet private weak var typeTextField: UITextField!
@@ -34,8 +35,8 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
     
     // TODO: 参加者はRealmで後々持とう
     private let participantList = ["太郎", "二郎", "三郎", "四郎"]
-    private var payerList: [String] = []
-    private var debtorList: [String] = []
+    private var payerCellIndex: Int = 0 // 支払い主のセルのインデックス（この値は一つだけ）
+    private var debtorCellIndexList: [Int] = [] // 払われた人のインデックスのリスト（初期値は空で）
     private var paymentCount = 0
     
     override func viewDidLoad() {
@@ -113,6 +114,13 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
         self.debtorTableView.register(UINib(resource: R.nib.wcDebtorCell), forCellReuseIdentifier: "DebtorCell")
     }
     
+    private func refreshTableViews() {
+        self.paymentTableView.reloadData()
+        self.payerTableView.reloadData()
+        self.debtorTableView.reloadData()
+    }
+    
+    // 「支払いを追加」ボタン
     @IBAction private func addPaymentButtonTapped(_ sender: Any) {
         self.paymentModalView.isHidden = false
         
@@ -122,29 +130,43 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
         self.priceWarningLabel.isHidden = true
     }
     
+    // 「追加」ボタン
     @IBAction private func addButtonTapped(_ sender: Any) {
+        // 警告ラベルたちは非表示にする
         self.typeWarningLabel.isHidden = true
         self.priceWarningLabel.isHidden = true
+        self.debtorWarningLabel.isHidden = true
+        
         if !(self.typeTextField.text ?? "").isEmpty
-            && !(self.priceTextField.text ?? "").isEmpty {
+            && !(self.priceTextField.text ?? "").isEmpty
+            && self.debtorCellIndexList.count > 0 {
             // typeとpriceが両方入ってれば、OK
+            // かつ、「誰の？」が一人でもチェックされていれば、OK
             self.paymentModalView.isHidden = true
             
             // TODO: 書き換えるべし
             self.paymentCount += 1
             self.paymentTableView.reloadData()
         }
+        
+        // **以下、警告ラベルを表示させる処理**
+        
         if (self.typeTextField.text ?? "").isEmpty {
             self.typeWarningLabel.isHidden = false
         }
         if (self.priceTextField.text ?? "").isEmpty {
             self.priceWarningLabel.isHidden = false
         }
+        if self.debtorCellIndexList.count == 0 {
+            self.debtorWarningLabel.isHidden = false
+        }
         
+        // キーボードを閉じる処理
         self.typeTextField.resignFirstResponder()
         self.priceTextField.resignFirstResponder()
     }
     
+    // 「戻る」ボタン
     @IBAction private func closeButtonTapped(_ sender: Any) {
         self.typeTextField.resignFirstResponder()
         self.priceTextField.resignFirstResponder()
@@ -152,22 +174,26 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
         self.paymentModalView.isHidden = true
     }
     
+    // 「＊初期画面へ」ボタン
     @IBAction private func backToBaseButtonTapped(_ sender: Any) {
         let vc = R.storyboard.main.wcBaseViewController()!
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true, completion: nil)
     }
     
+    // 「何の代金？」フィールド
     @IBAction func typeFieldFocused(_ sender: Any) {
         // テキストフィールドをタップした時
         self.typeWarningLabel.isHidden = true
     }
     
+    // 「いくら？」フィールド
     @IBAction func priceFieldFocused(_ sender: Any) {
         // テキストフィールドをタップした時
         self.priceWarningLabel.isHidden = true
     }
     
+    // テーブルビューのセルの個数を返す
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch tableView.tag {
         case 0:         // 支払いのテーブルビュー
@@ -188,16 +214,21 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
         // TODO: 編集画面に遷移する
         print()
         case 1:         // 「誰が？」のテーブルビュー
-        // チェックマークの付与処理
-        print()
+            self.payerCellIndex = indexPath.row
         case 2:         // 「誰の？」のテーブルビュー
-        // チェックマークの付与処理
-        print()
+            if self.debtorCellIndexList.contains(indexPath.row) {
+                self.debtorCellIndexList.removeAll(where: { $0 == indexPath.row })
+            } else {
+                self.debtorCellIndexList.append(indexPath.row)
+            }
         default:        // ここにはこない想定
             fatalError()
         }
+        
+        self.refreshTableViews()
     }
     
+    // セルの情報・レイアウト設定関数
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch tableView.tag {
         case 0:         // 支払いのテーブルビュー
@@ -206,16 +237,29 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
         case 1:         // 「誰が？」のテーブルビュー
             let cell = tableView.dequeueReusableCell(withIdentifier: "PayerCell") as! WCPayerCell
             cell.setupPayer(payer: self.participantList[indexPath.row])
+            // 支払い主ならチェックマークを表示
+            if self.payerCellIndex == indexPath.row {
+                cell.accessoryType = .checkmark
+            } else {
+                cell.accessoryType = .none
+            }
             return cell
         case 2:         // 「誰の？」のテーブルビュー
             let cell = tableView.dequeueReusableCell(withIdentifier: "DebtorCell") as! WCDebtorCell
             cell.setupDebtor(debtor: self.participantList[indexPath.row])
+            // 支払われている人ならチェックマークを表示
+            if self.debtorCellIndexList.contains(indexPath.row) {
+                cell.accessoryType = .checkmark
+            } else {
+                cell.accessoryType = .none
+            }
             return cell
         default:        // ここにはこない想定
             fatalError()
         }
     }
     
+    // 各セルの高さを設定する関数
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch tableView.tag {
         case 0:         // 支払いのテーブルビュー

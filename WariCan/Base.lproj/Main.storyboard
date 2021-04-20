@@ -553,6 +553,12 @@
                                                                 <color key="textColor" systemColor="systemTealColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
+                                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="＊1人以上選択してください" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="L0c-wQ-8uP" userLabel="Debtor Warning Label">
+                                                                <rect key="frame" x="8" y="60" width="152" height="12"/>
+                                                                <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="12"/>
+                                                                <color key="textColor" systemColor="systemRedColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
                                                             <tableView clipsSubviews="YES" tag="2" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Fn9-Am-DcL" userLabel="Debtor Table View">
                                                                 <rect key="frame" x="20" y="80" width="127.5" height="260"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -563,6 +569,7 @@
                                                             </tableView>
                                                         </subviews>
                                                         <constraints>
+                                                            <constraint firstItem="L0c-wQ-8uP" firstAttribute="centerX" secondItem="ffZ-79-sFU" secondAttribute="centerX" id="0Be-zY-X9e"/>
                                                             <constraint firstItem="ffZ-79-sFU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="e4b-gy-o3o" secondAttribute="leading" constant="20" id="3zx-Lh-PP9"/>
                                                             <constraint firstItem="ffZ-79-sFU" firstAttribute="centerX" secondItem="e4b-gy-o3o" secondAttribute="centerX" id="F2u-cD-c9i"/>
                                                             <constraint firstItem="Fn9-Am-DcL" firstAttribute="centerX" secondItem="e4b-gy-o3o" secondAttribute="centerX" id="bg5-H1-peE"/>
@@ -570,6 +577,7 @@
                                                             <constraint firstItem="ffZ-79-sFU" firstAttribute="top" secondItem="e4b-gy-o3o" secondAttribute="top" constant="30" id="gNz-uY-L0u"/>
                                                             <constraint firstItem="Fn9-Am-DcL" firstAttribute="leading" secondItem="e4b-gy-o3o" secondAttribute="leading" constant="20" id="ohO-zs-NKq"/>
                                                             <constraint firstAttribute="bottom" secondItem="Fn9-Am-DcL" secondAttribute="bottom" constant="20" id="pUW-eD-hvu"/>
+                                                            <constraint firstItem="L0c-wQ-8uP" firstAttribute="top" secondItem="ffZ-79-sFU" secondAttribute="bottom" id="rWl-a8-FWg"/>
                                                         </constraints>
                                                     </view>
                                                 </subviews>
@@ -707,6 +715,7 @@
                         <outlet property="bottomBannerView" destination="d1Y-Jr-Vno" id="fgv-ph-Hcn"/>
                         <outlet property="closeButton" destination="PSh-Gt-XUc" id="7XB-tT-Tgx"/>
                         <outlet property="debtorTableView" destination="Fn9-Am-DcL" id="XA0-qO-yy4"/>
+                        <outlet property="debtorWarningLabel" destination="L0c-wQ-8uP" id="L9O-f6-IkQ"/>
                         <outlet property="payerTableView" destination="RZp-h5-qJg" id="Ga9-kg-8qu"/>
                         <outlet property="paymentModalView" destination="uUI-TT-t9E" id="kpv-EI-dFj"/>
                         <outlet property="paymentTableView" destination="zP3-mx-qkm" id="kRy-2V-uFf"/>
