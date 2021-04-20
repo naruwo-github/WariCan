@@ -112,21 +112,22 @@ class WCEventRegistrationViewController: UIViewController, UITableViewDelegate, 
     
     // 「はじめる」ボタン
     @IBAction private func startButtonTapped(_ sender: Any) {
-        // イベント名が未入力、かつ参加者が一人もいない場合は警告を出して画面遷移しない
-        if (self.eventTitleTextField.text ?? "").isEmpty
-            || self.participantList.count == 0 {
-            // 警告メッセージ
-            if (self.eventTitleTextField.text ?? "").isEmpty {
-                self.topWarningLabel.isHidden = false
-            }
-            if self.participantList.count == 0 {
-                self.peopleWarningLabel.isHidden = false
-            }
-        } else {
+        // イベント名が入力済みで、参加者が一人以上いればイベント作成
+        if !(self.eventTitleTextField.text ?? "").isEmpty
+            && self.participantList.count > 0 {
             let vc = R.storyboard.main.wcEventDetailViewController()!
             vc.tripTitle = self.eventTitleTextField.text!
             vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true, completion: nil)
+        }
+        
+        // イベント名が未入力の場合の警告メッセージ
+        if (self.eventTitleTextField.text ?? "").isEmpty {
+            self.topWarningLabel.isHidden = false
+        }
+        // 参加者が一人もいない場合の警告メッセージ
+        if self.participantList.count == 0 {
+            self.peopleWarningLabel.isHidden = false
         }
     }
     

@@ -37,7 +37,7 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
     private let participantList = ["太郎", "二郎", "三郎", "四郎"]
     private var payerCellIndex: Int = 0 // 支払い主のセルのインデックス（この値は一つだけ）
     private var debtorCellIndexList: [Int] = [] // 払われた人のインデックスのリスト（初期値は空で）
-    private var paymentCount = 0
+    private var paymentCount = 0 // 入力された支払いの数
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +55,8 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
         self.bottomBannerView.load(GADRequest())
     }
     
+    // TODO: IBDesignableで、WCCustomUIButtonクラス作る
+    // ⇨コード量の大幅削減をしようか（他のクラス内でも使えるし）
     private func setupButtonLayout() {
         // 「支払いを追加」ボタン
         self.addPaymentButton.layer.cornerRadius = 25
