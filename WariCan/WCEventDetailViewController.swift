@@ -137,11 +137,11 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
         self.priceWarningLabel.isHidden = true
         self.debtorWarningLabel.isHidden = true
         
+        // typeとpriceが両方入っていて、
+        // かつ「誰の？」が一人以上チェックされていれば、OK
         if !(self.typeTextField.text ?? "").isEmpty
             && !(self.priceTextField.text ?? "").isEmpty
             && self.debtorCellIndexList.count > 0 {
-            // typeとpriceが両方入ってれば、OK
-            // かつ、「誰の？」が一人でもチェックされていれば、OK
             self.paymentModalView.isHidden = true
             
             // TODO: 書き換えるべし

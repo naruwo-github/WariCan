@@ -13,6 +13,7 @@ class WCEventRegistrationViewController: UIViewController, UITableViewDelegate, 
     @IBOutlet private weak var eventTitleTextField: UITextField!
     @IBOutlet private weak var topWarningLabel: UILabel!
     @IBOutlet private weak var addPeopleButton: UIButton!
+    @IBOutlet private weak var peopleWarningLabel: UILabel!
     @IBOutlet private weak var peopleTableView: UITableView!
     @IBOutlet private weak var startButton: UIButton!
     @IBOutlet private weak var backButton: UIButton!
@@ -103,15 +104,24 @@ class WCEventRegistrationViewController: UIViewController, UITableViewDelegate, 
         self.nameRegisterTextField.resignFirstResponder()
     }
     
+    // 丸い「＋」ボタン
     @IBAction private func addPeopleButtonTapped(_ sender: Any) {
         self.nameRegisterTextField.text = "" // 表示時は何も入力されてない状態にする
         self.nameRegisterModalView.isHidden = false
     }
     
+    // 「はじめる」ボタン
     @IBAction private func startButtonTapped(_ sender: Any) {
-        if (self.eventTitleTextField.text ?? "").isEmpty {
+        // イベント名が未入力、かつ参加者が一人もいない場合は警告を出して画面遷移しない
+        if (self.eventTitleTextField.text ?? "").isEmpty
+            || self.participantList.count == 0 {
             // 警告メッセージ
-            self.topWarningLabel.isHidden = false
+            if (self.eventTitleTextField.text ?? "").isEmpty {
+                self.topWarningLabel.isHidden = false
+            }
+            if self.participantList.count == 0 {
+                self.peopleWarningLabel.isHidden = false
+            }
         } else {
             let vc = R.storyboard.main.wcEventDetailViewController()!
             vc.tripTitle = self.eventTitleTextField.text!
@@ -120,42 +130,49 @@ class WCEventRegistrationViewController: UIViewController, UITableViewDelegate, 
         }
     }
     
+    // 「もどる」ボタン
     @IBAction private func backButtonTapped(_ sender: Any) {
         let vc = R.storyboard.main.wcBaseViewController()!
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true, completion: nil)
     }
     
+    // 「追加」ボタン
     @IBAction private func addButtonTapped(_ sender: Any) {
         if (self.nameRegisterTextField.text ?? "").isEmpty {
-            // TODO: 旅行名or参加者が空の場合は赤文字で警告出す？
+            // TODO: 参加者が空の場合は赤文字で警告出す？
         } else {
             self.participantList.append(self.nameRegisterTextField.text!)
+            self.nameRegisterTextField.resignFirstResponder()
+            self.peopleWarningLabel.isHidden = true
             self.nameRegisterModalView.isHidden = true
             self.peopleTableView.reloadData()
         }
     }
     
+    // セルの個数を設定
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.participantList.count
     }
     
+    // セルの情報やレイアウトを設定
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PeopleCell") as! WCPeopleCell
         cell.displayName(name: self.participantList[indexPath.row])
         return cell
     }
     
+    // セルの高さを設定
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50
     }
     
-    // タップされたとき
+    // 「名前は？」フィールドがタップされたとき
     @IBAction private func eventTitleFocused(_ sender: Any) {
         self.topWarningLabel.isHidden = true
     }
     
-    // テキストが入力されているとき
+    // 「名前は？」フィールドのテキストが入力中のとき
     @IBAction private func eventTitleChanged(_ sender: Any) {
         self.topWarningLabel.isHidden = true
     }
