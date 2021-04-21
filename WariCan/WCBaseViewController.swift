@@ -6,6 +6,8 @@
 //
 
 import GoogleMobileAds
+import RealmSwift
+
 import UIKit
 
 class WCBaseViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -17,9 +19,15 @@ class WCBaseViewController: UIViewController, UITableViewDelegate, UITableViewDa
     private let adTestId = "ca-app-pub-3940256099942544/2934735716"
     // TODO: リリースビルドでは、本物の広告IDを使う！
     private let adId = "ca-app-pub-6492692627915720/6116539333"
+    
+    // 全イベントデータ
+    private var eventData: Results<Event>!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        // 全イベントデータ取得
+        self.eventData = WCRealmHelper.init().getAllEventData()
+        
         self.setupAd()
         self.setupTableView()
         self.setupButtonLayout()
@@ -50,8 +58,7 @@ class WCBaseViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // TODO: Realmデータからイベント数を取得する
-        return 3
+        return self.eventData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
