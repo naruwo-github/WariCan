@@ -115,6 +115,18 @@ class WCEventRegistrationViewController: UIViewController, UITableViewDelegate, 
         // イベント名が入力済みで、参加者が一人以上いればイベント作成
         if !(self.eventTitleTextField.text ?? "").isEmpty
             && self.participantList.count > 0 {
+            
+            // **イベントデータ保存**
+            let event = Event()
+            event.title = self.eventTitleTextField.text!
+            for person in self.participantList {
+                let participant = Participant()
+                participant.name = person
+                event.participants.append(participant)
+            }
+            WCRealmHelper.init().add(object: event)
+            // ******************
+            
             let vc = R.storyboard.main.wcEventDetailViewController()!
             vc.tripTitle = self.eventTitleTextField.text!
             vc.modalPresentationStyle = .fullScreen
@@ -141,7 +153,7 @@ class WCEventRegistrationViewController: UIViewController, UITableViewDelegate, 
     // 「追加」ボタン
     @IBAction private func addButtonTapped(_ sender: Any) {
         if (self.nameRegisterTextField.text ?? "").isEmpty {
-            // TODO: 参加者が空の場合は赤文字で警告出す？
+            // 参加者ラベルが空なら、追加しない、何もしない
         } else {
             self.participantList.append(self.nameRegisterTextField.text!)
             self.nameRegisterTextField.resignFirstResponder()
