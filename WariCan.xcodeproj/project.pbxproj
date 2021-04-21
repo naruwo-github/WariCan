@@ -15,6 +15,10 @@
 		0519F089262130D500C9F71D /* WCDebtorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0519F088262130D500C9F71D /* WCDebtorCell.xib */; };
 		0519F09B262151FF00C9F71D /* WCEventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0519F09A262151FF00C9F71D /* WCEventCell.xib */; };
 		0519F0A02621525700C9F71D /* WCEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0519F09F2621525700C9F71D /* WCEventCell.swift */; };
+		0538203B26303CD300E5B835 /* WCEventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0538203A26303CD300E5B835 /* WCEventModel.swift */; };
+		0538204026303DAE00E5B835 /* WCPaymentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0538203F26303DAE00E5B835 /* WCPaymentModel.swift */; };
+		0538204526303F5400E5B835 /* WCParticipantModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0538204426303F5400E5B835 /* WCParticipantModel.swift */; };
+		0538204A2630408800E5B835 /* WCRealmHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053820492630408800E5B835 /* WCRealmHelper.swift */; };
 		053C5817261C975E0068185D /* WCEventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053C5816261C975E0068185D /* WCEventDetailViewController.swift */; };
 		05A7F1A526075DC200C05D38 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A7F1A426075DC200C05D38 /* R.generated.swift */; };
 		05DCC10C26075A0C00297E2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DCC10B26075A0C00297E2F /* AppDelegate.swift */; };
@@ -59,6 +63,10 @@
 		0519F088262130D500C9F71D /* WCDebtorCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WCDebtorCell.xib; sourceTree = "<group>"; };
 		0519F09A262151FF00C9F71D /* WCEventCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WCEventCell.xib; sourceTree = "<group>"; };
 		0519F09F2621525700C9F71D /* WCEventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCEventCell.swift; sourceTree = "<group>"; };
+		0538203A26303CD300E5B835 /* WCEventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCEventModel.swift; sourceTree = "<group>"; };
+		0538203F26303DAE00E5B835 /* WCPaymentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCPaymentModel.swift; sourceTree = "<group>"; };
+		0538204426303F5400E5B835 /* WCParticipantModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCParticipantModel.swift; sourceTree = "<group>"; };
+		053820492630408800E5B835 /* WCRealmHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCRealmHelper.swift; sourceTree = "<group>"; };
 		053C5816261C975E0068185D /* WCEventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCEventDetailViewController.swift; sourceTree = "<group>"; };
 		05A7F1A426075DC200C05D38 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		05DCC10826075A0C00297E2F /* WariCan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WariCan.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,6 +125,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		051702D5262FA16100AC8EE4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0538203A26303CD300E5B835 /* WCEventModel.swift */,
+				0538203F26303DAE00E5B835 /* WCPaymentModel.swift */,
+				0538204426303F5400E5B835 /* WCParticipantModel.swift */,
+				053820492630408800E5B835 /* WCRealmHelper.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		0519F06A26212F2000C9F71D /* RegistrationView */ = {
 			isa = PBXGroup;
 			children = (
@@ -184,6 +203,7 @@
 		05DCC10A26075A0C00297E2F /* WariCan */ = {
 			isa = PBXGroup;
 			children = (
+				051702D5262FA16100AC8EE4 /* Model */,
 				05FA6B47261466930054531B /* ViewController */,
 				05FA6B48261466AA0054531B /* Parts */,
 				05A7F1A926075EBA00C05D38 /* Launch */,
@@ -525,11 +545,15 @@
 				05FD0D1E261875A8006C34CA /* WCPeopleCell.swift in Sources */,
 				05DCC11026075A0C00297E2F /* WCBaseViewController.swift in Sources */,
 				05DCC10C26075A0C00297E2F /* AppDelegate.swift in Sources */,
+				0538204026303DAE00E5B835 /* WCPaymentModel.swift in Sources */,
+				0538203B26303CD300E5B835 /* WCEventModel.swift in Sources */,
 				05FA6B40261431E00054531B /* WCEventRegistrationViewController.swift in Sources */,
 				05DCC10E26075A0C00297E2F /* SceneDelegate.swift in Sources */,
 				0519F06D26212F6F00C9F71D /* WCPaymentCell.swift in Sources */,
+				0538204526303F5400E5B835 /* WCParticipantModel.swift in Sources */,
 				05A7F1A526075DC200C05D38 /* R.generated.swift in Sources */,
 				0519F07526212FF300C9F71D /* WCPayerCell.swift in Sources */,
+				0538204A2630408800E5B835 /* WCRealmHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
