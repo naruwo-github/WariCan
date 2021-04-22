@@ -22,10 +22,10 @@ class WCPaymentCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    public func setupPayment(payer: String, debtor: String, type: String, price: String) {
+    public func setupPayment(payer: String, type: String, debtor: String, price: String) {
         self.payerLabel.text = payer
-        self.debtorLabel.text = debtor
         self.typeLabel.text = type
+        self.debtorLabel.text = debtor
         self.priceLabel.text = price
     }
     

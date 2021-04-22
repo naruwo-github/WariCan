@@ -33,7 +33,6 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
     // TODO: リリースビルドでは、本物の広告IDを使う！
     private let adId = "ca-app-pub-6492692627915720/6116539333"
     
-    // TODO: 参加者はRealmで後々持とう
     private var payerCellIndex: Int = 0 // 支払い主のセルのインデックス（この値は一つだけ）
     private var debtorCellIndexList: [Int] = [] // 払われた人のインデックスのリスト（初期値は空で）
     
@@ -251,6 +250,9 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
         switch tableView.tag {
         case 0:         // 支払いのテーブルビュー
             let cell = tableView.dequeueReusableCell(withIdentifier: "PaymentCell") as! WCPaymentCell
+            let payment = self.eventData.payments[indexPath.row]
+            let debtorText = payment.debtor.count.description + "人分"
+            cell.setupPayment(payer: payment.payerName, type: payment.typeName, debtor: debtorText, price: Int(payment.price).description + "円")
             return cell
         case 1:         // 「誰が？」のテーブルビュー
             let cell = tableView.dequeueReusableCell(withIdentifier: "PayerCell") as! WCPayerCell
@@ -272,6 +274,24 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
                 cell.accessoryType = .none
             }
             return cell
+        default:        // ここにはこない想定
+            fatalError()
+        }
+    }
+    
+    // TODO: 誰が、誰ののターブルビューでは、削除がうつらないようにしたい
+    // 支払いセルの削除処理
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        switch tableView.tag {
+        case 0:         // 支払いのテーブルビューのみ削除処理が可能
+            if editingStyle == UITableViewCell.EditingStyle.delete {
+                WCRealmHelper.init().delete(object: self.eventData.payments[indexPath.row])
+                tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.automatic)
+            }
+        case 1:         // 「誰が？」のテーブルビュー
+            print()
+        case 2:         // 「誰の？」のテーブルビュー
+            print()
         default:        // ここにはこない想定
             fatalError()
         }
