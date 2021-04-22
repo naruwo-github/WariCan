@@ -30,6 +30,10 @@ class WCEventRegistrationViewController: UIViewController, UITableViewDelegate, 
     
     // TODO: 暫定的に置いてるリスト　Realmでデータを管理すべし
     private var participantList: [String] = []
+    // 参加者名の編集中を表すフラグ
+    private var peopleNameEdittingFlag = false
+    // 編集中のparticipantListを表すインデックス
+    private var edittingIndex = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -104,10 +108,16 @@ class WCEventRegistrationViewController: UIViewController, UITableViewDelegate, 
         self.nameRegisterTextField.resignFirstResponder()
     }
     
+    // 参加者追加モーダルを表示　参加者名のフィールドに入る文字はnameFieldTextで指定
+    private func showModalView(nameFieldText: String) {
+        self.nameRegisterTextField.text = nameFieldText
+        self.nameRegisterModalView.isHidden = false
+    }
+    
     // 丸い「＋」ボタン
     @IBAction private func addPeopleButtonTapped(_ sender: Any) {
-        self.nameRegisterTextField.text = "" // 表示時は何も入力されてない状態にする
-        self.nameRegisterModalView.isHidden = false
+        // ボタン経由で表示する場合は何も入力されてない状態にする
+        self.showModalView(nameFieldText: "")
     }
     
     // 「はじめる」ボタン
@@ -115,8 +125,20 @@ class WCEventRegistrationViewController: UIViewController, UITableViewDelegate, 
         // イベント名が入力済みで、参加者が一人以上いればイベント作成
         if !(self.eventTitleTextField.text ?? "").isEmpty
             && self.participantList.count > 0 {
+            
+            // **イベントデータ保存**
+            let event = Event()
+            event.title = self.eventTitleTextField.text!
+            for person in self.participantList {
+                let participant = Participant()
+                participant.name = person
+                event.participants.append(participant)
+            }
+            WCRealmHelper.init().add(object: event)
+            // ******************
+            
             let vc = R.storyboard.main.wcEventDetailViewController()!
-            vc.tripTitle = self.eventTitleTextField.text!
+            vc.setup(eventData: event)
             vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true, completion: nil)
         }
@@ -141,9 +163,16 @@ class WCEventRegistrationViewController: UIViewController, UITableViewDelegate, 
     // 「追加」ボタン
     @IBAction private func addButtonTapped(_ sender: Any) {
         if (self.nameRegisterTextField.text ?? "").isEmpty {
-            // TODO: 参加者が空の場合は赤文字で警告出す？
+            // 参加者ラベルが空なら、追加しない、何もしない
         } else {
-            self.participantList.append(self.nameRegisterTextField.text!)
+            if self.peopleNameEdittingFlag {
+                self.peopleNameEdittingFlag = false
+                // 既存の参加者名の編集中である場合
+                self.participantList[self.edittingIndex] = self.nameRegisterTextField.text!
+            } else {
+                // 新規の参加者を追加する場合
+                self.participantList.append(self.nameRegisterTextField.text!)
+            }
             self.nameRegisterTextField.resignFirstResponder()
             self.peopleWarningLabel.isHidden = true
             self.nameRegisterModalView.isHidden = true
@@ -161,6 +190,23 @@ class WCEventRegistrationViewController: UIViewController, UITableViewDelegate, 
         let cell = tableView.dequeueReusableCell(withIdentifier: "PeopleCell") as! WCPeopleCell
         cell.displayName(name: self.participantList[indexPath.row])
         return cell
+    }
+    
+    // 参加者セルの削除処理
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCell.EditingStyle.delete {
+            self.participantList.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.automatic)
+        }
+    }
+    
+    // 参加者セルがタップされた時の処理
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! WCPeopleCell
+        
+        self.peopleNameEdittingFlag = true
+        self.edittingIndex = indexPath.row
+        self.showModalView(nameFieldText: cell.getName())
     }
     
     // セルの高さを設定

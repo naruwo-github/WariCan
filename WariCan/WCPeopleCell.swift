@@ -23,4 +23,8 @@ class WCPeopleCell: UITableViewCell {
         self.nameLabel.text = name
     }
     
+    public func getName() -> String {
+        return self.nameLabel.text ?? ""
+    }
+    
 }
