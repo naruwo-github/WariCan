@@ -126,6 +126,14 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
         self.debtorTableView.reloadData()
     }
     
+    private func calculateWariCanResult() {
+        // ***************************
+        // ***************************
+        // TODO: 割り勘結果の計算と表示処理
+        // ***************************
+        // ***************************
+    }
+    
     // 「支払いを追加」ボタン
     @IBAction private func addPaymentButtonTapped(_ sender: Any) {
         self.paymentModalView.isHidden = false
