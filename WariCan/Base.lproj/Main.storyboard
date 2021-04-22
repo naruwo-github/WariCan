@@ -73,7 +73,7 @@
                                 <color key="backgroundColor" systemColor="systemTealColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="I1S-qS-RjZ"/>
-                                    <constraint firstAttribute="width" constant="220" id="TW0-F6-FBJ"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="220" id="TW0-F6-FBJ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="25"/>
                                 <state key="normal" title="新しくはじめる">
@@ -149,7 +149,7 @@
                                         <rect key="frame" x="77.5" y="103.5" width="220" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="SCH-9e-3Q0"/>
-                                            <constraint firstAttribute="width" constant="220" id="zj0-v9-qCs"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="220" id="zj0-v9-qCs"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="25"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -232,7 +232,7 @@
                                         <color key="backgroundColor" systemColor="systemTealColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="d5x-jG-egV"/>
-                                            <constraint firstAttribute="width" constant="220" id="kSJ-4C-zyg"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="220" id="kSJ-4C-zyg"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="25"/>
                                         <state key="normal" title="はじめる">
@@ -246,7 +246,7 @@
                                         <rect key="frame" x="122.5" y="568.5" width="130" height="40"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="130" id="948-XG-NRL"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="130" id="948-XG-NRL"/>
                                             <constraint firstAttribute="height" constant="40" id="F2h-2H-bLX"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="25"/>
@@ -272,7 +272,7 @@
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="名前は？" textAlignment="center" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="YwG-ev-aAB" userLabel="People Name Text Field">
                                                         <rect key="frame" x="40" y="54" width="220" height="35"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="220" id="QZy-DN-MlK"/>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="220" id="QZy-DN-MlK"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="25"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -282,7 +282,7 @@
                                                         <color key="backgroundColor" systemColor="systemTealColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="AVD-iw-d4k"/>
-                                                            <constraint firstAttribute="width" constant="220" id="Ely-h3-oIP"/>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="220" id="Ely-h3-oIP"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="25"/>
                                                         <state key="normal" title="追加">
@@ -419,7 +419,7 @@
                                         <color key="backgroundColor" systemColor="systemTealColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="3Ol-v5-tCq"/>
-                                            <constraint firstAttribute="width" constant="220" id="QC2-hr-F8s"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="220" id="QC2-hr-F8s"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="25"/>
                                         <state key="normal" title="支払いを追加">
@@ -606,7 +606,7 @@
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="何の代金？" textAlignment="center" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="LwX-o7-zcd" userLabel="Type Text Field">
                                                 <rect key="frame" x="57.5" y="360" width="220" height="35"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="220" id="PDM-QF-lkj"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="220" id="PDM-QF-lkj"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="25"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -623,7 +623,7 @@
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="いくら？" textAlignment="center" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="xmM-4W-ky9" userLabel="Price Text Field">
                                                 <rect key="frame" x="57.5" y="410" width="220" height="35"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="220" id="4uf-tc-0Bx"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="220" id="4uf-tc-0Bx"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="25"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -642,7 +642,7 @@
                                                 <color key="backgroundColor" systemColor="systemTealColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="0rd-NR-1vB"/>
-                                                    <constraint firstAttribute="width" constant="220" id="Orf-oL-jtE"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="220" id="Orf-oL-jtE"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="25"/>
                                                 <state key="normal" title="追加">
@@ -656,7 +656,7 @@
                                                 <rect key="frame" x="102.5" y="525" width="130" height="40"/>
                                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="130" id="j9S-bv-6BQ"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="130" id="j9S-bv-6BQ"/>
                                                     <constraint firstAttribute="height" constant="40" id="q1e-0h-mdE"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="25"/>

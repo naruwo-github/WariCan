@@ -33,6 +33,8 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
     // TODO: リリースビルドでは、本物の広告IDを使う！
     private let adId = "ca-app-pub-6492692627915720/6116539333"
     
+    // TODO: ここにどうやってEventデータを持ってくるか、Realm経由で
+    
     // TODO: 参加者はRealmで後々持とう
     private let participantList = ["太郎", "二郎", "三郎", "四郎"]
     private var payerCellIndex: Int = 0 // 支払い主のセルのインデックス（この値は一つだけ）
