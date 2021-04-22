@@ -63,6 +63,7 @@ class WCBaseViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell") as! WCEventCell
+        cell.setupEvent(event: self.eventData[indexPath.row].title)
         return cell
     }
     
@@ -73,6 +74,13 @@ class WCBaseViewController: UIViewController, UITableViewDelegate, UITableViewDa
         vc.tripTitle = cell.getEventTitle()
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true, completion: nil)
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCell.EditingStyle.delete {
+            WCRealmHelper.init().delete(object: self.eventData[indexPath.row])
+            tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.automatic)
+        }
     }
     
 }
