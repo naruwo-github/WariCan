@@ -23,7 +23,4 @@ class WCEventCell: UITableViewCell {
         self.eventLabel.text = event
     }
     
-    public func getEventTitle() -> String {
-        return self.eventLabel.text ?? ""
-    }
 }

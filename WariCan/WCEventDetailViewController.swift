@@ -7,10 +7,10 @@
 
 import UIKit
 import GoogleMobileAds
+import RealmSwift
 
 class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    public var tripTitle: String?
     @IBOutlet private weak var tripTitleLabel: UILabel!
     @IBOutlet private weak var addPaymentButton: UIButton!
     @IBOutlet private weak var paymentTableView: UITableView! // tag=0
@@ -33,17 +33,20 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
     // TODO: リリースビルドでは、本物の広告IDを使う！
     private let adId = "ca-app-pub-6492692627915720/6116539333"
     
-    // TODO: ここにどうやってEventデータを持ってくるか、Realm経由で
-    
     // TODO: 参加者はRealmで後々持とう
-    private let participantList = ["太郎", "二郎", "三郎", "四郎"]
     private var payerCellIndex: Int = 0 // 支払い主のセルのインデックス（この値は一つだけ）
     private var debtorCellIndexList: [Int] = [] // 払われた人のインデックスのリスト（初期値は空で）
-    private var paymentCount = 0 // 入力された支払いの数
+    
+    // イベントデータ　setup関数内部で初期化するため強制アンラップ
+    private var eventData: Event!
+    
+    public func setup(eventData: Event) {
+        self.eventData = eventData
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tripTitleLabel.text = self.tripTitle
+        self.tripTitleLabel.text = self.eventData.title
         
         self.setupAd()
         self.setupButtonLayout()
@@ -148,8 +151,19 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
             && self.debtorCellIndexList.count > 0 {
             self.paymentModalView.isHidden = true
             
-            // TODO: 書き換えるべし
-            self.paymentCount += 1
+            // ***支払いデータを追加・保存する処理***
+            let payment = Payment()
+            payment.payerName = self.eventData.participants[self.payerCellIndex].name
+            self.debtorCellIndexList.forEach({
+                let debtor = Participant()
+                debtor.name = self.eventData.participants[$0].name
+                payment.debtor.append(debtor)
+            })
+            payment.typeName = self.typeTextField.text!
+            payment.price = Double(self.priceTextField.text!)!
+            WCRealmHelper.init().addPaymentToEvent(event: self.eventData, payment: payment)
+            // ********************************
+            
             self.paymentTableView.reloadData()
         }
         
@@ -201,11 +215,11 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch tableView.tag {
         case 0:         // 支払いのテーブルビュー
-            return self.paymentCount
+            return self.eventData.payments.count// self.paymentCount
         case 1:         // 「誰が？」のテーブルビュー
-            return self.participantList.count
+            return self.eventData.participants.count
         case 2:         // 「誰の？」のテーブルビュー
-            return self.participantList.count
+            return self.eventData.participants.count
         default:        // ここにはこない想定
             fatalError()
         }
@@ -240,7 +254,7 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
             return cell
         case 1:         // 「誰が？」のテーブルビュー
             let cell = tableView.dequeueReusableCell(withIdentifier: "PayerCell") as! WCPayerCell
-            cell.setupPayer(payer: self.participantList[indexPath.row])
+            cell.setupPayer(payer: self.eventData.participants[indexPath.row].name)
             // 支払い主ならチェックマークを表示
             if self.payerCellIndex == indexPath.row {
                 cell.accessoryType = .checkmark
@@ -250,7 +264,7 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
             return cell
         case 2:         // 「誰の？」のテーブルビュー
             let cell = tableView.dequeueReusableCell(withIdentifier: "DebtorCell") as! WCDebtorCell
-            cell.setupDebtor(debtor: self.participantList[indexPath.row])
+            cell.setupDebtor(debtor: self.eventData.participants[indexPath.row].name)
             // 支払われている人ならチェックマークを表示
             if self.debtorCellIndexList.contains(indexPath.row) {
                 cell.accessoryType = .checkmark

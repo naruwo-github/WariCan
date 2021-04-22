@@ -69,10 +69,8 @@ class WCBaseViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     // イベントセルがタップされた時の処理
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // TODO: どのイベントかindexPath.rowより判定し、イベント詳細画面へ遷移する
-        let cell = tableView.cellForRow(at: indexPath) as! WCEventCell
         let vc = R.storyboard.main.wcEventDetailViewController()!
-        vc.tripTitle = cell.getEventTitle()
+        vc.setup(eventData: self.eventData[indexPath.row])
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true, completion: nil)
     }

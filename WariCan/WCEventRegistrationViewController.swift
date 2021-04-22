@@ -138,7 +138,7 @@ class WCEventRegistrationViewController: UIViewController, UITableViewDelegate, 
             // ******************
             
             let vc = R.storyboard.main.wcEventDetailViewController()!
-            vc.tripTitle = self.eventTitleTextField.text!
+            vc.setup(eventData: event)
             vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true, completion: nil)
         }
