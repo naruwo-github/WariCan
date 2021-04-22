@@ -67,6 +67,7 @@ class WCBaseViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return cell
     }
     
+    // イベントセルがタップされた時の処理
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // TODO: どのイベントかindexPath.rowより判定し、イベント詳細画面へ遷移する
         let cell = tableView.cellForRow(at: indexPath) as! WCEventCell
@@ -76,6 +77,7 @@ class WCBaseViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.present(vc, animated: true, completion: nil)
     }
     
+    // イベントデータの削除処理（セルの削除を経由）
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCell.EditingStyle.delete {
             WCRealmHelper.init().delete(object: self.eventData[indexPath.row])
