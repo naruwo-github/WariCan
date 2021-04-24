@@ -12,7 +12,7 @@ import RealmSwift
 class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet private weak var tripTitleLabel: UILabel!
-    @IBOutlet private weak var addPaymentButton: UIButton!
+    @IBOutlet private weak var addPaymentButton: WCCustomUIButton!
     @IBOutlet private weak var paymentTableView: UITableView! // tag=0
     @IBOutlet private weak var resultLabel: UILabel!
     @IBOutlet private weak var bottomBannerView: GADBannerView!
@@ -26,8 +26,8 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet private weak var typeWarningLabel: UILabel!
     @IBOutlet private weak var priceTextField: UITextField!
     @IBOutlet private weak var priceWarningLabel: UILabel!
-    @IBOutlet private weak var addButton: UIButton!
-    @IBOutlet private weak var closeButton: UIButton!
+    @IBOutlet private weak var addButton: WCCustomUIButton!
+    @IBOutlet private weak var closeButton: WCCustomUIButton!
     
     private let adTestId = "ca-app-pub-3940256099942544/2934735716"
     // TODO: リリースビルドでは、本物の広告IDを使う！
@@ -48,7 +48,6 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
         self.tripTitleLabel.text = self.eventData.title
         
         self.setupAd()
-        self.setupButtonLayout()
         self.setupTextFieldKeyboard()
         self.setupTableViews()
     }
@@ -57,31 +56,6 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
         self.bottomBannerView.adUnitID = adTestId
         self.bottomBannerView.rootViewController = self
         self.bottomBannerView.load(GADRequest())
-    }
-    
-    // TODO: IBDesignableで、WCCustomUIButtonクラス作る
-    // ⇨コード量の大幅削減をしようか（他のクラス内でも使えるし）
-    private func setupButtonLayout() {
-        // 「支払いを追加」ボタン
-        self.addPaymentButton.layer.cornerRadius = 25
-        self.addPaymentButton.layer.shadowColor = UIColor.black.cgColor
-        self.addPaymentButton.layer.shadowRadius = 4.0
-        self.addPaymentButton.layer.shadowOffset = CGSize(width: 2, height: 2)
-        self.addPaymentButton.layer.shadowOpacity = 0.4
-        
-        // 「追加」ボタン
-        self.addButton.layer.cornerRadius = 25
-        self.addButton.layer.shadowColor = UIColor.black.cgColor
-        self.addButton.layer.shadowRadius = 4.0
-        self.addButton.layer.shadowOffset = CGSize(width: 2, height: 2)
-        self.addButton.layer.shadowOpacity = 0.4
-        
-        // 「もどる」ボタン
-        self.closeButton.layer.cornerRadius = 20
-        self.closeButton.layer.shadowColor = UIColor.black.cgColor
-        self.closeButton.layer.shadowRadius = 4.0
-        self.closeButton.layer.shadowOffset = CGSize(width: 2, height: 2)
-        self.closeButton.layer.shadowOpacity = 0.4
     }
     
     private func setupTextFieldKeyboard() {
