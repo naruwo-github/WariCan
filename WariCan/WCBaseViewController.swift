@@ -14,7 +14,7 @@ class WCBaseViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     @IBOutlet private weak var bottomBannerView: GADBannerView!
     @IBOutlet private weak var eventTableView: UITableView!
-    @IBOutlet private weak var startButton: UIButton!
+    @IBOutlet private weak var startButton: WCCustomUIButton!
     
     private let adTestId = "ca-app-pub-3940256099942544/2934735716"
     // TODO: リリースビルドでは、本物の広告IDを使う！
@@ -30,7 +30,6 @@ class WCBaseViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         self.setupAd()
         self.setupTableView()
-        self.setupButtonLayout()
     }
     
     private func setupAd() {
@@ -41,14 +40,6 @@ class WCBaseViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     private func setupTableView() {
         self.eventTableView.register(UINib(resource: R.nib.wcEventCell), forCellReuseIdentifier: "EventCell")
-    }
-    
-    private func setupButtonLayout() {
-        self.startButton.layer.cornerRadius = 25
-        self.startButton.layer.shadowColor = UIColor.black.cgColor
-        self.startButton.layer.shadowRadius = 4.0
-        self.startButton.layer.shadowOffset = CGSize(width: 2, height: 2)
-        self.startButton.layer.shadowOpacity = 0.4
     }
     
     @IBAction private func startButtonTapped(_ sender: Any) {

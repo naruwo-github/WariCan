@@ -12,17 +12,17 @@ class WCEventRegistrationViewController: UIViewController, UITableViewDelegate, 
     
     @IBOutlet private weak var eventTitleTextField: UITextField!
     @IBOutlet private weak var topWarningLabel: UILabel!
-    @IBOutlet private weak var addPeopleButton: UIButton!
+    @IBOutlet private weak var addPeopleButton: WCCustomUIButton!
     @IBOutlet private weak var peopleWarningLabel: UILabel!
     @IBOutlet private weak var peopleTableView: UITableView!
-    @IBOutlet private weak var startButton: UIButton!
-    @IBOutlet private weak var backButton: UIButton!
+    @IBOutlet private weak var startButton: WCCustomUIButton!
+    @IBOutlet private weak var backButton: WCCustomUIButton!
     @IBOutlet private weak var bottomBannerView: GADBannerView!
     
     // 参加者追加モーダル
     @IBOutlet private weak var nameRegisterModalView: UIView!
     @IBOutlet private weak var nameRegisterTextField: UITextField!
-    @IBOutlet private weak var addButton: UIButton!
+    @IBOutlet private weak var addButton: WCCustomUIButton!
     
     private let adTestId = "ca-app-pub-3940256099942544/2934735716"
     // TODO: リリースビルドでは、本物の広告IDを使う！
@@ -49,35 +49,9 @@ class WCEventRegistrationViewController: UIViewController, UITableViewDelegate, 
         self.bottomBannerView.load(GADRequest())
     }
     
-    // TODO: ボタンにシャドゥをつけるのを切り出すか！
     private func setupButtonsLayout() {
         // 円形のボタン
         self.addPeopleButton.layer.cornerRadius = self.addPeopleButton.frame.height / 2.0
-        self.addPeopleButton.layer.shadowColor = UIColor.black.cgColor
-        self.addPeopleButton.layer.shadowRadius = 4.0
-        self.addPeopleButton.layer.shadowOffset = CGSize(width: 2, height: 2)
-        self.addPeopleButton.layer.shadowOpacity = 0.4
-        
-        // 画面下部の「はじめる」ボタン
-        self.startButton.layer.cornerRadius = 25
-        self.startButton.layer.shadowColor = UIColor.black.cgColor
-        self.startButton.layer.shadowRadius = 4.0
-        self.startButton.layer.shadowOffset = CGSize(width: 2, height: 2)
-        self.startButton.layer.shadowOpacity = 0.4
-        
-        // 画面下部の「はじめる」ボタン
-        self.backButton.layer.cornerRadius = 20
-        self.backButton.layer.shadowColor = UIColor.black.cgColor
-        self.backButton.layer.shadowRadius = 4.0
-        self.backButton.layer.shadowOffset = CGSize(width: 2, height: 2)
-        self.backButton.layer.shadowOpacity = 0.4
-        
-        // モーダル上の「追加」ボタン
-        self.addButton.layer.cornerRadius = 25
-        self.addButton.layer.shadowColor = UIColor.black.cgColor
-        self.addButton.layer.shadowRadius = 4.0
-        self.addButton.layer.shadowOffset = CGSize(width: 2, height: 2)
-        self.addButton.layer.shadowOpacity = 0.4
     }
     
     private func setupTextFieldKeyboard() {
