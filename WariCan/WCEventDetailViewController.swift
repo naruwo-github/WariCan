@@ -110,7 +110,10 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
         // ③：リストの最後（最大債務者, 出費=L）がリストの最初（最大債権者, F）に min(F, |L|) を支払ってバランスを再計算
         // ④：全員のバランスが 0 になるまで ②-③ を繰り返す
         // ***************************
-        var balanceDict: Dictionary<String, Double> = [:] // 払い過ぎ、払わなすぎのデータ
+        
+        // ①：全員の出費を算出（払い過ぎは正、払わな過ぎは負）し格納する
+        // ["太郎": 6600, "二郎": -1500, "三郎": 1900, ...]の形式
+        var balanceDict: Dictionary<String, Double> = [:]
         self.eventData.participants.forEach({
             balanceDict.updateValue(0.0, forKey: $0.name)
         })
@@ -123,7 +126,6 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
                 debtorsList.append(debtor.name)
             }
             
-            // ①：全員の出費を算出（払い過ぎは正、払わな過ぎは負）
             let pricePerPerson = price / Double(debtorsList.count) // 一人分の値段
             // 支払い者には、多く払った額を加算する
             balanceDict[payer]! += pricePerPerson * Double(debtorsList.count - 1)
