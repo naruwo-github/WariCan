@@ -104,26 +104,17 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
     
     // TODO: 関数内が長くなるので、後で切り出しする
     private func setWariCanResultText() {
-        // ***************************
-        // TODO: 割り勘結果の計算と表示処理
-        // ***************************
         // *** WariCan結果算出アイデア ***
         // ①：全員の出費を算出（払い過ぎは正、払わな過ぎは負）
         // ②：降順でソート（出費過多が先頭に）
         // ③：リストの最後（最大債務者, 出費=L）がリストの最初（最大債権者, F）に min(F, |L|) を支払ってバランスを再計算
         // ④：全員のバランスが 0 になるまで ②-③ を繰り返す
         // ***************************
-        
-        // totalPrice = ["A": 6700, "B": 3400, "C": 500]
-        var totalPrice: Dictionary<String, Double> = [:]
         var balanceDict: Dictionary<String, Double> = [:] // 払い過ぎ、払わなすぎのデータ
         self.eventData.participants.forEach({
-            totalPrice.updateValue(0.0, forKey: $0.name)
             balanceDict.updateValue(0.0, forKey: $0.name)
         })
         
-        // history = [["payer": "A", "price": 2700, "debtor": ["A", "B", "C"]], [...], ...]
-//        var history: [Dictionary<String, Any>] = []
         self.eventData.payments.forEach({
             let payer = $0.payerName
             let price = $0.price
@@ -131,8 +122,6 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
             for debtor in $0.debtor {
                 debtorsList.append(debtor.name)
             }
-            
-            totalPrice[payer]! += price
             
             // ①：全員の出費を算出（払い過ぎは正、払わな過ぎは負）
             let pricePerPerson = price / Double(debtorsList.count) // 一人分の値段
@@ -146,12 +135,6 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
                     balanceDict[$0]! -= pricePerPerson
                 }
             })
-            
-//            history.append([
-//                "payer": payer,
-//                "price": price,
-//                "debtor": debtorsList
-//            ])
         })
         
         // 出力用の箱
@@ -195,9 +178,6 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
         }
         // 結果のテキストを設定
         self.resultLabel.text = resultText
-    }
-    
-    private func calculateWariCan() {
     }
     
     // 「支払いを追加」ボタン
