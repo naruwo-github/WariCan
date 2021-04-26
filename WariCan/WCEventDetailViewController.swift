@@ -50,6 +50,7 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
         self.setupAd()
         self.setupTextFieldKeyboard()
         self.setupTableViews()
+        self.setWariCanResultText()
     }
     
     private func setupAd() {
@@ -98,14 +99,105 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
         self.paymentTableView.reloadData()
         self.payerTableView.reloadData()
         self.debtorTableView.reloadData()
+        self.setWariCanResultText()
     }
     
-    private func calculateWariCanResult() {
-        // ***************************
+    // TODO: 関数内が長くなるので、後で切り出しする
+    private func setWariCanResultText() {
         // ***************************
         // TODO: 割り勘結果の計算と表示処理
         // ***************************
+        // *** WariCan結果算出アイデア ***
+        // ①：全員の出費を算出（払い過ぎは正、払わな過ぎは負）
+        // ②：降順でソート（出費過多が先頭に）
+        // ③：リストの最後（最大債務者, 出費=L）がリストの最初（最大債権者, F）に min(F, |L|) を支払ってバランスを再計算
+        // ④：全員のバランスが 0 になるまで ②-③ を繰り返す
         // ***************************
+        
+        // totalPrice = ["A": 6700, "B": 3400, "C": 500]
+        var totalPrice: Dictionary<String, Double> = [:]
+        var balanceDict: Dictionary<String, Double> = [:] // 払い過ぎ、払わなすぎのデータ
+        self.eventData.participants.forEach({
+            totalPrice.updateValue(0.0, forKey: $0.name)
+            balanceDict.updateValue(0.0, forKey: $0.name)
+        })
+        
+        // history = [["payer": "A", "price": 2700, "debtor": ["A", "B", "C"]], [...], ...]
+//        var history: [Dictionary<String, Any>] = []
+        self.eventData.payments.forEach({
+            let payer = $0.payerName
+            let price = $0.price
+            var debtorsList: [String] = []
+            for debtor in $0.debtor {
+                debtorsList.append(debtor.name)
+            }
+            
+            totalPrice[payer]! += price
+            
+            // ①：全員の出費を算出（払い過ぎは正、払わな過ぎは負）
+            let pricePerPerson = price / Double(debtorsList.count) // 一人分の値段
+            // 支払い者には、多く払った額を加算する
+            balanceDict[payer]! += pricePerPerson * Double(debtorsList.count - 1)
+            debtorsList.forEach({
+                if $0 == payer {
+                    // 支払った人からは引かない
+                } else {
+                    // 支払われ者には、一人分の値段を減算する
+                    balanceDict[$0]! -= pricePerPerson
+                }
+            })
+            
+//            history.append([
+//                "payer": payer,
+//                "price": price,
+//                "debtor": debtorsList
+//            ])
+        })
+        
+        // 出力用の箱
+        var resultData: [String: Double] = [:] // ["AtoB": 600, "AtoC": 300, "DtoB": 150]
+        // ②：降順でソート（出費過多が先頭に）
+        // 出費過多で降順にソートしたバランスシート
+        var sortedBalanceDict = balanceDict.sorted { $0.value > $1.value }
+        // ④：全員のバランスが 0 になるまで ②-③ を繰り返す
+        while true {
+            // ②：降順でソート（出費過多が先頭に）
+            sortedBalanceDict = sortedBalanceDict.sorted { $0.value > $1.value }
+            let paidTooMuch = sortedBalanceDict.first!.value
+            let paidLess = sortedBalanceDict.last!.value
+            
+            if paidTooMuch == 0 || paidLess == 0 {
+                break
+            }
+            
+            // ③：リストの最後（最大債務者, 出費=L）がリストの最初（最大債権者, F）に min(F, |L|) を支払ってバランスを再計算
+            let refund = min(paidTooMuch, abs(paidLess))
+            let tooMuchPayer = sortedBalanceDict[0].key
+            let lessPayer = sortedBalanceDict[sortedBalanceDict.count - 1].key
+            let key = lessPayer + "to" + tooMuchPayer
+            if resultData.keys.contains(key) {
+                // 更新処理
+                resultData.updateValue(resultData[key]! + refund, forKey: key)
+            } else {
+                // 新規登録処理
+                resultData.updateValue(refund, forKey: key)
+            }
+            // 値の更新
+            sortedBalanceDict[0].value = paidTooMuch - refund
+            sortedBalanceDict[sortedBalanceDict.count - 1].value = paidLess + refund
+            
+        }
+        
+        let sortedResultData = resultData.sorted { $0.key < $1.key }
+        var resultText = ""
+        for i in sortedResultData {
+            resultText += i.key + " " + Int(i.value).description + "円" + "\n"
+        }
+        // 結果のテキストを設定
+        self.resultLabel.text = resultText
+    }
+    
+    private func calculateWariCan() {
     }
     
     // 「支払いを追加」ボタン
