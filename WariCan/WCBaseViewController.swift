@@ -16,8 +16,8 @@ class WCBaseViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet private weak var eventTableView: UITableView!
     @IBOutlet private weak var startButton: WCCustomUIButton!
     
-//    private let adTestId = "ca-app-pub-3940256099942544/2934735716"
-    private let adId = "ca-app-pub-6492692627915720/6116539333"
+    private let adTestId = "ca-app-pub-3940256099942544/2934735716"
+    private let adId = "ca-app-pub-6492692627915720/6116539333" // TODO: リリース時はこっち！
     
     // 全イベントデータ
     private var eventData: Results<Event>!
@@ -32,7 +32,7 @@ class WCBaseViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     private func setupAd() {
-        self.bottomBannerView.adUnitID = adId
+        self.bottomBannerView.adUnitID = adTestId
         self.bottomBannerView.rootViewController = self
         self.bottomBannerView.load(GADRequest())
     }

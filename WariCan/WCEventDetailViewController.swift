@@ -36,8 +36,8 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet private weak var addButton: WCCustomUIButton!
     @IBOutlet private weak var closeButton: WCCustomUIButton!
     
-//    private let adTestId = "ca-app-pub-3940256099942544/2934735716"
-    private let adId = "ca-app-pub-6492692627915720/6116539333"
+    private let adTestId = "ca-app-pub-3940256099942544/2934735716"
+    private let adId = "ca-app-pub-6492692627915720/6116539333" // TODO: リリース時はこっち！
     
     private var payerCellIndex: Int = 0 // 支払い主のセルのインデックス（この値は一つだけ）
     private var debtorCellIndexList: [Int] = [] // 払われた人のインデックスのリスト（初期値は空で）
@@ -60,7 +60,7 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     private func setupAd() {
-        self.bottomBannerView.adUnitID = adId
+        self.bottomBannerView.adUnitID = adTestId
         self.bottomBannerView.rootViewController = self
         self.bottomBannerView.load(GADRequest())
     }
@@ -183,13 +183,20 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
         self.setResultLabelText(resultData: resultData)
     }
     
-    // 割り勘の計算データを受け取り、結果ラベルを設定する関数
+    // 割り勘の計算データを受け取り、結果ラベルを設定する関数　金額はIntで丸めている
     private func setResultLabelText(resultData: [String: Double]) {
         let sortedResultData = resultData.sorted { $0.value < $1.value } // 支払額の昇順でソート
+        let valuesList = sortedResultData.map { $0.value } // 金額だけのリスト
+        let longestDigitCount = Int(valuesList.max()!).description.count // 一番大きい金額の文字数
         var resultText = ""
         for i in sortedResultData {
             // TODO: 1, 10, 100円単位で丸める操作を選べるようにすべし！
-            resultText += i.key + " " + Int(i.value).description + "円" + "\n" // 値はintにして1円単位で出す
+            let keyElements = i.key.components(separatedBy: "to")
+            var priceString = Int(i.value).description
+            for _ in 0..<(longestDigitCount - priceString.count) {
+                priceString = "  " + priceString
+            }
+            resultText += keyElements.first! + " ⇨ " + keyElements.last! + " " + priceString + "円" + "\n"
         }
         self.resultLabel.text = resultText
     }
