@@ -113,7 +113,7 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
         
         // ①：全員の出費を算出（払い過ぎは正、払わな過ぎは負）し格納する
         // ["太郎": 6600, "二郎": -1500, "三郎": 1900, ...]の形式
-        var balanceDict: Dictionary<String, Double> = [:]
+        var balanceDict: [String: Double] = [:]
         self.eventData.participants.forEach({
             balanceDict.updateValue(0.0, forKey: $0.name)
         })

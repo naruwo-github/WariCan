@@ -75,4 +75,3 @@ class WCBaseViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
 }
-

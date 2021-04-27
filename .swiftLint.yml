@@ -93,7 +93,9 @@ excluded:
 - Pods/
 # Carthageを使っている場合#
 - Carthage/
-- /R.generated.swift
+
+# R.swiftを使っている場合#
+- R.generated.swift
 
 # 1行あたりの文字数制限を200に変更
 line_length: 200
