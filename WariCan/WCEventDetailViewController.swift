@@ -50,6 +50,7 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
         self.setupAd()
         self.setupTextFieldKeyboard()
         self.setupTableViews()
+        self.setWariCanResultText()
     }
     
     private func setupAd() {
@@ -98,14 +99,93 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
         self.paymentTableView.reloadData()
         self.payerTableView.reloadData()
         self.debtorTableView.reloadData()
+        self.setWariCanResultText()
     }
     
-    private func calculateWariCanResult() {
+    // TODO: 関数内が長くなるので、後で切り出しする
+    private func setWariCanResultText() {
+        // *** WariCan結果算出アイデア ***
+        // ①：全員の出費を算出（払い過ぎは正、払わな過ぎは負）
+        // ②：降順でソート（出費過多が先頭に）
+        // ③：リストの最後（最大債務者, 出費=L）がリストの最初（最大債権者, F）に min(F, |L|) を支払ってバランスを再計算
+        // ④：全員のバランスが 0 になるまで ②-③ を繰り返す
         // ***************************
-        // ***************************
-        // TODO: 割り勘結果の計算と表示処理
-        // ***************************
-        // ***************************
+        
+        // ①：全員の出費を算出（払い過ぎは正、払わな過ぎは負）し格納する
+        // ["太郎": 6600, "二郎": -1500, "三郎": 1900, ...]の形式
+        var balanceDict: Dictionary<String, Double> = [:]
+        self.eventData.participants.forEach({
+            balanceDict.updateValue(0.0, forKey: $0.name)
+        })
+        
+        self.eventData.payments.forEach({
+            let payer = $0.payerName
+            let price = $0.price
+            var debtorsList: [String] = []
+            for debtor in $0.debtor {
+                debtorsList.append(debtor.name)
+            }
+            
+            let pricePerPerson = price / Double(debtorsList.count) // 一人分の値段
+            // 支払い者には、多く払った額を加算する
+            balanceDict[payer]! += pricePerPerson * Double(debtorsList.count - 1)
+            debtorsList.forEach({
+                if $0 == payer {
+                    // 支払った人からは引かない
+                } else {
+                    // 支払われ者には、一人分の値段を減算する
+                    balanceDict[$0]! -= pricePerPerson
+                }
+            })
+        })
+        
+        // 出力用の箱
+        var resultData: [String: Double] = [:] // ["AtoB": 600, "AtoC": 300, "DtoB": 150]
+        // ②：降順でソート（出費過多が先頭に）
+        // 出費過多で降順にソートしたバランスシート
+        var sortedBalanceDict = balanceDict.sorted { $0.value > $1.value }
+        // ④：全員のバランスが 0 になるまで ②-③ を繰り返す
+        while true {
+            // ②：降順でソート（出費過多が先頭に）
+            sortedBalanceDict = sortedBalanceDict.sorted { $0.value > $1.value }
+            let paidTooMuch = sortedBalanceDict.first!.value
+            let paidLess = sortedBalanceDict.last!.value
+            
+            if (paidTooMuch == 0 || paidLess == 0)
+                || (paidTooMuch < 1 && abs(paidLess) < 1) {
+                // 過払い額または過不足額が0になれば、割り勘計算が終了するためbreak
+                // 小数点以下の計算によっては完全に0にならない場合があるため < 1 という条件も入れておく
+                break
+            }
+            
+            // ③：リストの最後（最大債務者, 出費=L）がリストの最初（最大債権者, F）に min(F, |L|) を支払ってバランスを再計算
+            let refund = min(paidTooMuch, abs(paidLess))
+            let tooMuchPayer = sortedBalanceDict.first!.key
+            let lessPayer = sortedBalanceDict.last!.key
+            let key = lessPayer + "to" + tooMuchPayer
+            if resultData.keys.contains(key) {
+                // 更新処理
+                resultData.updateValue(resultData[key]! + refund, forKey: key)
+            } else {
+                // 新規登録処理
+                resultData.updateValue(refund, forKey: key)
+            }
+            // 値の更新
+            sortedBalanceDict[0].value = paidTooMuch - refund
+            sortedBalanceDict[sortedBalanceDict.count - 1].value = paidLess + refund
+            
+        }
+        
+//        let sortedResultData = resultData.sorted { $0.key < $1.key } // 名前の順でソート
+        let sortedResultData = resultData.sorted { $0.value < $1.value } // 名前の順でソート
+        var resultText = ""
+        for i in sortedResultData {
+            // 値はintにして1円単位で出す
+            // TODO: 1, 10, 100円単位で丸める操作を選べるようにすべし！
+            resultText += i.key + " " + Int(i.value).description + "円" + "\n"
+        }
+        // 結果のテキストを設定
+        self.resultLabel.text = resultText
     }
     
     // 「支払いを追加」ボタン
