@@ -47,11 +47,13 @@ PODS:
   - Realm/Headers (10.7.3)
   - RealmSwift (10.7.3):
     - Realm (= 10.7.3)
+  - SwiftLint (0.43.1)
 
 DEPENDENCIES:
   - Google-Mobile-Ads-SDK
   - R.swift
   - RealmSwift
+  - SwiftLint
 
 SPEC REPOS:
   trunk:
@@ -65,6 +67,7 @@ SPEC REPOS:
     - R.swift.Library
     - Realm
     - RealmSwift
+    - SwiftLint
 
 SPEC CHECKSUMS:
   Google-Mobile-Ads-SDK: 093c3bf0aed3b7d1b8707221a15e3b6634f92dec
@@ -77,7 +80,8 @@ SPEC CHECKSUMS:
   R.swift.Library: 0fc583cb55a99e28901299cc451614cad1161962
   Realm: 472ea9ad72cee02df140dfd2926f482df6addbd2
   RealmSwift: 7462f44bc04b61505ef70e4863ee7ce48fa12ede
+  SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
 
-PODFILE CHECKSUM: ecf785b0cefed29b7397ddb3511efc615e1770f8
+PODFILE CHECKSUM: 3c07a74d6cdeab617eb941690c2e5478be7f0e0c
 
 COCOAPODS: 1.10.1

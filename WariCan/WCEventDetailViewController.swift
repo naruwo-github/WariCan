@@ -127,6 +127,7 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
             }
             
             let pricePerPerson = price / Double(debtorsList.count) // 一人分の値段
+            // TODO: 支払い者が自分以外の分を出した場合を考慮してない（Ex. AがBとCだけの料金を払った場合等）
             // 支払い者には、多く払った額を加算する
             balanceDict[payer]! += pricePerPerson * Double(debtorsList.count - 1)
             debtorsList.forEach({

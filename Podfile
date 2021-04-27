@@ -9,6 +9,7 @@ target 'WariCan' do
   pod 'R.swift'
   pod 'Google-Mobile-Ads-SDK'
   pod 'RealmSwift'
+  pod 'SwiftLint'
 
   target 'WariCanTests' do
     inherit! :search_paths
