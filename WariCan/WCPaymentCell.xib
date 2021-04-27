@@ -10,97 +10,63 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="eE3-6J-mXr" customClass="WCPaymentCell" customModule="WariCan" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
+            <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eE3-6J-mXr" id="BWD-gO-hUL">
-                <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
+                <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oEE-eZ-v9X" userLabel="Upper Left View">
-                        <rect key="frame" x="0.0" y="0.0" width="207" height="40"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kPv-hL-s1L" userLabel="Upper View">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="35"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="太郎が" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="uZX-3A-up4" userLabel="Payer Label">
-                                <rect key="frame" x="66" y="7.5" width="75" height="25"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="太郎 が 4人分の 宿泊代で" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="hMV-9C-HdV" userLabel="Upper Label">
+                                <rect key="frame" x="61.5" y="5" width="291.5" height="25"/>
                                 <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="uZX-3A-up4" firstAttribute="centerX" secondItem="oEE-eZ-v9X" secondAttribute="centerX" id="Iln-36-XRX"/>
-                            <constraint firstItem="uZX-3A-up4" firstAttribute="centerY" secondItem="oEE-eZ-v9X" secondAttribute="centerY" id="LvD-n4-BZx"/>
+                            <constraint firstItem="hMV-9C-HdV" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="kPv-hL-s1L" secondAttribute="leading" constant="20" id="8Lz-9h-fHt"/>
+                            <constraint firstItem="hMV-9C-HdV" firstAttribute="centerX" secondItem="kPv-hL-s1L" secondAttribute="centerX" id="IbY-oF-fkU"/>
+                            <constraint firstItem="hMV-9C-HdV" firstAttribute="top" secondItem="kPv-hL-s1L" secondAttribute="top" constant="5" id="hcc-an-rOZ"/>
+                            <constraint firstAttribute="bottom" secondItem="hMV-9C-HdV" secondAttribute="bottom" constant="5" id="lLc-L1-7Kr"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="hMV-9C-HdV" secondAttribute="trailing" constant="20" id="vDA-NM-Qmg"/>
                         </constraints>
                     </view>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ANi-JL-b4H" userLabel="Upper Right View">
-                        <rect key="frame" x="207" y="0.0" width="207" height="40"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Oy-1F-kid" userLabel="Lower View">
+                        <rect key="frame" x="0.0" y="35" width="414" height="35"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="誰々の" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="14O-KF-h4P" userLabel="Debtor Label">
-                                <rect key="frame" x="66" y="7.5" width="75" height="25"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¥ 86400 円" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="2xh-Dd-LvR" userLabel="Lower Label">
+                                <rect key="frame" x="136.5" y="5" width="141.5" height="25"/>
                                 <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="14O-KF-h4P" firstAttribute="centerY" secondItem="ANi-JL-b4H" secondAttribute="centerY" id="Igm-I7-eFo"/>
-                            <constraint firstItem="14O-KF-h4P" firstAttribute="centerX" secondItem="ANi-JL-b4H" secondAttribute="centerX" id="uiM-DQ-a02"/>
-                        </constraints>
-                    </view>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cOQ-Rj-efG" userLabel="Lower Left View">
-                        <rect key="frame" x="0.0" y="40" width="207" height="40"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="お土産代で" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="puy-VV-ddy" userLabel="Type Label">
-                                <rect key="frame" x="41" y="7.5" width="125" height="25"/>
-                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="25"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <constraints>
-                            <constraint firstItem="puy-VV-ddy" firstAttribute="centerX" secondItem="cOQ-Rj-efG" secondAttribute="centerX" id="jwj-pW-sXK"/>
-                            <constraint firstItem="puy-VV-ddy" firstAttribute="centerY" secondItem="cOQ-Rj-efG" secondAttribute="centerY" id="yxu-3f-yc8"/>
-                        </constraints>
-                    </view>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lhn-9u-EIn" userLabel="Lower Right View">
-                        <rect key="frame" x="207" y="40" width="207" height="40"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3500円" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="e0B-U9-tQR" userLabel="Price Label">
-                                <rect key="frame" x="58" y="7.5" width="91" height="25"/>
-                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="25"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <constraints>
-                            <constraint firstItem="e0B-U9-tQR" firstAttribute="centerX" secondItem="lhn-9u-EIn" secondAttribute="centerX" id="5yA-UN-0NN"/>
-                            <constraint firstItem="e0B-U9-tQR" firstAttribute="centerY" secondItem="lhn-9u-EIn" secondAttribute="centerY" id="cFo-2N-jr5"/>
+                            <constraint firstItem="2xh-Dd-LvR" firstAttribute="top" secondItem="6Oy-1F-kid" secondAttribute="top" constant="5" id="CoQ-Nf-VZk"/>
+                            <constraint firstItem="2xh-Dd-LvR" firstAttribute="centerX" secondItem="6Oy-1F-kid" secondAttribute="centerX" id="cmK-Lu-iKK"/>
+                            <constraint firstAttribute="bottom" secondItem="2xh-Dd-LvR" secondAttribute="bottom" constant="5" id="f6g-fu-e93"/>
+                            <constraint firstItem="2xh-Dd-LvR" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Oy-1F-kid" secondAttribute="leading" constant="20" id="hR2-so-usC"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="2xh-Dd-LvR" secondAttribute="trailing" constant="20" id="nnU-MF-0Kc"/>
                         </constraints>
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="cOQ-Rj-efG" firstAttribute="height" secondItem="BWD-gO-hUL" secondAttribute="height" multiplier="0.5" id="2Rk-11-vLg"/>
-                    <constraint firstItem="lhn-9u-EIn" firstAttribute="width" secondItem="BWD-gO-hUL" secondAttribute="width" multiplier="0.5" id="9yv-SN-2JB"/>
-                    <constraint firstItem="oEE-eZ-v9X" firstAttribute="width" secondItem="BWD-gO-hUL" secondAttribute="width" multiplier="0.5" id="CO0-Hh-e3I"/>
-                    <constraint firstItem="ANi-JL-b4H" firstAttribute="width" secondItem="BWD-gO-hUL" secondAttribute="width" multiplier="0.5" id="EvB-ZK-nws"/>
-                    <constraint firstItem="ANi-JL-b4H" firstAttribute="height" secondItem="BWD-gO-hUL" secondAttribute="height" multiplier="0.5" id="MeJ-5L-NFh"/>
-                    <constraint firstItem="oEE-eZ-v9X" firstAttribute="leading" secondItem="BWD-gO-hUL" secondAttribute="leading" id="Nam-5F-Lr3"/>
-                    <constraint firstItem="oEE-eZ-v9X" firstAttribute="top" secondItem="BWD-gO-hUL" secondAttribute="top" id="O7C-p4-DnI"/>
-                    <constraint firstItem="lhn-9u-EIn" firstAttribute="height" secondItem="BWD-gO-hUL" secondAttribute="height" multiplier="0.5" id="QmU-cb-dVF"/>
-                    <constraint firstAttribute="bottom" secondItem="cOQ-Rj-efG" secondAttribute="bottom" id="R1c-1j-VeT"/>
-                    <constraint firstItem="cOQ-Rj-efG" firstAttribute="width" secondItem="BWD-gO-hUL" secondAttribute="width" multiplier="0.5" id="Yp6-33-kV7"/>
-                    <constraint firstAttribute="trailing" secondItem="ANi-JL-b4H" secondAttribute="trailing" id="ZKa-At-yi0"/>
-                    <constraint firstItem="oEE-eZ-v9X" firstAttribute="height" secondItem="BWD-gO-hUL" secondAttribute="height" multiplier="0.5" id="Zb4-Vn-a1Y"/>
-                    <constraint firstAttribute="trailing" secondItem="lhn-9u-EIn" secondAttribute="trailing" id="eAd-rr-aDK"/>
-                    <constraint firstItem="cOQ-Rj-efG" firstAttribute="leading" secondItem="BWD-gO-hUL" secondAttribute="leading" id="eiN-ew-rp0"/>
-                    <constraint firstItem="ANi-JL-b4H" firstAttribute="top" secondItem="BWD-gO-hUL" secondAttribute="top" id="s5W-1b-OBI"/>
-                    <constraint firstAttribute="bottom" secondItem="lhn-9u-EIn" secondAttribute="bottom" id="yJ1-R3-pH1"/>
+                    <constraint firstItem="6Oy-1F-kid" firstAttribute="height" secondItem="BWD-gO-hUL" secondAttribute="height" multiplier="0.5" id="35A-8T-NJr"/>
+                    <constraint firstAttribute="trailing" secondItem="6Oy-1F-kid" secondAttribute="trailing" id="L5F-yh-sYg"/>
+                    <constraint firstAttribute="trailing" secondItem="kPv-hL-s1L" secondAttribute="trailing" id="Lmq-g1-kvs"/>
+                    <constraint firstItem="kPv-hL-s1L" firstAttribute="height" secondItem="BWD-gO-hUL" secondAttribute="height" multiplier="0.5" id="T4X-z4-fBM"/>
+                    <constraint firstItem="6Oy-1F-kid" firstAttribute="leading" secondItem="BWD-gO-hUL" secondAttribute="leading" id="kwp-RB-ziR"/>
+                    <constraint firstItem="kPv-hL-s1L" firstAttribute="leading" secondItem="BWD-gO-hUL" secondAttribute="leading" id="nts-Jg-tx8"/>
+                    <constraint firstAttribute="bottom" secondItem="6Oy-1F-kid" secondAttribute="bottom" id="nzw-36-VFX"/>
+                    <constraint firstItem="kPv-hL-s1L" firstAttribute="top" secondItem="BWD-gO-hUL" secondAttribute="top" id="tMf-yK-bvg"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="debtorLabel" destination="14O-KF-h4P" id="bXr-lq-7LM"/>
-                <outlet property="payerLabel" destination="uZX-3A-up4" id="yxJ-bi-iZV"/>
-                <outlet property="priceLabel" destination="e0B-U9-tQR" id="EVL-6U-bVV"/>
-                <outlet property="typeLabel" destination="puy-VV-ddy" id="VcA-mV-cWD"/>
+                <outlet property="lowerLabel" destination="2xh-Dd-LvR" id="ocb-qA-2gk"/>
+                <outlet property="upperLabel" destination="hMV-9C-HdV" id="ahE-wn-5sj"/>
             </connections>
             <point key="canvasLocation" x="34.782608695652179" y="93.75"/>
         </tableViewCell>

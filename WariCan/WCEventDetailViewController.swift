@@ -242,7 +242,7 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
             WCRealmHelper.init().addPaymentToEvent(event: self.eventData, payment: payment)
             // ********************************
             
-            self.paymentTableView.reloadData()
+            self.refreshTableViews()
         }
         
         // **以下、警告ラベルを表示させる処理**
@@ -330,8 +330,7 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
         case 0:         // 支払いのテーブルビュー
             let cell = tableView.dequeueReusableCell(withIdentifier: "PaymentCell") as! WCPaymentCell
             let payment = self.eventData.payments[indexPath.row]
-            let debtorText = payment.debtor.count.description + "人分"
-            cell.setupPayment(payer: payment.payerName, type: payment.typeName, debtor: debtorText, price: Int(payment.price).description + "円")
+            cell.setupPayment(payer: payment.payerName, debtorCount: payment.debtor.count.description, type: payment.typeName, price: Int(payment.price).description)
             return cell
         case 1:         // 「誰が？」のテーブルビュー
             let cell = tableView.dequeueReusableCell(withIdentifier: "PayerCell") as! WCPayerCell
@@ -380,7 +379,7 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch tableView.tag {
         case 0:         // 支払いのテーブルビュー
-            return 80
+            return 70
         case 1:         // 「誰が？」のテーブルビュー
             return 50
         case 2:         // 「誰の？」のテーブルビュー

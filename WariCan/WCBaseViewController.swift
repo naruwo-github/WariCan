@@ -53,7 +53,10 @@ class WCBaseViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell") as! WCEventCell
-        cell.setupEvent(event: self.eventData[indexPath.row].title)
+        let event = self.eventData[indexPath.row]
+        let eventTitle = event.title
+        let memberNum = event.participants.count
+        cell.setupEvent(event: eventTitle + " / " + memberNum.description + "人")
         return cell
     }
     

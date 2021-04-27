@@ -9,10 +9,8 @@ import UIKit
 
 class WCPaymentCell: UITableViewCell {
     
-    @IBOutlet private weak var payerLabel: UILabel!
-    @IBOutlet private weak var debtorLabel: UILabel!
-    @IBOutlet private weak var typeLabel: UILabel!
-    @IBOutlet private weak var priceLabel: UILabel!
+    @IBOutlet private weak var upperLabel: UILabel!
+    @IBOutlet private weak var lowerLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,11 +20,9 @@ class WCPaymentCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    public func setupPayment(payer: String, type: String, debtor: String, price: String) {
-        self.payerLabel.text = payer
-        self.typeLabel.text = type
-        self.debtorLabel.text = debtor
-        self.priceLabel.text = price
+    public func setupPayment(payer: String, debtorCount: String, type: String, price: String) {
+        self.upperLabel.text = payer + "が " + debtorCount + "人分の " + type + "で"
+        self.lowerLabel.text = "¥ " + price + " 円"
     }
     
 }
