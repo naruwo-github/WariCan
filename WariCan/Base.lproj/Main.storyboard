@@ -102,14 +102,14 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="〜らくらくワリカンアプリ〜" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZZf-pV-qzw">
-                                <rect key="frame" x="57.5" y="133.5" width="260" height="20"/>
+                                <rect key="frame" x="57.5" y="128.5" width="260" height="20"/>
                                 <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="20"/>
                                 <color key="textColor" systemColor="systemTealColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wari Can¥" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="30" translatesAutoresizingMaskIntoConstraints="NO" id="8Yy-Gy-1Og">
-                                <rect key="frame" x="20" y="58.5" width="335" height="60"/>
-                                <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="60"/>
+                                <rect key="frame" x="46" y="68.5" width="283" height="50"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="50"/>
                                 <color key="textColor" systemColor="systemTealColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -121,7 +121,7 @@
                             <constraint firstItem="K2r-tB-6Rd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="51k-vu-Pgi"/>
                             <constraint firstItem="d6g-Ie-1x1" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="8l2-VC-17P"/>
                             <constraint firstItem="K2r-tB-6Rd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="AkD-fG-Z1U"/>
-                            <constraint firstItem="ZZf-pV-qzw" firstAttribute="top" secondItem="8Yy-Gy-1Og" secondAttribute="bottom" constant="15" id="Cbs-k6-Tbj"/>
+                            <constraint firstItem="ZZf-pV-qzw" firstAttribute="top" secondItem="8Yy-Gy-1Og" secondAttribute="bottom" constant="10" id="Cbs-k6-Tbj"/>
                             <constraint firstItem="8Yy-Gy-1Og" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="DNC-Dm-Rt0"/>
                             <constraint firstItem="o4H-ru-dbP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="JhY-Wh-Te9"/>
                             <constraint firstItem="K2r-tB-6Rd" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="KKT-a9-DLb"/>
@@ -131,7 +131,7 @@
                             <constraint firstItem="d6g-Ie-1x1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="bAu-iT-zUN"/>
                             <constraint firstItem="K2r-tB-6Rd" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.45" id="hyg-kU-YR1"/>
                             <constraint firstAttribute="bottom" secondItem="d6g-Ie-1x1" secondAttribute="bottom" id="ihs-kz-TTj"/>
-                            <constraint firstItem="K2r-tB-6Rd" firstAttribute="top" secondItem="ZZf-pV-qzw" secondAttribute="bottom" constant="30" id="nmT-xj-3Dp"/>
+                            <constraint firstItem="K2r-tB-6Rd" firstAttribute="top" secondItem="ZZf-pV-qzw" secondAttribute="bottom" constant="35" id="nmT-xj-3Dp"/>
                             <constraint firstItem="ZZf-pV-qzw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="oIS-61-SVa"/>
                             <constraint firstItem="MX4-y1-VH9" firstAttribute="top" secondItem="K2r-tB-6Rd" secondAttribute="bottom" constant="25" id="sni-0p-6SU"/>
                         </constraints>
@@ -487,8 +487,8 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ワリカン旅行" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="26h-oD-DWY">
-                                        <rect key="frame" x="20" y="33.5" width="335" height="60"/>
-                                        <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="60"/>
+                                        <rect key="frame" x="37.5" y="43.5" width="300" height="50"/>
+                                        <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="50"/>
                                         <color key="textColor" systemColor="systemTealColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -581,14 +581,14 @@
                                             <constraint firstItem="zP3-mx-qkm" firstAttribute="top" secondItem="Ldk-lb-HeR" secondAttribute="bottom" id="tvM-6H-eDH"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ワリカン結果" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="vIx-qN-AzF">
-                                        <rect key="frame" x="112.5" y="498.5" width="150" height="25"/>
-                                        <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="25"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="ワリカン結果！" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="vIx-qN-AzF">
+                                        <rect key="frame" x="82.5" y="498.5" width="210" height="28"/>
+                                        <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="30"/>
                                         <color key="textColor" systemColor="systemTealColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="GKf-2G-o0u" userLabel="Result Label">
-                                        <rect key="frame" x="45.5" y="533.5" width="284" height="80"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="GKf-2G-o0u" userLabel="Result Label">
+                                        <rect key="frame" x="45.5" y="536.5" width="284" height="80"/>
                                         <string key="text">割り勘太郎→割り勘二郎 1400
 割り勘太郎→割り勘三郎 700
 割り勘三郎→割り勘二郎 1800
@@ -617,7 +617,7 @@
                                     <constraint firstItem="vIx-qN-AzF" firstAttribute="top" secondItem="yJv-zN-CXw" secondAttribute="bottom" constant="15" id="jr8-f5-g1c"/>
                                     <constraint firstItem="ycz-2l-XWe" firstAttribute="centerX" secondItem="auE-be-Sej" secondAttribute="centerX" id="npU-s2-6wT"/>
                                     <constraint firstItem="vIx-qN-AzF" firstAttribute="centerX" secondItem="rEH-4C-TlI" secondAttribute="centerX" id="pma-2d-vUA"/>
-                                    <constraint firstItem="d1Y-Jr-Vno" firstAttribute="top" relation="greaterThanOrEqual" secondItem="GKf-2G-o0u" secondAttribute="bottom" constant="2" id="q7a-bC-0iG"/>
+                                    <constraint firstItem="d1Y-Jr-Vno" firstAttribute="top" relation="greaterThanOrEqual" secondItem="GKf-2G-o0u" secondAttribute="bottom" id="q7a-bC-0iG"/>
                                     <constraint firstItem="26h-oD-DWY" firstAttribute="centerX" secondItem="rEH-4C-TlI" secondAttribute="centerX" id="qvA-dN-F9M"/>
                                     <constraint firstItem="d1Y-Jr-Vno" firstAttribute="centerX" secondItem="rEH-4C-TlI" secondAttribute="centerX" id="rVI-M8-fLe"/>
                                     <constraint firstItem="yJv-zN-CXw" firstAttribute="centerX" secondItem="rEH-4C-TlI" secondAttribute="centerX" id="sT6-tX-wPH"/>

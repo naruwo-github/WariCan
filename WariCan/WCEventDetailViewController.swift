@@ -185,20 +185,24 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
     
     // 割り勘の計算データを受け取り、結果ラベルを設定する関数　金額はIntで丸めている
     private func setResultLabelText(resultData: [String: Double]) {
-        let sortedResultData = resultData.sorted { $0.value < $1.value } // 支払額の昇順でソート
-        let valuesList = sortedResultData.map { $0.value } // 金額だけのリスト
-        let longestDigitCount = Int(valuesList.max()!).description.count // 一番大きい金額の文字数
-        var resultText = ""
-        for i in sortedResultData {
-            // TODO: 1, 10, 100円単位で丸める操作を選べるようにすべし！
-            let keyElements = i.key.components(separatedBy: "to")
-            var priceString = Int(i.value).description
-            for _ in 0..<(longestDigitCount - priceString.count) {
-                priceString = "  " + priceString
+        if resultData.count > 0 {
+            let sortedResultData = resultData.sorted { $0.value < $1.value } // 支払額の昇順でソート
+            let valuesList = sortedResultData.map { $0.value } // 金額だけのリスト
+            let longestDigitCount = Int(valuesList.max()!).description.count // 一番大きい金額の文字数
+            var resultText = ""
+            for i in sortedResultData {
+                // TODO: 1, 10, 100円単位で丸める操作を選べるようにすべし！
+                let keyElements = i.key.components(separatedBy: "to")
+                var priceString = Int(i.value).description
+                for _ in 0..<(longestDigitCount - priceString.count) {
+                    priceString = "  " + priceString
+                }
+                resultText += keyElements.first! + " ⇨ " + keyElements.last! + " " + priceString + "円" + "\n"
             }
-            resultText += keyElements.first! + " ⇨ " + keyElements.last! + " " + priceString + "円" + "\n"
+            self.resultLabel.text = resultText
+        } else {
+            self.resultLabel.text = "支払いを入力すると、\n二郎 ⇨ 太郎 1500円\n三郎 ⇨ 太郎   960円\nのように結果を表示します！"
         }
-        self.resultLabel.text = resultText
     }
     
     // 「支払いを追加」ボタン
