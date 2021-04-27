@@ -151,14 +151,17 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
             let paidTooMuch = sortedBalanceDict.first!.value
             let paidLess = sortedBalanceDict.last!.value
             
-            if paidTooMuch == 0 || paidLess == 0 {
+            if (paidTooMuch == 0 || paidLess == 0)
+                || (paidTooMuch < 1 && abs(paidLess) < 1) {
+                // 過払い額または過不足額が0になれば、割り勘計算が終了するためbreak
+                // 小数点以下の計算によっては完全に0にならない場合があるため < 1 という条件も入れておく
                 break
             }
             
             // ③：リストの最後（最大債務者, 出費=L）がリストの最初（最大債権者, F）に min(F, |L|) を支払ってバランスを再計算
             let refund = min(paidTooMuch, abs(paidLess))
-            let tooMuchPayer = sortedBalanceDict[0].key
-            let lessPayer = sortedBalanceDict[sortedBalanceDict.count - 1].key
+            let tooMuchPayer = sortedBalanceDict.first!.key
+            let lessPayer = sortedBalanceDict.last!.key
             let key = lessPayer + "to" + tooMuchPayer
             if resultData.keys.contains(key) {
                 // 更新処理
@@ -173,9 +176,12 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
             
         }
         
-        let sortedResultData = resultData.sorted { $0.key < $1.key }
+//        let sortedResultData = resultData.sorted { $0.key < $1.key } // 名前の順でソート
+        let sortedResultData = resultData.sorted { $0.value < $1.value } // 名前の順でソート
         var resultText = ""
         for i in sortedResultData {
+            // 値はintにして1円単位で出す
+            // TODO: 1, 10, 100円単位で丸める操作を選べるようにすべし！
             resultText += i.key + " " + Int(i.value).description + "円" + "\n"
         }
         // 結果のテキストを設定
