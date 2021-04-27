@@ -8,7 +8,8 @@
 import GoogleMobileAds
 import UIKit
 
-class WCEventRegistrationViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+// MARK: イベント作成画面のVC
+class WCEventRegistrationViewController: UIViewController {
     
     @IBOutlet private weak var eventTitleTextField: UITextField!
     @IBOutlet private weak var topWarningLabel: UILabel!
@@ -153,6 +154,21 @@ class WCEventRegistrationViewController: UIViewController, UITableViewDelegate, 
         }
     }
     
+    // 「名前は？」フィールドがタップされたとき
+    @IBAction private func eventTitleFocused(_ sender: Any) {
+        self.topWarningLabel.isHidden = true
+    }
+    
+    // 「名前は？」フィールドのテキストが入力中のとき
+    @IBAction private func eventTitleChanged(_ sender: Any) {
+        self.topWarningLabel.isHidden = true
+    }
+    
+}
+
+// MARK: UITableViewの設定のための拡張
+extension WCEventRegistrationViewController: UITableViewDelegate, UITableViewDataSource {
+    
     // セルの個数を設定
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.participantList.count
@@ -185,16 +201,6 @@ class WCEventRegistrationViewController: UIViewController, UITableViewDelegate, 
     // セルの高さを設定
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50
-    }
-    
-    // 「名前は？」フィールドがタップされたとき
-    @IBAction private func eventTitleFocused(_ sender: Any) {
-        self.topWarningLabel.isHidden = true
-    }
-    
-    // 「名前は？」フィールドのテキストが入力中のとき
-    @IBAction private func eventTitleChanged(_ sender: Any) {
-        self.topWarningLabel.isHidden = true
     }
     
 }

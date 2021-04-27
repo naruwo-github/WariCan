@@ -16,7 +16,8 @@ import RealmSwift
 // ④：全員のバランスが 0 になるまで ②-③ を繰り返す
 // ***************************
 
-class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+// MARK: イベント詳細画面のVC
+class WCEventDetailViewController: UIViewController {
     
     @IBOutlet private weak var tripTitleLabel: UILabel!
     @IBOutlet private weak var addPaymentButton: WCCustomUIButton!
@@ -288,6 +289,11 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
         // テキストフィールドをタップした時
         self.priceWarningLabel.isHidden = true
     }
+    
+}
+
+// MARK: UITableView周りの設定のための拡張
+extension WCEventDetailViewController: UITableViewDelegate, UITableViewDataSource {
     
     // テーブルビューのセルの個数を返す
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

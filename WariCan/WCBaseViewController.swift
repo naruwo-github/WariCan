@@ -10,7 +10,8 @@ import RealmSwift
 
 import UIKit
 
-class WCBaseViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+// MARK: 初期画面（イベント選択画面）のVC
+class WCBaseViewController: UIViewController {
     
     @IBOutlet private weak var bottomBannerView: GADBannerView!
     @IBOutlet private weak var eventTableView: UITableView!
@@ -46,6 +47,11 @@ class WCBaseViewController: UIViewController, UITableViewDelegate, UITableViewDa
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true, completion: nil)
     }
+    
+}
+
+// MARK: UITableViewの設定のための拡張
+extension WCBaseViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.eventData.count
