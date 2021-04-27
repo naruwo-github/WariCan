@@ -38,7 +38,10 @@ class WCEventDetailViewController: UIViewController {
     @IBOutlet private weak var closeButton: WCCustomUIButton!
     
     private let adTestId = "ca-app-pub-3940256099942544/2934735716"
-    private let adId = "ca-app-pub-6492692627915720/6116539333" // TODO: リリース時はこっち！
+    private let bannerAdId = "ca-app-pub-6492692627915720/7293655521" // TODO: リリース時はこっち！
+    private let interstitialAdTestId = "ca-app-pub-3940256099942544/4411468910"
+    private let interstitialAdId = "ca-app-pub-6492692627915720/3162838820" // TODO: リリース時はこっち！
+    private var interstitial: GADInterstitialAd?
     
     private var payerCellIndex: Int = 0 // 支払い主のセルのインデックス（この値は一つだけ）
     private var debtorCellIndexList: [Int] = [] // 払われた人のインデックスのリスト（初期値は空で）
@@ -64,6 +67,27 @@ class WCEventDetailViewController: UIViewController {
         self.bottomBannerView.adUnitID = adTestId
         self.bottomBannerView.rootViewController = self
         self.bottomBannerView.load(GADRequest())
+        
+        GADInterstitialAd.load(withAdUnitID: self.interstitialAdTestId,
+                               request: GADRequest(),
+                               completionHandler: { [self] ad, error in
+                                if let error = error {
+                                    print("Failed to load interstitial ad with error: \(error.localizedDescription)")
+                                    return
+                                }
+                                self.interstitial = ad
+                               }
+        )
+    }
+    
+    private func showInterstitialAd() {
+        // TODO: 7回くらい追加したら広告出すようにするか
+        // UserDefaultsでデータ持つか
+        if self.interstitial != nil {
+            self.interstitial!.present(fromRootViewController: self)
+        } else {
+            print("Ad wasn't ready")
+        }
     }
     
     private func setupTextFieldKeyboard() {
@@ -244,6 +268,9 @@ class WCEventDetailViewController: UIViewController {
             // ********************************
             
             self.refreshTableViews()
+            
+            // インタースティシャル広告を一定確率で表示
+            self.showInterstitialAd()
         }
         
         // **以下、警告ラベルを表示させる処理**
