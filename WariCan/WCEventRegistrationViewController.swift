@@ -24,11 +24,10 @@ class WCEventRegistrationViewController: UIViewController, UITableViewDelegate, 
     @IBOutlet private weak var nameRegisterTextField: UITextField!
     @IBOutlet private weak var addButton: WCCustomUIButton!
     
-    private let adTestId = "ca-app-pub-3940256099942544/2934735716"
-    // TODO: リリースビルドでは、本物の広告IDを使う！
+//    private let adTestId = "ca-app-pub-3940256099942544/2934735716"
     private let adId = "ca-app-pub-6492692627915720/6116539333"
     
-    // TODO: 暫定的に置いてるリスト　Realmでデータを管理すべし
+    // 参加者のリスト（この画面内ではDBに保存せず一時的にクラス内部で保持）
     private var participantList: [String] = []
     // 参加者名の編集中を表すフラグ
     private var peopleNameEdittingFlag = false
@@ -44,7 +43,7 @@ class WCEventRegistrationViewController: UIViewController, UITableViewDelegate, 
     }
     
     private func setupAd() {
-        self.bottomBannerView.adUnitID = adTestId
+        self.bottomBannerView.adUnitID = adId
         self.bottomBannerView.rootViewController = self
         self.bottomBannerView.load(GADRequest())
     }

@@ -9,6 +9,13 @@ import UIKit
 import GoogleMobileAds
 import RealmSwift
 
+// *** WariCan結果算出アイデア ***
+// ①：全員の出費を算出（払い過ぎは正、払わな過ぎは負）
+// ②：降順でソート（出費過多が先頭に）
+// ③：リストの最後（最大債務者, 出費=L）がリストの最初（最大債権者, F）に min(F, |L|) を支払ってバランスを再計算
+// ④：全員のバランスが 0 になるまで ②-③ を繰り返す
+// ***************************
+
 class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet private weak var tripTitleLabel: UILabel!
@@ -29,8 +36,7 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet private weak var addButton: WCCustomUIButton!
     @IBOutlet private weak var closeButton: WCCustomUIButton!
     
-    private let adTestId = "ca-app-pub-3940256099942544/2934735716"
-    // TODO: リリースビルドでは、本物の広告IDを使う！
+//    private let adTestId = "ca-app-pub-3940256099942544/2934735716"
     private let adId = "ca-app-pub-6492692627915720/6116539333"
     
     private var payerCellIndex: Int = 0 // 支払い主のセルのインデックス（この値は一つだけ）
@@ -54,7 +60,7 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     private func setupAd() {
-        self.bottomBannerView.adUnitID = adTestId
+        self.bottomBannerView.adUnitID = adId
         self.bottomBannerView.rootViewController = self
         self.bottomBannerView.load(GADRequest())
     }
@@ -104,13 +110,6 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
     
     // TODO: 関数内が長くなるので、後で切り出しする
     private func setWariCanResultText() {
-        // *** WariCan結果算出アイデア ***
-        // ①：全員の出費を算出（払い過ぎは正、払わな過ぎは負）
-        // ②：降順でソート（出費過多が先頭に）
-        // ③：リストの最後（最大債務者, 出費=L）がリストの最初（最大債権者, F）に min(F, |L|) を支払ってバランスを再計算
-        // ④：全員のバランスが 0 になるまで ②-③ を繰り返す
-        // ***************************
-        
         // ①：全員の出費を算出（払い過ぎは正、払わな過ぎは負）し格納する
         // ["太郎": 6600, "二郎": -1500, "三郎": 1900, ...]の形式
         var balanceDict: [String: Double] = [:]
@@ -177,15 +176,17 @@ class WCEventDetailViewController: UIViewController, UITableViewDelegate, UITabl
             
         }
         
-//        let sortedResultData = resultData.sorted { $0.key < $1.key } // 名前の順でソート
-        let sortedResultData = resultData.sorted { $0.value < $1.value } // 名前の順でソート
+        self.setResultLabelText(resultData: resultData)
+    }
+    
+    // 割り勘の計算データを受け取り、結果ラベルを設定する関数
+    private func setResultLabelText(resultData: [String: Double]) {
+        let sortedResultData = resultData.sorted { $0.value < $1.value } // 支払額の昇順でソート
         var resultText = ""
         for i in sortedResultData {
-            // 値はintにして1円単位で出す
             // TODO: 1, 10, 100円単位で丸める操作を選べるようにすべし！
-            resultText += i.key + " " + Int(i.value).description + "円" + "\n"
+            resultText += i.key + " " + Int(i.value).description + "円" + "\n" // 値はintにして1円単位で出す
         }
-        // 結果のテキストを設定
         self.resultLabel.text = resultText
     }
     
