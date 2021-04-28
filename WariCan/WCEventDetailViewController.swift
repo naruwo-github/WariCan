@@ -411,6 +411,7 @@ extension WCEventDetailViewController: UITableViewDelegate, UITableViewDataSourc
         default:        // ここにはこない想定
             fatalError()
         }
+        self.refreshTableViews()
     }
     
     // 各セルの高さを設定する関数

@@ -96,9 +96,9 @@ class WCEventRegistrationViewController: UIViewController {
     
     // 「はじめる」ボタン
     @IBAction private func startButtonTapped(_ sender: Any) {
-        // イベント名が入力済みで、参加者が一人以上いればイベント作成
+        // イベント名が入力済みで、参加者が2人以上いればイベント作成
         if !(self.eventTitleTextField.text ?? "").isEmpty
-            && self.participantList.count > 0 {
+            && self.participantList.count >= 2 {
             
             // **イベントデータ保存**
             let event = Event()
@@ -121,8 +121,8 @@ class WCEventRegistrationViewController: UIViewController {
         if (self.eventTitleTextField.text ?? "").isEmpty {
             self.topWarningLabel.isHidden = false
         }
-        // 参加者が一人もいない場合の警告メッセージ
-        if self.participantList.count == 0 {
+        // 参加者が2人未満の場合の警告メッセージ
+        if self.participantList.count < 2 {
             self.peopleWarningLabel.isHidden = false
         }
     }
@@ -200,7 +200,7 @@ extension WCEventRegistrationViewController: UITableViewDelegate, UITableViewDat
     
     // セルの高さを設定
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
+        return 55
     }
     
 }

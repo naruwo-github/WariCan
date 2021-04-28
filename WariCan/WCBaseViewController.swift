@@ -82,4 +82,9 @@ extension WCBaseViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+    // セルの高さを設定
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 55
+    }
+    
 }

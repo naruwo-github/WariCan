@@ -68,6 +68,18 @@
                                     <constraint firstItem="5EH-kO-GsW" firstAttribute="height" secondItem="K2r-tB-6Rd" secondAttribute="height" multiplier="0.8" id="WNv-i6-P3M"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wari Can¥" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="30" translatesAutoresizingMaskIntoConstraints="NO" id="8Yy-Gy-1Og">
+                                <rect key="frame" x="65.5" y="131.5" width="283" height="50"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="50"/>
+                                <color key="textColor" systemColor="systemTealColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="〜らくらくワリカンアプリ〜" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZZf-pV-qzw">
+                                <rect key="frame" x="77" y="191.5" width="260" height="20"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="20"/>
+                                <color key="textColor" systemColor="systemTealColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MX4-y1-VH9" userLabel="Start Button" customClass="WCCustomUIButton" customModule="WariCan" customModuleProvider="target">
                                 <rect key="frame" x="97" y="674.5" width="220" height="50"/>
                                 <color key="backgroundColor" systemColor="systemTealColor"/>
@@ -101,16 +113,19 @@
                                     <action selector="startButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gKp-D4-dW5"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="〜らくらくワリカンアプリ〜" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZZf-pV-qzw">
-                                <rect key="frame" x="77" y="191.5" width="260" height="20"/>
-                                <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="20"/>
-                                <color key="textColor" systemColor="systemTealColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wari Can¥" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="30" translatesAutoresizingMaskIntoConstraints="NO" id="8Yy-Gy-1Og">
-                                <rect key="frame" x="65.5" y="131.5" width="283" height="50"/>
-                                <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="50"/>
-                                <color key="textColor" systemColor="systemTealColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="Ibl-tj-cKn" userLabel="Result Label">
+                                <rect key="frame" x="94.5" y="744.5" width="225" height="35"/>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">＊セルをタップすると詳細画面へ
+＊セルを左にスワイプすると削除</string>
+                                        <attributes>
+                                            <color key="NSColor" systemColor="systemTealColor"/>
+                                            <font key="NSFont" size="15" name="HiraginoSans-W6"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" lineSpacing="5" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -125,12 +140,14 @@
                             <constraint firstItem="8Yy-Gy-1Og" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="DNC-Dm-Rt0"/>
                             <constraint firstItem="o4H-ru-dbP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="JhY-Wh-Te9"/>
                             <constraint firstItem="K2r-tB-6Rd" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="KKT-a9-DLb"/>
+                            <constraint firstItem="Ibl-tj-cKn" firstAttribute="top" secondItem="MX4-y1-VH9" secondAttribute="bottom" constant="20" id="RKP-Wi-pFc"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="d6g-Ie-1x1" secondAttribute="trailing" id="SDq-oA-F2M"/>
                             <constraint firstItem="8Yy-Gy-1Og" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="U7s-Ev-YLA"/>
                             <constraint firstItem="o4H-ru-dbP" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="XRC-o2-hSF"/>
                             <constraint firstItem="d6g-Ie-1x1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="bAu-iT-zUN"/>
                             <constraint firstItem="K2r-tB-6Rd" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.45" id="hyg-kU-YR1"/>
                             <constraint firstAttribute="bottom" secondItem="d6g-Ie-1x1" secondAttribute="bottom" id="ihs-kz-TTj"/>
+                            <constraint firstItem="Ibl-tj-cKn" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kiF-Ct-DC0"/>
                             <constraint firstItem="K2r-tB-6Rd" firstAttribute="top" secondItem="ZZf-pV-qzw" secondAttribute="bottom" constant="35" id="nmT-xj-3Dp"/>
                             <constraint firstItem="ZZf-pV-qzw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="oIS-61-SVa"/>
                             <constraint firstItem="MX4-y1-VH9" firstAttribute="top" secondItem="K2r-tB-6Rd" secondAttribute="bottom" constant="25" id="sni-0p-6SU"/>
@@ -202,8 +219,8 @@
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="＊入力してください" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Mxi-j2-U0N" userLabel="People Warning Label">
-                                                        <rect key="frame" x="97.5" y="55" width="179" height="20"/>
+                                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="＊2人以上必要です" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Mxi-j2-U0N" userLabel="People Warning Label">
+                                                        <rect key="frame" x="100" y="55" width="174.5" height="20"/>
                                                         <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="20"/>
                                                         <color key="textColor" systemColor="systemRedColor"/>
                                                         <nil key="highlightedColor"/>
