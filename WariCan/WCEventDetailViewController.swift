@@ -42,6 +42,7 @@ class WCEventDetailViewController: UIViewController {
     private let interstitialAdTestId = "ca-app-pub-3940256099942544/4411468910"
     private let interstitialAdId = "ca-app-pub-6492692627915720/3162838820" // TODO: リリース時はこっち！
     private var interstitial: GADInterstitialAd?
+    private let interstitialKey = "showInterstitialCounter"
     
     private var payerCellIndex: Int = 0 // 支払い主のセルのインデックス（この値は一つだけ）
     private var debtorCellIndexList: [Int] = [] // 払われた人のインデックスのリスト（初期値は空で）
@@ -81,12 +82,16 @@ class WCEventDetailViewController: UIViewController {
     }
     
     private func showInterstitialAd() {
-        // TODO: 7回くらい追加したら広告出すようにするか
-        // UserDefaultsでデータ持つか
-        if self.interstitial != nil {
-            self.interstitial!.present(fromRootViewController: self)
+        let counter = UserDefaults.standard.integer(forKey: self.interstitialKey)
+        if counter == 5 {
+            UserDefaults.standard.set(0, forKey: self.interstitialKey)
+            if self.interstitial != nil {
+                self.interstitial!.present(fromRootViewController: self)
+            } else {
+                print("Ad wasn't ready")
+            }
         } else {
-            print("Ad wasn't ready")
+            UserDefaults.standard.set(counter + 1, forKey: self.interstitialKey)
         }
     }
     
