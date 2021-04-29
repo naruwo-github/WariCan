@@ -18,7 +18,7 @@ class WCBaseViewController: UIViewController {
     @IBOutlet private weak var startButton: WCCustomUIButton!
     
     private let adTestId = "ca-app-pub-3940256099942544/2934735716"
-    private let adId = "ca-app-pub-6492692627915720/6116539333" // TODO: リリース時はこっち！
+    private let bannerAdId = "ca-app-pub-6492692627915720/6116539333" // TODO: リリース時はこっち！
     
     // 全イベントデータ
     private var eventData: Results<Event>!
@@ -33,7 +33,7 @@ class WCBaseViewController: UIViewController {
     }
     
     private func setupAd() {
-        self.bottomBannerView.adUnitID = adTestId
+        self.bottomBannerView.adUnitID = bannerAdId
         self.bottomBannerView.rootViewController = self
         self.bottomBannerView.load(GADRequest())
     }

@@ -65,11 +65,11 @@ class WCEventDetailViewController: UIViewController {
     }
     
     private func setupAd() {
-        self.bottomBannerView.adUnitID = adTestId
+        self.bottomBannerView.adUnitID = bannerAdId
         self.bottomBannerView.rootViewController = self
         self.bottomBannerView.load(GADRequest())
         
-        GADInterstitialAd.load(withAdUnitID: self.interstitialAdTestId,
+        GADInterstitialAd.load(withAdUnitID: self.interstitialAdId,
                                request: GADRequest(),
                                completionHandler: { [self] ad, error in
                                 if let error = error {
