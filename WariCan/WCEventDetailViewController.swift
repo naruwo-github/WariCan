@@ -37,10 +37,8 @@ class WCEventDetailViewController: UIViewController {
     @IBOutlet private weak var addButton: WCCustomUIButton!
     @IBOutlet private weak var closeButton: WCCustomUIButton!
     
-    private let adTestId = "ca-app-pub-3940256099942544/2934735716"
-    private let bannerAdId = "ca-app-pub-6492692627915720/7293655521" // TODO: リリース時はこっち！
-    private let interstitialAdTestId = "ca-app-pub-3940256099942544/4411468910"
-    private let interstitialAdId = "ca-app-pub-6492692627915720/3162838820" // TODO: リリース時はこっち！
+    private let bannerAdId = "ca-app-pub-6492692627915720/7293655521"
+    private let interstitialAdId = "ca-app-pub-6492692627915720/3162838820"
     private var interstitial: GADInterstitialAd?
     private let interstitialKey = "showInterstitialCounter"
     
