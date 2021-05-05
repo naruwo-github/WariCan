@@ -20,12 +20,9 @@ class WCEventRegistrationViewController: UIViewController {
     @IBOutlet private weak var backButton: WCCustomUIButton!
     @IBOutlet private weak var bottomBannerView: GADBannerView!
     
-    // 参加者追加モーダル
     @IBOutlet private weak var nameRegisterModalView: UIView!
     @IBOutlet private weak var nameRegisterTextField: UITextField!
     @IBOutlet private weak var addButton: WCCustomUIButton!
-    
-    private let bannerAdId = "ca-app-pub-6492692627915720/4859063871"
     
     // 参加者のリスト（この画面内ではDBに保存せず一時的にクラス内部で保持）
     private var participantList: [String] = []
@@ -43,7 +40,7 @@ class WCEventRegistrationViewController: UIViewController {
     }
     
     private func setupAd() {
-        self.bottomBannerView.adUnitID = bannerAdId
+        self.bottomBannerView.adUnitID = WCStringHelper.init().eventRegistrationVCBottomBannerAdId
         self.bottomBannerView.rootViewController = self
         self.bottomBannerView.load(GADRequest())
     }

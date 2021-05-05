@@ -37,15 +37,9 @@ class WCEventDetailViewController: UIViewController {
     @IBOutlet private weak var addButton: WCCustomUIButton!
     @IBOutlet private weak var closeButton: WCCustomUIButton!
     
-    private let bannerAdId = "ca-app-pub-6492692627915720/7293655521"
-    private let interstitialAdId = "ca-app-pub-6492692627915720/3162838820"
     private var interstitial: GADInterstitialAd?
-    private let interstitialKey = "showInterstitialCounter"
-    
     private var payerCellIndex: Int = 0 // 支払い主のセルのインデックス（この値は一つだけ）
     private var debtorCellIndexList: [Int] = [] // 払われた人のインデックスのリスト（初期値は空で）
-    
-    // イベントデータ　setup関数内部で初期化するため強制アンラップ
     private var eventData: Event!
     
     public func setup(eventData: Event) {
@@ -63,11 +57,11 @@ class WCEventDetailViewController: UIViewController {
     }
     
     private func setupAd() {
-        self.bottomBannerView.adUnitID = bannerAdId
+        self.bottomBannerView.adUnitID = WCStringHelper.init().eventDetailVCBottomBannerAdId
         self.bottomBannerView.rootViewController = self
         self.bottomBannerView.load(GADRequest())
         
-        GADInterstitialAd.load(withAdUnitID: self.interstitialAdId,
+        GADInterstitialAd.load(withAdUnitID: WCStringHelper.init().eventDetailVCInterstitialAdId,
                                request: GADRequest(),
                                completionHandler: { [self] ad, error in
                                 if let error = error {
@@ -80,21 +74,21 @@ class WCEventDetailViewController: UIViewController {
     }
     
     private func showInterstitialAd() {
-        let counter = UserDefaults.standard.integer(forKey: self.interstitialKey)
+        let counter = UserDefaults.standard.integer(forKey: WCStringHelper.init().interstitialCounterKey)
         if counter == 5 {
-            UserDefaults.standard.set(0, forKey: self.interstitialKey)
+            UserDefaults.standard.set(0, forKey: WCStringHelper.init().interstitialCounterKey)
             if self.interstitial != nil {
                 self.interstitial!.present(fromRootViewController: self)
             } else {
                 print("Ad wasn't ready")
             }
         } else {
-            UserDefaults.standard.set(counter + 1, forKey: self.interstitialKey)
+            UserDefaults.standard.set(counter + 1, forKey: WCStringHelper.init().interstitialCounterKey)
         }
     }
     
+    // イベント名入力、人名入力のキーボードに対してツールバーを追加
     private func setupTextFieldKeyboard() {
-        // イベント名入力のキーボードに対して
         let typeToolbar = UIToolbar()
         typeToolbar.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 40)
         let typeSpacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self.typeTextField, action: nil)
@@ -102,7 +96,6 @@ class WCEventDetailViewController: UIViewController {
         typeToolbar.items = [typeSpacer, typeKeyboardCloseButton]
         self.typeTextField.inputAccessoryView = typeToolbar
         
-        // 人名入力のキーボードに対して
         let priceToolbar = UIToolbar()
         priceToolbar.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 40)
         let priceSpacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self.priceTextField, action: nil)
@@ -236,7 +229,6 @@ class WCEventDetailViewController: UIViewController {
     // 「支払いを追加」ボタン
     @IBAction private func addPaymentButtonTapped(_ sender: Any) {
         self.paymentModalView.isHidden = false
-        
         self.typeTextField.text = ""
         self.priceTextField.text = ""
         self.typeWarningLabel.isHidden = true
@@ -271,13 +263,11 @@ class WCEventDetailViewController: UIViewController {
             // ********************************
             
             self.refreshTableViews()
-            
             // インタースティシャル広告を一定確率で表示
             self.showInterstitialAd()
         }
         
-        // **以下、警告ラベルを表示させる処理**
-        
+        // 警告ラベルを表示させる処理
         if (self.typeTextField.text ?? "").isEmpty {
             self.typeWarningLabel.isHidden = false
         }
@@ -287,7 +277,6 @@ class WCEventDetailViewController: UIViewController {
         if self.debtorCellIndexList.count == 0 {
             self.debtorWarningLabel.isHidden = false
         }
-        
         // キーボードを閉じる処理
         self.typeTextField.resignFirstResponder()
         self.priceTextField.resignFirstResponder()
@@ -297,7 +286,6 @@ class WCEventDetailViewController: UIViewController {
     @IBAction private func closeButtonTapped(_ sender: Any) {
         self.typeTextField.resignFirstResponder()
         self.priceTextField.resignFirstResponder()
-        
         self.paymentModalView.isHidden = true
     }
     
@@ -308,15 +296,13 @@ class WCEventDetailViewController: UIViewController {
         self.present(vc, animated: true, completion: nil)
     }
     
-    // 「何の代金？」フィールド
+    // 「何の代金？」フィールドをタップした時
     @IBAction func typeFieldFocused(_ sender: Any) {
-        // テキストフィールドをタップした時
         self.typeWarningLabel.isHidden = true
     }
     
-    // 「いくら？」フィールド
+    // 「いくら？」フィールドをタップした時
     @IBAction func priceFieldFocused(_ sender: Any) {
-        // テキストフィールドをタップした時
         self.priceWarningLabel.isHidden = true
     }
     
