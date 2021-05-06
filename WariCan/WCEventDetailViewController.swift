@@ -26,7 +26,6 @@ class WCEventDetailViewController: UIViewController {
     @IBOutlet private weak var paymentTableView: UITableView! // tag=0
     @IBOutlet private weak var resultLabel: UILabel!
     @IBOutlet private weak var bottomBannerView: GADBannerView!
-    
     // 支払い追加モーダル上の要素
     @IBOutlet private weak var paymentModalView: UIView!
     @IBOutlet private weak var debtorWarningLabel: UILabel!
@@ -47,7 +46,6 @@ class WCEventDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tripTitleLabel.text = self.eventData.title
-        
         self.setupAd()
         self.setupTextFieldKeyboard()
         self.setupTableViews()
@@ -63,6 +61,22 @@ class WCEventDetailViewController: UIViewController {
                             self.debtorAppealView.alpha = 0.0
                            })
         }
+    }
+  
+    private func setupAd() {
+        self.bottomBannerView.adUnitID = WCStringHelper.init().eventDetailVCBottomBannerAdId
+        self.bottomBannerView.rootViewController = self
+        self.bottomBannerView.load(GADRequest())
+        
+        GADInterstitialAd.load(withAdUnitID: WCStringHelper.init().eventDetailVCInterstitialAdId,
+                               request: GADRequest(),
+                               completionHandler: { [unowned self] ad, error in
+                                if let error = error {
+                                    print("error: \(error.localizedDescription)")
+                                    return
+                                }
+                                self.interstitial = ad
+                               })
     }
     
     public func setup(eventData: Event) {
@@ -337,50 +351,45 @@ extension WCEventDetailViewController {
 // MARK: UITableView周りの設定のための拡張
 extension WCEventDetailViewController: UITableViewDelegate, UITableViewDataSource {
     
-    // テーブルビューのセルの個数を返す
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch tableView.tag {
-        case 0:         // 支払いのテーブルビュー
+        case 0:                 // 支払いのテーブルビュー
             return self.eventData.payments.count// self.paymentCount
-        case 1:         // 「誰が？」のテーブルビュー
+        case 1:                 // 「誰が？」のテーブルビュー
             return self.eventData.participants.count
-        case 2:         // 「誰の？」のテーブルビュー
+        case 2:                 // 「誰の？」のテーブルビュー
             return self.eventData.participants.count
-        default:        // ここにはこない想定
-            fatalError()
+        default: fatalError()   // ここにはこない想定
         }
     }
     
-    // セルがタップされた時の処理
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch tableView.tag {
-        case 0:         // 支払いのテーブルビュー
+        case 0:                 // 支払いのテーブルビュー
         // TODO: 編集画面に遷移する
         print()
-        case 1:         // 「誰が？」のテーブルビュー
+        case 1:                 // 「誰が？」のテーブルビュー
             self.payerCellIndex = indexPath.row
-        case 2:         // 「誰の？」のテーブルビュー
+        case 2:                 // 「誰の？」のテーブルビュー
             if self.debtorCellIndexList.contains(indexPath.row) {
                 self.debtorCellIndexList.removeAll(where: { $0 == indexPath.row })
             } else {
                 self.debtorCellIndexList.append(indexPath.row)
             }
-        default:        // ここにはこない想定
-            fatalError()
+        default: fatalError()   // ここにはこない想定
         }
         
         self.refreshTableViews()
     }
     
-    // セルの情報・レイアウト設定関数
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch tableView.tag {
-        case 0:         // 支払いのテーブルビュー
+        case 0:                 // 支払いのテーブルビュー
             let cell = tableView.dequeueReusableCell(withIdentifier: "PaymentCell") as! WCPaymentCell
             let payment = self.eventData.payments[indexPath.row]
             cell.setupPayment(payer: payment.payerName, debtorCount: payment.debtor.count.description, type: payment.typeName, price: Int(payment.price).description)
             return cell
-        case 1:         // 「誰が？」のテーブルビュー
+        case 1:                 // 「誰が？」のテーブルビュー
             let cell = tableView.dequeueReusableCell(withIdentifier: "PayerCell") as! WCPayerCell
             cell.setupPayer(payer: self.eventData.participants[indexPath.row].name)
             // 支払い主ならチェックマークを表示
@@ -390,7 +399,7 @@ extension WCEventDetailViewController: UITableViewDelegate, UITableViewDataSourc
                 cell.accessoryType = .none
             }
             return cell
-        case 2:         // 「誰の？」のテーブルビュー
+        case 2:                 // 「誰の？」のテーブルビュー
             let cell = tableView.dequeueReusableCell(withIdentifier: "DebtorCell") as! WCDebtorCell
             cell.setupDebtor(debtor: self.eventData.participants[indexPath.row].name)
             // 支払われている人ならチェックマークを表示
@@ -400,13 +409,11 @@ extension WCEventDetailViewController: UITableViewDelegate, UITableViewDataSourc
                 cell.accessoryType = .none
             }
             return cell
-        default:        // ここにはこない想定
-            fatalError()
+        default: fatalError()   // ここにはこない想定
         }
     }
     
     // TODO: 誰が、誰ののターブルビューでは、削除がうつらないようにしたい
-    // 支払いセルの削除処理
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         switch tableView.tag {
         case 0:         // 支払いのテーブルビューのみ削除処理が可能
@@ -414,27 +421,17 @@ extension WCEventDetailViewController: UITableViewDelegate, UITableViewDataSourc
                 WCRealmHelper.init().delete(object: self.eventData.payments[indexPath.row])
                 tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.automatic)
             }
-        case 1:         // 「誰が？」のテーブルビュー
-            print()
-        case 2:         // 「誰の？」のテーブルビュー
-            print()
-        default:        // ここにはこない想定
-            fatalError()
+        case 1, 2: print("削除はしない")      // 「誰が？」&「誰の？」のテーブルビュー
+        default: fatalError()   // ここにはこない想定
         }
         self.refreshTableViews()
     }
     
-    // 各セルの高さを設定する関数
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch tableView.tag {
-        case 0:         // 支払いのテーブルビュー
-            return 70
-        case 1:         // 「誰が？」のテーブルビュー
-            return 50
-        case 2:         // 「誰の？」のテーブルビュー
-            return 50
-        default:        // ここにはこない想定
-            fatalError()
+        case 0: return 70       // 支払いのテーブルビュー
+        case 1, 2: return 50       // 「誰が？」&「誰の？」のテーブルビュー
+        default: fatalError()   // ここにはこない想定
         }
     }
     
