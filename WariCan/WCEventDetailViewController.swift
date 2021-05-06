@@ -41,10 +41,6 @@ class WCEventDetailViewController: UIViewController {
     private var debtorCellIndexList: [Int] = [] // 払われた人のインデックスのリスト（初期値は空で）
     private var eventData: Event!
     
-    public func setup(eventData: Event) {
-        self.eventData = eventData
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tripTitleLabel.text = self.eventData.title
@@ -54,34 +50,8 @@ class WCEventDetailViewController: UIViewController {
         self.setWariCanResultText()
     }
     
-    private func setupAd() {
-        self.bottomBannerView.adUnitID = WCStringHelper.init().eventDetailVCBottomBannerAdId
-        self.bottomBannerView.rootViewController = self
-        self.bottomBannerView.load(GADRequest())
-        
-        GADInterstitialAd.load(withAdUnitID: WCStringHelper.init().eventDetailVCInterstitialAdId,
-                               request: GADRequest(),
-                               completionHandler: { [unowned self] ad, error in
-                                if let error = error {
-                                    print("error: \(error.localizedDescription)")
-                                    return
-                                }
-                                self.interstitial = ad
-                               })
-    }
-    
-    private func showInterstitialAd() {
-        let counter = UserDefaults.standard.integer(forKey: WCStringHelper.init().interstitialCounterKey)
-        if counter == 5 {
-            UserDefaults.standard.set(0, forKey: WCStringHelper.init().interstitialCounterKey)
-            if self.interstitial != nil {
-                self.interstitial!.present(fromRootViewController: self)
-            } else {
-                print("Ad wasn't ready")
-            }
-        } else {
-            UserDefaults.standard.set(counter + 1, forKey: WCStringHelper.init().interstitialCounterKey)
-        }
+    public func setup(eventData: Event) {
+        self.eventData = eventData
     }
     
     // イベント名入力、人名入力のキーボードに対してツールバーを追加
@@ -305,6 +275,41 @@ class WCEventDetailViewController: UIViewController {
     
 }
 
+// MARK: 広告関連のコードを管理するための拡張
+extension WCEventDetailViewController {
+    
+    private func setupAd() {
+        self.bottomBannerView.adUnitID = WCStringHelper.init().eventDetailVCBottomBannerAdId
+        self.bottomBannerView.rootViewController = self
+        self.bottomBannerView.load(GADRequest())
+        
+        GADInterstitialAd.load(withAdUnitID: WCStringHelper.init().eventDetailVCInterstitialAdId,
+                               request: GADRequest(),
+                               completionHandler: { [unowned self] ad, error in
+                                if let error = error {
+                                    print("error: \(error.localizedDescription)")
+                                    return
+                                }
+                                self.interstitial = ad
+                               })
+    }
+    
+    private func showInterstitialAd() {
+        let counter = UserDefaults.standard.integer(forKey: WCStringHelper.init().interstitialCounterKey)
+        if counter == 5 {
+            UserDefaults.standard.set(0, forKey: WCStringHelper.init().interstitialCounterKey)
+            if self.interstitial != nil {
+                self.interstitial!.present(fromRootViewController: self)
+            } else {
+                print("Ad wasn't ready")
+            }
+        } else {
+            UserDefaults.standard.set(counter + 1, forKey: WCStringHelper.init().interstitialCounterKey)
+        }
+    }
+    
+}
+
 // MARK: UITableView周りの設定のための拡張
 extension WCEventDetailViewController: UITableViewDelegate, UITableViewDataSource {
     
@@ -391,5 +396,5 @@ extension WCEventDetailViewController: UITableViewDelegate, UITableViewDataSourc
         default: fatalError()   // ここにはこない想定
         }
     }
-    
+ 
 }
