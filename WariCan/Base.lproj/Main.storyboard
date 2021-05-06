@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -571,10 +571,39 @@
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h0K-IP-FNf" userLabel="Debtor Appeal View">
+                                                        <rect key="frame" x="10" y="10" width="354" height="60.5"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="YFJ-Xg-QKD" userLabel="Debtor Appeal Label">
+                                                                <rect key="frame" x="10" y="10" width="334" height="40.5"/>
+                                                                <string key="text">"○○さん"の支出がいちばん少ない。
+次は払ってみては？</string>
+                                                                <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="17"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstItem="YFJ-Xg-QKD" firstAttribute="centerX" secondItem="h0K-IP-FNf" secondAttribute="centerX" id="B3R-10-YNz"/>
+                                                            <constraint firstItem="YFJ-Xg-QKD" firstAttribute="top" secondItem="h0K-IP-FNf" secondAttribute="top" constant="10" id="NVu-Gy-cIy"/>
+                                                            <constraint firstItem="YFJ-Xg-QKD" firstAttribute="centerY" secondItem="h0K-IP-FNf" secondAttribute="centerY" id="U3B-Ze-Yea"/>
+                                                            <constraint firstItem="YFJ-Xg-QKD" firstAttribute="leading" secondItem="h0K-IP-FNf" secondAttribute="leading" constant="10" id="n1b-7W-tPP"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="20"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemTealColor"/>
                                                 <constraints>
                                                     <constraint firstItem="fKN-mJ-01P" firstAttribute="centerY" secondItem="Ldk-lb-HeR" secondAttribute="centerY" id="B0D-d6-v7l"/>
+                                                    <constraint firstItem="h0K-IP-FNf" firstAttribute="top" secondItem="Ldk-lb-HeR" secondAttribute="top" constant="10" id="Ip3-SB-dvt"/>
+                                                    <constraint firstAttribute="bottom" secondItem="h0K-IP-FNf" secondAttribute="bottom" constant="10" id="Jbm-xj-mao"/>
+                                                    <constraint firstAttribute="trailing" secondItem="h0K-IP-FNf" secondAttribute="trailing" constant="10" id="Kn3-Ic-RjG"/>
+                                                    <constraint firstItem="h0K-IP-FNf" firstAttribute="leading" secondItem="Ldk-lb-HeR" secondAttribute="leading" constant="10" id="R5R-hZ-N5C"/>
                                                     <constraint firstItem="fKN-mJ-01P" firstAttribute="centerX" secondItem="Ldk-lb-HeR" secondAttribute="centerX" id="Rt0-Lh-X6y"/>
                                                 </constraints>
                                             </view>
@@ -882,6 +911,8 @@
                         <outlet property="addPaymentButton" destination="VnS-oa-1dv" id="sLs-Pb-OhZ"/>
                         <outlet property="bottomBannerView" destination="d1Y-Jr-Vno" id="fgv-ph-Hcn"/>
                         <outlet property="closeButton" destination="PSh-Gt-XUc" id="7XB-tT-Tgx"/>
+                        <outlet property="debtorAppealLabel" destination="YFJ-Xg-QKD" id="ZQQ-LJ-Mgv"/>
+                        <outlet property="debtorAppealView" destination="h0K-IP-FNf" id="6Ib-EK-iJg"/>
                         <outlet property="debtorTableView" destination="Fn9-Am-DcL" id="XA0-qO-yy4"/>
                         <outlet property="debtorWarningLabel" destination="L0c-wQ-8uP" id="L9O-f6-IkQ"/>
                         <outlet property="payerTableView" destination="RZp-h5-qJg" id="Ga9-kg-8qu"/>

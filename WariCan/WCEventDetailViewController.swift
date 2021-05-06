@@ -21,6 +21,8 @@ class WCEventDetailViewController: UIViewController {
     
     @IBOutlet private weak var tripTitleLabel: UILabel!
     @IBOutlet private weak var addPaymentButton: WCCustomUIButton!
+    @IBOutlet private weak var debtorAppealView: UIView! // デフォルトはisHidden=true
+    @IBOutlet private weak var debtorAppealLabel: UILabel!
     @IBOutlet private weak var paymentTableView: UITableView! // tag=0
     @IBOutlet private weak var resultLabel: UILabel!
     @IBOutlet private weak var bottomBannerView: GADBannerView!
@@ -41,10 +43,6 @@ class WCEventDetailViewController: UIViewController {
     private var debtorCellIndexList: [Int] = [] // 払われた人のインデックスのリスト（初期値は空で）
     private var eventData: Event!
     
-    public func setup(eventData: Event) {
-        self.eventData = eventData
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tripTitleLabel.text = self.eventData.title
@@ -54,6 +52,17 @@ class WCEventDetailViewController: UIViewController {
         self.setWariCanResultText()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 3.0, delay: 0.0,
+                           options: UIView.AnimationOptions.repeat,
+                           animations: { [unowned self] () -> Void in
+                            self.debtorAppealView.alpha = 0.0
+                           })
+        }
+    }
+  
     private func setupAd() {
         self.bottomBannerView.adUnitID = WCStringHelper.init().eventDetailVCBottomBannerAdId
         self.bottomBannerView.rootViewController = self
@@ -70,18 +79,8 @@ class WCEventDetailViewController: UIViewController {
                                })
     }
     
-    private func showInterstitialAd() {
-        let counter = UserDefaults.standard.integer(forKey: WCStringHelper.init().interstitialCounterKey)
-        if counter == 5 {
-            UserDefaults.standard.set(0, forKey: WCStringHelper.init().interstitialCounterKey)
-            if self.interstitial != nil {
-                self.interstitial!.present(fromRootViewController: self)
-            } else {
-                print("Ad wasn't ready")
-            }
-        } else {
-            UserDefaults.standard.set(counter + 1, forKey: WCStringHelper.init().interstitialCounterKey)
-        }
+    public func setup(eventData: Event) {
+        self.eventData = eventData
     }
     
     // イベント名入力、人名入力のキーボードに対してツールバーを追加
@@ -129,7 +128,7 @@ class WCEventDetailViewController: UIViewController {
     // TODO: 関数内が長くなるので、後で切り出しする
     private func setWariCanResultText() {
         // ①：全員の出費を算出（払い過ぎは正、払わな過ぎは負）し格納する
-        // ["太郎": 6600, "二郎": -1500, "三郎": 1900, ...]の形式
+        
         var balanceDict: [String: Double] = [:]
         self.eventData.participants.forEach({
             balanceDict.updateValue(0.0, forKey: $0.name)
@@ -166,6 +165,14 @@ class WCEventDetailViewController: UIViewController {
         // ②：降順でソート（出費過多が先頭に）
         // 出費過多で降順にソートしたバランスシート
         var sortedBalanceDict = balanceDict.sorted { $0.value > $1.value }
+        // 一番支払ってない人に対し、その人が次はらえば？の提案Viewを表示
+        if let last = sortedBalanceDict.last, last.value < 0 {
+            self.debtorAppealView.isHidden = false
+            self.debtorAppealLabel.text = "\"\(last.key)さん\"の支出がいちばん少ない。\n次は払ってみては？"
+        } else {
+            self.debtorAppealView.isHidden = true
+        }
+        
         // ④：全員のバランスが 0 になるまで ②-③ を繰り返す
         while true {
             // ②：降順でソート（出費過多が先頭に）
@@ -301,6 +308,42 @@ class WCEventDetailViewController: UIViewController {
     // 「いくら？」フィールドをタップした時
     @IBAction func priceFieldFocused(_ sender: Any) {
         self.priceWarningLabel.isHidden = true
+    }
+    
+}
+
+// MARK: 広告の関数利用ための拡張
+extension WCEventDetailViewController {
+    
+    private func setupAd() {
+        self.bottomBannerView.adUnitID = WCStringHelper.init().eventDetailVCBottomBannerAdId
+        self.bottomBannerView.rootViewController = self
+        self.bottomBannerView.load(GADRequest())
+        
+        GADInterstitialAd.load(withAdUnitID: WCStringHelper.init().eventDetailVCInterstitialAdId,
+                               request: GADRequest(),
+                               completionHandler: { [self] ad, error in
+                                if let error = error {
+                                    print("Failed to load interstitial ad with error: \(error.localizedDescription)")
+                                    return
+                                }
+                                self.interstitial = ad
+                               }
+        )
+    }
+    
+    private func showInterstitialAd() {
+        let counter = UserDefaults.standard.integer(forKey: WCStringHelper.init().interstitialCounterKey)
+        if counter == 5 {
+            UserDefaults.standard.set(0, forKey: WCStringHelper.init().interstitialCounterKey)
+            if self.interstitial != nil {
+                self.interstitial!.present(fromRootViewController: self)
+            } else {
+                print("Ad wasn't ready")
+            }
+        } else {
+            UserDefaults.standard.set(counter + 1, forKey: WCStringHelper.init().interstitialCounterKey)
+        }
     }
     
 }
