@@ -21,7 +21,8 @@ class WCEventDetailViewController: UIViewController {
     
     @IBOutlet private weak var tripTitleLabel: UILabel!
     @IBOutlet private weak var addPaymentButton: WCCustomUIButton!
-    @IBOutlet private weak var debtorAppealView: UIView!
+    @IBOutlet private weak var debtorAppealView: UIView! // デフォルトはisHidden=true
+    @IBOutlet private weak var debtorAppealLabel: UILabel!
     @IBOutlet private weak var paymentTableView: UITableView! // tag=0
     @IBOutlet private weak var resultLabel: UILabel!
     @IBOutlet private weak var bottomBannerView: GADBannerView!
@@ -113,6 +114,7 @@ class WCEventDetailViewController: UIViewController {
     // TODO: 関数内が長くなるので、後で切り出しする
     private func setWariCanResultText() {
         // ①：全員の出費を算出（払い過ぎは正、払わな過ぎは負）し格納する
+        
         var balanceDict: [String: Double] = [:]
         self.eventData.participants.forEach({
             balanceDict.updateValue(0.0, forKey: $0.name)
@@ -149,6 +151,14 @@ class WCEventDetailViewController: UIViewController {
         // ②：降順でソート（出費過多が先頭に）
         // 出費過多で降順にソートしたバランスシート
         var sortedBalanceDict = balanceDict.sorted { $0.value > $1.value }
+        // 一番支払ってない人に対し、その人が次はらえば？の提案Viewを表示
+        if let last = sortedBalanceDict.last, last.value < 0 {
+            self.debtorAppealView.isHidden = false
+            self.debtorAppealLabel.text = "\"\(last.key)さん\"の支出がいちばん少ない。\n次は払ってみては？"
+        } else {
+            self.debtorAppealView.isHidden = true
+        }
+        
         // ④：全員のバランスが 0 になるまで ②-③ を繰り返す
         while true {
             // ②：降順でソート（出費過多が先頭に）

@@ -571,13 +571,13 @@
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h0K-IP-FNf" userLabel="Debtor Appeal View">
+                                                    <view hidden="YES" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h0K-IP-FNf" userLabel="Debtor Appeal View">
                                                         <rect key="frame" x="10" y="10" width="354" height="60.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="YFJ-Xg-QKD" userLabel="Debtor Appeal Label">
                                                                 <rect key="frame" x="10" y="10" width="334" height="40.5"/>
-                                                                <string key="text">"○○さん"の支出がいちばん少ないです。
-次の支払いをしてみては？</string>
+                                                                <string key="text">"○○さん"の支出がいちばん少ない。
+次は払ってみては？</string>
                                                                 <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="17"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
@@ -911,6 +911,7 @@
                         <outlet property="addPaymentButton" destination="VnS-oa-1dv" id="sLs-Pb-OhZ"/>
                         <outlet property="bottomBannerView" destination="d1Y-Jr-Vno" id="fgv-ph-Hcn"/>
                         <outlet property="closeButton" destination="PSh-Gt-XUc" id="7XB-tT-Tgx"/>
+                        <outlet property="debtorAppealLabel" destination="YFJ-Xg-QKD" id="ZQQ-LJ-Mgv"/>
                         <outlet property="debtorAppealView" destination="h0K-IP-FNf" id="6Ib-EK-iJg"/>
                         <outlet property="debtorTableView" destination="Fn9-Am-DcL" id="XA0-qO-yy4"/>
                         <outlet property="debtorWarningLabel" destination="L0c-wQ-8uP" id="L9O-f6-IkQ"/>
