@@ -60,8 +60,8 @@ class WCEventDetailViewController: UIViewController {
             UIView.animate(withDuration: 3.0, delay: 0.0,
                            options: UIView.AnimationOptions.repeat,
                            animations: { [unowned self] () -> Void in
-                            self.debtorAppealView.alpha = 1.0
-                           }, completion: nil)
+                            self.debtorAppealView.alpha = 0.0
+                           })
         }
     }
     
