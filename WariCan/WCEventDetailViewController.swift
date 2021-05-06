@@ -62,22 +62,6 @@ class WCEventDetailViewController: UIViewController {
                            })
         }
     }
-  
-    private func setupAd() {
-        self.bottomBannerView.adUnitID = WCStringHelper.init().eventDetailVCBottomBannerAdId
-        self.bottomBannerView.rootViewController = self
-        self.bottomBannerView.load(GADRequest())
-        
-        GADInterstitialAd.load(withAdUnitID: WCStringHelper.init().eventDetailVCInterstitialAdId,
-                               request: GADRequest(),
-                               completionHandler: { [unowned self] ad, error in
-                                if let error = error {
-                                    print("error: \(error.localizedDescription)")
-                                    return
-                                }
-                                self.interstitial = ad
-                               })
-    }
     
     public func setup(eventData: Event) {
         self.eventData = eventData
