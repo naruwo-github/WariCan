@@ -17,7 +17,7 @@ import RealmSwift
 // ***************************
 
 // MARK: イベント詳細画面のVC
-class WCEventDetailViewController: UIViewController {
+class WCEventDetailViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet private weak var tripTitleLabel: UILabel!
     @IBOutlet private weak var addPaymentButton: WCCustomUIButton!
@@ -48,6 +48,33 @@ class WCEventDetailViewController: UIViewController {
         self.setupTextFieldKeyboard()
         self.setupTableViews()
         self.setWariCanResultText()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc private func keyboardWillShow(notification: NSNotification) {
+        guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
+        
+        let diffHeight = keyboardSize.height - 150
+        if self.view.frame.origin.y == 0 {
+            self.view.frame.origin.y -= diffHeight
+        } else {
+            let suggestionHeight = self.view.frame.origin.y + diffHeight
+            self.view.frame.origin.y -= suggestionHeight
+        }
+    }
+    
+    @objc private func keyboardWillHide() {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
     }
     
     public func setup(eventData: Event) {
@@ -62,6 +89,7 @@ class WCEventDetailViewController: UIViewController {
         let typeKeyboardCloseButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.typeKeyboardCloseButtonTapped))
         typeToolbar.items = [typeSpacer, typeKeyboardCloseButton]
         self.typeTextField.inputAccessoryView = typeToolbar
+        self.typeTextField.delegate = self
         
         let priceToolbar = UIToolbar()
         priceToolbar.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 40)
@@ -69,6 +97,7 @@ class WCEventDetailViewController: UIViewController {
         let priceKeyboardCloseButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.priceKeyboardCloseButtonTapped))
         priceToolbar.items = [priceSpacer, priceKeyboardCloseButton]
         self.priceTextField.inputAccessoryView = priceToolbar
+        self.priceTextField.delegate = self
         
         self.priceTextField.keyboardType = .numberPad
     }
@@ -272,6 +301,11 @@ class WCEventDetailViewController: UIViewController {
     // 「いくら？」フィールドをタップした時
     @IBAction func priceFieldFocused(_ sender: Any) {
         self.priceWarningLabel.isHidden = true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
     
 }
