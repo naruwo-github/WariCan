@@ -22,4 +22,5 @@ class WCDebtorCell: UITableViewCell {
     public func setupDebtor(debtor: String) {
         self.debtorLabel.text = debtor
     }
+    
 }
