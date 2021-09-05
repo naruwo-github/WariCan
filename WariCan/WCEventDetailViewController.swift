@@ -97,6 +97,7 @@ class WCEventDetailViewController: UIViewController {
     }
     
     // TODO: 関数内が長くなるので、後で切り出しする
+    // TODO: 計算周りのテストができないので、引数と戻り値を持った関数に切り出す
     private func setWariCanResultText() {
         // ①：全員の出費を算出（払い過ぎは正、払わな過ぎは負）し格納する
         // ["太郎": 6600, "二郎": -1500, "三郎": 1900, ...]の形式

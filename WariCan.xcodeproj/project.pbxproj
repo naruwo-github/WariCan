@@ -15,6 +15,7 @@
 		0519F089262130D500C9F71D /* WCDebtorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0519F088262130D500C9F71D /* WCDebtorCell.xib */; };
 		0519F09B262151FF00C9F71D /* WCEventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0519F09A262151FF00C9F71D /* WCEventCell.xib */; };
 		0519F0A02621525700C9F71D /* WCEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0519F09F2621525700C9F71D /* WCEventCell.swift */; };
+		0524E9BD26E460AE00EBA291 /* DBTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0524E9BC26E460AE00EBA291 /* DBTest.swift */; };
 		05272A582642CF25009AAA95 /* WCStringHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05272A572642CF25009AAA95 /* WCStringHelper.swift */; };
 		0538203B26303CD300E5B835 /* WCEventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0538203A26303CD300E5B835 /* WCEventModel.swift */; };
 		0538204026303DAE00E5B835 /* WCPaymentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0538203F26303DAE00E5B835 /* WCPaymentModel.swift */; };
@@ -65,6 +66,7 @@
 		0519F088262130D500C9F71D /* WCDebtorCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WCDebtorCell.xib; sourceTree = "<group>"; };
 		0519F09A262151FF00C9F71D /* WCEventCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WCEventCell.xib; sourceTree = "<group>"; };
 		0519F09F2621525700C9F71D /* WCEventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCEventCell.swift; sourceTree = "<group>"; };
+		0524E9BC26E460AE00EBA291 /* DBTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBTest.swift; sourceTree = "<group>"; };
 		05272A572642CF25009AAA95 /* WCStringHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCStringHelper.swift; sourceTree = "<group>"; };
 		0538203A26303CD300E5B835 /* WCEventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCEventModel.swift; sourceTree = "<group>"; };
 		0538203F26303DAE00E5B835 /* WCPaymentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCPaymentModel.swift; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 		05DCC12126075A0F00297E2F /* WariCanTests */ = {
 			isa = PBXGroup;
 			children = (
+				0524E9BC26E460AE00EBA291 /* DBTest.swift */,
 				05DCC12226075A0F00297E2F /* WariCanTests.swift */,
 				05DCC12426075A0F00297E2F /* Info.plist */,
 			);
@@ -597,6 +600,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				05DCC12326075A0F00297E2F /* WariCanTests.swift in Sources */,
+				0524E9BD26E460AE00EBA291 /* DBTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
