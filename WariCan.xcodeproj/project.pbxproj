@@ -17,6 +17,7 @@
 		0519F0A02621525700C9F71D /* WCEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0519F09F2621525700C9F71D /* WCEventCell.swift */; };
 		0524E9BD26E460AE00EBA291 /* DBTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0524E9BC26E460AE00EBA291 /* DBTest.swift */; };
 		05272A582642CF25009AAA95 /* WCStringHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05272A572642CF25009AAA95 /* WCStringHelper.swift */; };
+		05278D4D26E4E0F900CC9AC0 /* CalculateMethodTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05278D4C26E4E0F900CC9AC0 /* CalculateMethodTest.swift */; };
 		0538203B26303CD300E5B835 /* WCEventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0538203A26303CD300E5B835 /* WCEventModel.swift */; };
 		0538204026303DAE00E5B835 /* WCPaymentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0538203F26303DAE00E5B835 /* WCPaymentModel.swift */; };
 		0538204526303F5400E5B835 /* WCParticipantModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0538204426303F5400E5B835 /* WCParticipantModel.swift */; };
@@ -68,6 +69,7 @@
 		0519F09F2621525700C9F71D /* WCEventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCEventCell.swift; sourceTree = "<group>"; };
 		0524E9BC26E460AE00EBA291 /* DBTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBTest.swift; sourceTree = "<group>"; };
 		05272A572642CF25009AAA95 /* WCStringHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCStringHelper.swift; sourceTree = "<group>"; };
+		05278D4C26E4E0F900CC9AC0 /* CalculateMethodTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculateMethodTest.swift; sourceTree = "<group>"; };
 		0538203A26303CD300E5B835 /* WCEventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCEventModel.swift; sourceTree = "<group>"; };
 		0538203F26303DAE00E5B835 /* WCPaymentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCPaymentModel.swift; sourceTree = "<group>"; };
 		0538204426303F5400E5B835 /* WCParticipantModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCParticipantModel.swift; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				0524E9BC26E460AE00EBA291 /* DBTest.swift */,
+				05278D4C26E4E0F900CC9AC0 /* CalculateMethodTest.swift */,
 				05DCC12226075A0F00297E2F /* WariCanTests.swift */,
 				05DCC12426075A0F00297E2F /* Info.plist */,
 			);
@@ -601,6 +604,7 @@
 			files = (
 				05DCC12326075A0F00297E2F /* WariCanTests.swift in Sources */,
 				0524E9BD26E460AE00EBA291 /* DBTest.swift in Sources */,
+				05278D4D26E4E0F900CC9AC0 /* CalculateMethodTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
