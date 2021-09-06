@@ -11,6 +11,7 @@ class WCStringHelper {
     
     public let baseVCBottomBannerAdId = "ca-app-pub-6492692627915720/6116539333"
     
+    public let eventRegistrationVCTopBannerAdId = "ca-app-pub-6492692627915720/5907307612"
     public let eventRegistrationVCBottomBannerAdId = "ca-app-pub-6492692627915720/4859063871"
     
     public let eventDetailVCBottomBannerAdId = "ca-app-pub-6492692627915720/7293655521"
