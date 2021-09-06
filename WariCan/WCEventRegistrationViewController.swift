@@ -35,8 +35,8 @@ class WCEventRegistrationViewController: UIViewController {
         super.viewDidLoad()
         self.setupAd()
         self.setupButtonsLayout()
-        self.addToolbarOnTextField(textField: self.eventTitleTextField, action: #selector(self.eventTitleKeyboardCloseButtonTapped))
-        self.addToolbarOnTextField(textField: self.nameRegisterTextField, action: #selector(self.nameRegisterKeyboardCloseButtonTapped))
+        WCUtilityClass.addToolbarOnTextField(view: self.view, textField: self.eventTitleTextField, action: #selector(self.eventTitleKeyboardCloseButtonTapped))
+        WCUtilityClass.addToolbarOnTextField(view: self.view, textField: self.nameRegisterTextField, action: #selector(self.nameRegisterKeyboardCloseButtonTapped))
         self.peopleTableView.register(UINib(resource: R.nib.wcPeopleCell), forCellReuseIdentifier: "PeopleCell")
     }
     
@@ -49,15 +49,6 @@ class WCEventRegistrationViewController: UIViewController {
     private func setupButtonsLayout() {
         // 円形のボタン
         self.addPeopleButton.layer.cornerRadius = self.addPeopleButton.frame.height / 2.0
-    }
-    
-    private func addToolbarOnTextField(textField: UITextField, action: Selector?) {
-        let priceToolbar = UIToolbar()
-        priceToolbar.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 40)
-        let priceSpacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: textField, action: nil)
-        let priceKeyboardCloseButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: action)
-        priceToolbar.items = [priceSpacer, priceKeyboardCloseButton]
-        textField.inputAccessoryView = priceToolbar
     }
     
     @objc private func eventTitleKeyboardCloseButtonTapped() {

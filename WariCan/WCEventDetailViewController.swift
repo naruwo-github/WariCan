@@ -46,9 +46,9 @@ class WCEventDetailViewController: UIViewController, UITextFieldDelegate {
         self.tripTitleLabel.text = self.eventData.title
         self.setupAd()
         
-        self.addToolbarOnTextField(textField: self.typeTextField, action: #selector(self.typeKeyboardCloseButtonTapped))
+        WCUtilityClass.addToolbarOnTextField(view: self.view, textField: self.typeTextField, action: #selector(self.typeKeyboardCloseButtonTapped))
         self.typeTextField.delegate = self
-        self.addToolbarOnTextField(textField: self.priceTextField, action: #selector(self.priceKeyboardCloseButtonTapped))
+        WCUtilityClass.addToolbarOnTextField(view: self.view, textField: self.priceTextField, action: #selector(self.priceKeyboardCloseButtonTapped))
         self.priceTextField.delegate = self
         self.priceTextField.keyboardType = .numberPad
         
@@ -85,15 +85,6 @@ class WCEventDetailViewController: UIViewController, UITextFieldDelegate {
     
     public func setup(eventData: Event) {
         self.eventData = eventData
-    }
-    
-    private func addToolbarOnTextField(textField: UITextField, action: Selector?) {
-        let priceToolbar = UIToolbar()
-        priceToolbar.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 40)
-        let priceSpacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: textField, action: nil)
-        let priceKeyboardCloseButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: action)
-        priceToolbar.items = [priceSpacer, priceKeyboardCloseButton]
-        textField.inputAccessoryView = priceToolbar
     }
     
     @objc private func typeKeyboardCloseButtonTapped() {
