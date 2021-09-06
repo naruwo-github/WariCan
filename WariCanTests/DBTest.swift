@@ -48,10 +48,5 @@ class DBTest: XCTestCase {
         // イベントデータが保存できているかを確認するテスト
         XCTAssertEqual(self.eventCount + 1, eventCountAdded)
     }
-    
-    // TODO: 金額計算処理の切り出し後、テストを追記すべし
-    func testCalculate() throws {
-        XCTAssertEqual(1, 1)
-    }
 
 }

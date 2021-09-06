@@ -17,7 +17,7 @@ import RealmSwift
 // ***************************
 
 // MARK: イベント詳細画面のVC
-class WCEventDetailViewController: UIViewController {
+class WCEventDetailViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet private weak var tripTitleLabel: UILabel!
     @IBOutlet private weak var addPaymentButton: WCCustomUIButton!
@@ -45,32 +45,46 @@ class WCEventDetailViewController: UIViewController {
         super.viewDidLoad()
         self.tripTitleLabel.text = self.eventData.title
         self.setupAd()
-        self.setupTextFieldKeyboard()
+        
+        WCUtilityClass.addToolbarOnTextField(view: self.view, textField: self.typeTextField, action: #selector(self.typeKeyboardCloseButtonTapped))
+        self.typeTextField.delegate = self
+        WCUtilityClass.addToolbarOnTextField(view: self.view, textField: self.priceTextField, action: #selector(self.priceKeyboardCloseButtonTapped))
+        self.priceTextField.delegate = self
+        self.priceTextField.keyboardType = .numberPad
+        
         self.setupTableViews()
         self.setWariCanResultText()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc private func keyboardWillShow(notification: NSNotification) {
+        guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
+        
+        let diffHeight = keyboardSize.height - 150
+        if self.view.frame.origin.y == 0 {
+            self.view.frame.origin.y -= diffHeight
+        } else {
+            let suggestionHeight = self.view.frame.origin.y + diffHeight
+            self.view.frame.origin.y -= suggestionHeight
+        }
+    }
+    
+    @objc private func keyboardWillHide() {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
     }
     
     public func setup(eventData: Event) {
         self.eventData = eventData
-    }
-    
-    // イベント名入力、人名入力のキーボードに対してツールバーを追加
-    private func setupTextFieldKeyboard() {
-        let typeToolbar = UIToolbar()
-        typeToolbar.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 40)
-        let typeSpacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self.typeTextField, action: nil)
-        let typeKeyboardCloseButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.typeKeyboardCloseButtonTapped))
-        typeToolbar.items = [typeSpacer, typeKeyboardCloseButton]
-        self.typeTextField.inputAccessoryView = typeToolbar
-        
-        let priceToolbar = UIToolbar()
-        priceToolbar.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 40)
-        let priceSpacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self.priceTextField, action: nil)
-        let priceKeyboardCloseButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.priceKeyboardCloseButtonTapped))
-        priceToolbar.items = [priceSpacer, priceKeyboardCloseButton]
-        self.priceTextField.inputAccessoryView = priceToolbar
-        
-        self.priceTextField.keyboardType = .numberPad
     }
     
     @objc private func typeKeyboardCloseButtonTapped() {
@@ -272,6 +286,11 @@ class WCEventDetailViewController: UIViewController {
     // 「いくら？」フィールドをタップした時
     @IBAction func priceFieldFocused(_ sender: Any) {
         self.priceWarningLabel.isHidden = true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
     
 }

@@ -35,7 +35,8 @@ class WCEventRegistrationViewController: UIViewController {
         super.viewDidLoad()
         self.setupAd()
         self.setupButtonsLayout()
-        self.setupTextFieldKeyboard()
+        WCUtilityClass.addToolbarOnTextField(view: self.view, textField: self.eventTitleTextField, action: #selector(self.eventTitleKeyboardCloseButtonTapped))
+        WCUtilityClass.addToolbarOnTextField(view: self.view, textField: self.nameRegisterTextField, action: #selector(self.nameRegisterKeyboardCloseButtonTapped))
         self.peopleTableView.register(UINib(resource: R.nib.wcPeopleCell), forCellReuseIdentifier: "PeopleCell")
     }
     
@@ -48,24 +49,6 @@ class WCEventRegistrationViewController: UIViewController {
     private func setupButtonsLayout() {
         // 円形のボタン
         self.addPeopleButton.layer.cornerRadius = self.addPeopleButton.frame.height / 2.0
-    }
-    
-    private func setupTextFieldKeyboard() {
-        // イベント名入力のキーボードに対して
-        let eventToolbar = UIToolbar()
-        eventToolbar.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 40)
-        let eventSpacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self.eventTitleTextField, action: nil)
-        let eventTitleKeyboardCloseButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.eventTitleKeyboardCloseButtonTapped))
-        eventToolbar.items = [eventSpacer, eventTitleKeyboardCloseButton]
-        self.eventTitleTextField.inputAccessoryView = eventToolbar
-        
-        // 人名入力のキーボードに対して
-        let nameToolbar = UIToolbar()
-        nameToolbar.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 40)
-        let nameSpacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self.nameRegisterTextField, action: nil)
-        let nameTitleKeyboardCloseButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(self.nameRegisterKeyboardCloseButtonTapped))
-        nameToolbar.items = [nameSpacer, nameTitleKeyboardCloseButton]
-        self.nameRegisterTextField.inputAccessoryView = nameToolbar
     }
     
     @objc private func eventTitleKeyboardCloseButtonTapped() {
@@ -84,13 +67,11 @@ class WCEventRegistrationViewController: UIViewController {
         self.nameRegisterModalView.isHidden = false
     }
     
-    // 丸い「＋」ボタン
     @IBAction private func addPeopleButtonTapped(_ sender: Any) {
         // ボタン経由で表示する場合は何も入力されてない状態にする
         self.showModalView(nameFieldText: "")
     }
     
-    // 「はじめる」ボタン
     @IBAction private func startButtonTapped(_ sender: Any) {
         // イベント名が入力済みで、参加者が2人以上いればイベント作成
         if !(self.eventTitleTextField.text ?? "").isEmpty
@@ -123,14 +104,12 @@ class WCEventRegistrationViewController: UIViewController {
         }
     }
     
-    // 「もどる」ボタン
     @IBAction private func backButtonTapped(_ sender: Any) {
         let vc = R.storyboard.main.wcBaseViewController()!
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true, completion: nil)
     }
     
-    // 「追加」ボタン
     @IBAction private func addButtonTapped(_ sender: Any) {
         if (self.nameRegisterTextField.text ?? "").isEmpty {
             // 参加者ラベルが空なら、追加しない、何もしない
@@ -165,7 +144,6 @@ class WCEventRegistrationViewController: UIViewController {
 // MARK: UITableViewの設定のための拡張
 extension WCEventRegistrationViewController: UITableViewDelegate, UITableViewDataSource {
     
-    // セルの個数を設定
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.participantList.count
     }
@@ -194,7 +172,6 @@ extension WCEventRegistrationViewController: UITableViewDelegate, UITableViewDat
         self.showModalView(nameFieldText: cell.getName())
     }
     
-    // セルの高さを設定
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 55
     }

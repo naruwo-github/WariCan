@@ -17,11 +17,13 @@
 		0519F0A02621525700C9F71D /* WCEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0519F09F2621525700C9F71D /* WCEventCell.swift */; };
 		0524E9BD26E460AE00EBA291 /* DBTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0524E9BC26E460AE00EBA291 /* DBTest.swift */; };
 		05272A582642CF25009AAA95 /* WCStringHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05272A572642CF25009AAA95 /* WCStringHelper.swift */; };
+		05278D4D26E4E0F900CC9AC0 /* CalculateMethodTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05278D4C26E4E0F900CC9AC0 /* CalculateMethodTest.swift */; };
 		0538203B26303CD300E5B835 /* WCEventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0538203A26303CD300E5B835 /* WCEventModel.swift */; };
 		0538204026303DAE00E5B835 /* WCPaymentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0538203F26303DAE00E5B835 /* WCPaymentModel.swift */; };
 		0538204526303F5400E5B835 /* WCParticipantModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0538204426303F5400E5B835 /* WCParticipantModel.swift */; };
 		0538204A2630408800E5B835 /* WCRealmHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053820492630408800E5B835 /* WCRealmHelper.swift */; };
 		053C5817261C975E0068185D /* WCEventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053C5816261C975E0068185D /* WCEventDetailViewController.swift */; };
+		0561C39F26E61DF600C8CB4F /* WCUtilityClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0561C39E26E61DF600C8CB4F /* WCUtilityClass.swift */; };
 		059835D626323F60004C8089 /* WCCustomUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059835D526323F60004C8089 /* WCCustomUIButton.swift */; };
 		05A7F1A526075DC200C05D38 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A7F1A426075DC200C05D38 /* R.generated.swift */; };
 		05DCC10C26075A0C00297E2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DCC10B26075A0C00297E2F /* AppDelegate.swift */; };
@@ -68,11 +70,13 @@
 		0519F09F2621525700C9F71D /* WCEventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCEventCell.swift; sourceTree = "<group>"; };
 		0524E9BC26E460AE00EBA291 /* DBTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBTest.swift; sourceTree = "<group>"; };
 		05272A572642CF25009AAA95 /* WCStringHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCStringHelper.swift; sourceTree = "<group>"; };
+		05278D4C26E4E0F900CC9AC0 /* CalculateMethodTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculateMethodTest.swift; sourceTree = "<group>"; };
 		0538203A26303CD300E5B835 /* WCEventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCEventModel.swift; sourceTree = "<group>"; };
 		0538203F26303DAE00E5B835 /* WCPaymentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCPaymentModel.swift; sourceTree = "<group>"; };
 		0538204426303F5400E5B835 /* WCParticipantModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCParticipantModel.swift; sourceTree = "<group>"; };
 		053820492630408800E5B835 /* WCRealmHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCRealmHelper.swift; sourceTree = "<group>"; };
 		053C5816261C975E0068185D /* WCEventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCEventDetailViewController.swift; sourceTree = "<group>"; };
+		0561C39E26E61DF600C8CB4F /* WCUtilityClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCUtilityClass.swift; sourceTree = "<group>"; };
 		059835D526323F60004C8089 /* WCCustomUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCCustomUIButton.swift; sourceTree = "<group>"; };
 		05A7F1A426075DC200C05D38 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		05DCC10826075A0C00297E2F /* WariCan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WariCan.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -143,13 +147,13 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-		0519F06A26212F2000C9F71D /* RegistrationView */ = {
+		0519F06A26212F2000C9F71D /* EventRegistrationView */ = {
 			isa = PBXGroup;
 			children = (
 				05FD0D1D261875A8006C34CA /* WCPeopleCell.swift */,
 				05FD0D2226187620006C34CA /* WCPeopleCell.xib */,
 			);
-			name = RegistrationView;
+			name = EventRegistrationView;
 			sourceTree = "<group>";
 		};
 		0519F06B26212F4100C9F71D /* EventDetailView */ = {
@@ -165,7 +169,17 @@
 			name = EventDetailView;
 			sourceTree = "<group>";
 		};
-		0519F099262151DC00C9F71D /* BaseView */ = {
+		0519F099262151DC00C9F71D /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				0561C39D26E61D1900C8CB4F /* BaseView */,
+				0519F06B26212F4100C9F71D /* EventDetailView */,
+				0519F06A26212F2000C9F71D /* EventRegistrationView */,
+			);
+			name = TableViewCell;
+			sourceTree = "<group>";
+		};
+		0561C39D26E61D1900C8CB4F /* BaseView */ = {
 			isa = PBXGroup;
 			children = (
 				0519F09F2621525700C9F71D /* WCEventCell.swift */,
@@ -178,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				059835D526323F60004C8089 /* WCCustomUIButton.swift */,
+				0561C39E26E61DF600C8CB4F /* WCUtilityClass.swift */,
 			);
 			name = CustomClass;
 			sourceTree = "<group>";
@@ -232,6 +247,7 @@
 			isa = PBXGroup;
 			children = (
 				0524E9BC26E460AE00EBA291 /* DBTest.swift */,
+				05278D4C26E4E0F900CC9AC0 /* CalculateMethodTest.swift */,
 				05DCC12226075A0F00297E2F /* WariCanTests.swift */,
 				05DCC12426075A0F00297E2F /* Info.plist */,
 			);
@@ -262,9 +278,7 @@
 			isa = PBXGroup;
 			children = (
 				059835D126323F4D004C8089 /* CustomClass */,
-				0519F099262151DC00C9F71D /* BaseView */,
-				0519F06B26212F4100C9F71D /* EventDetailView */,
-				0519F06A26212F2000C9F71D /* RegistrationView */,
+				0519F099262151DC00C9F71D /* TableViewCell */,
 			);
 			name = Parts;
 			sourceTree = "<group>";
@@ -590,6 +604,7 @@
 				0519F06D26212F6F00C9F71D /* WCPaymentCell.swift in Sources */,
 				0538204526303F5400E5B835 /* WCParticipantModel.swift in Sources */,
 				05A7F1A526075DC200C05D38 /* R.generated.swift in Sources */,
+				0561C39F26E61DF600C8CB4F /* WCUtilityClass.swift in Sources */,
 				0519F07526212FF300C9F71D /* WCPayerCell.swift in Sources */,
 				0538204A2630408800E5B835 /* WCRealmHelper.swift in Sources */,
 			);
@@ -601,6 +616,7 @@
 			files = (
 				05DCC12326075A0F00297E2F /* WariCanTests.swift in Sources */,
 				0524E9BD26E460AE00EBA291 /* DBTest.swift in Sources */,
+				05278D4D26E4E0F900CC9AC0 /* CalculateMethodTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -770,14 +786,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.2;
+				CURRENT_PROJECT_VERSION = 1.3;
 				DEVELOPMENT_TEAM = UMBT5JZV43;
 				INFOPLIST_FILE = WariCan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.channaru0711.WariCan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -792,14 +808,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.2;
+				CURRENT_PROJECT_VERSION = 1.3;
 				DEVELOPMENT_TEAM = UMBT5JZV43;
 				INFOPLIST_FILE = WariCan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.channaru0711.WariCan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
