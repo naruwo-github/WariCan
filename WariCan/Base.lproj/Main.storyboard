@@ -446,13 +446,6 @@
                                     <constraint firstItem="B7c-kT-enA" firstAttribute="centerX" secondItem="o5l-ab-wMw" secondAttribute="centerX" id="ycK-0Q-5DI"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ArA-so-bJ6" userLabel="Top Banner View" customClass="GADBannerView">
-                                <rect key="frame" x="0.0" y="44" width="414" height="50"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="zj2-z3-aYh"/>
-                                </constraints>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YjM-tR-eGH" userLabel="Bottom Banner View" customClass="GADBannerView">
                                 <rect key="frame" x="0.0" y="812" width="414" height="50"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -464,12 +457,9 @@
                         <viewLayoutGuide key="safeArea" id="8oa-B3-iqo"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="ArA-so-bJ6" firstAttribute="centerX" secondItem="gsR-dU-FCo" secondAttribute="centerX" id="0jF-fT-Wns"/>
                             <constraint firstItem="8oa-B3-iqo" firstAttribute="bottom" secondItem="YjM-tR-eGH" secondAttribute="bottom" id="A65-f6-abt"/>
                             <constraint firstItem="YjM-tR-eGH" firstAttribute="leading" secondItem="8oa-B3-iqo" secondAttribute="leading" id="bhW-Qb-7L0"/>
                             <constraint firstItem="o5l-ab-wMw" firstAttribute="top" secondItem="gsR-dU-FCo" secondAttribute="top" id="for-He-rGg"/>
-                            <constraint firstItem="ArA-so-bJ6" firstAttribute="top" secondItem="8oa-B3-iqo" secondAttribute="top" id="gMG-wh-rZf"/>
-                            <constraint firstItem="ArA-so-bJ6" firstAttribute="leading" secondItem="8oa-B3-iqo" secondAttribute="leading" id="hGJ-JK-Lub"/>
                             <constraint firstItem="o5l-ab-wMw" firstAttribute="trailing" secondItem="8oa-B3-iqo" secondAttribute="trailing" id="hbM-qR-WLO"/>
                             <constraint firstAttribute="bottom" secondItem="o5l-ab-wMw" secondAttribute="bottom" id="mDi-DC-wtI"/>
                             <constraint firstItem="YjM-tR-eGH" firstAttribute="centerX" secondItem="gsR-dU-FCo" secondAttribute="centerX" id="oy5-lr-Ebx"/>
@@ -487,7 +477,6 @@
                         <outlet property="peopleTableView" destination="JEu-IA-uHu" id="FfX-4r-e8p"/>
                         <outlet property="peopleWarningLabel" destination="Mxi-j2-U0N" id="ZIp-b8-cDZ"/>
                         <outlet property="startButton" destination="JQ2-GJ-beo" id="4Jd-ec-YQx"/>
-                        <outlet property="topBannerView" destination="ArA-so-bJ6" id="nvD-NW-T48"/>
                         <outlet property="topWarningLabel" destination="jmc-wf-mgR" id="UAr-JV-fvw"/>
                     </connections>
                 </viewController>

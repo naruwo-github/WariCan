@@ -8,9 +8,9 @@
 import UIKit
 
 // MARK: - ユーティリティクラス（汎用化したオープンクラスを定義するクラス）
-class WCUtilityClass {
+class WCUtilityClass: NSObject {
     
-    class func addToolbarOnTextField(view: UIView, textField: UITextField, action: Selector?) {
+    public func addToolbarOnTextField(view: UIView, textField: UITextField, action: Selector?) {
         let priceToolbar = UIToolbar()
         priceToolbar.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 40)
         let priceSpacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: textField, action: nil)

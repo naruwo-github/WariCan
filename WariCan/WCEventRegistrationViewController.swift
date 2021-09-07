@@ -11,7 +11,6 @@ import UIKit
 // MARK: イベント作成画面のVC
 class WCEventRegistrationViewController: UIViewController {
     
-    @IBOutlet private weak var topBannerView: GADBannerView!
     @IBOutlet private weak var eventTitleTextField: UITextField!
     @IBOutlet private weak var topWarningLabel: UILabel!
     @IBOutlet private weak var addPeopleButton: WCCustomUIButton!
@@ -36,16 +35,12 @@ class WCEventRegistrationViewController: UIViewController {
         super.viewDidLoad()
         self.setupAd()
         self.setupButtonsLayout()
-        WCUtilityClass.addToolbarOnTextField(view: self.view, textField: self.eventTitleTextField, action: #selector(self.eventTitleKeyboardCloseButtonTapped))
-        WCUtilityClass.addToolbarOnTextField(view: self.view, textField: self.nameRegisterTextField, action: #selector(self.nameRegisterKeyboardCloseButtonTapped))
+        WCUtilityClass().addToolbarOnTextField(view: self.view, textField: self.eventTitleTextField, action: #selector(self.eventTitleKeyboardCloseButtonTapped))
+        WCUtilityClass().addToolbarOnTextField(view: self.view, textField: self.nameRegisterTextField, action: #selector(self.nameRegisterKeyboardCloseButtonTapped))
         self.peopleTableView.register(UINib(resource: R.nib.wcPeopleCell), forCellReuseIdentifier: "PeopleCell")
     }
     
     private func setupAd() {
-        self.topBannerView.adUnitID = WCStringHelper.init().eventRegistrationVCTopBannerAdId
-        self.topBannerView.rootViewController = self
-        self.topBannerView.load(GADRequest())
-        
         self.bottomBannerView.adUnitID = WCStringHelper.init().eventRegistrationVCBottomBannerAdId
         self.bottomBannerView.rootViewController = self
         self.bottomBannerView.load(GADRequest())

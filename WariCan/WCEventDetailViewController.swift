@@ -46,9 +46,9 @@ class WCEventDetailViewController: UIViewController, UITextFieldDelegate {
         self.tripTitleLabel.text = self.eventData.title
         self.setupAd()
         
-        WCUtilityClass.addToolbarOnTextField(view: self.view, textField: self.typeTextField, action: #selector(self.typeKeyboardCloseButtonTapped))
+        WCUtilityClass().addToolbarOnTextField(view: self.view, textField: self.typeTextField, action: #selector(self.typeKeyboardCloseButtonTapped))
         self.typeTextField.delegate = self
-        WCUtilityClass.addToolbarOnTextField(view: self.view, textField: self.priceTextField, action: #selector(self.priceKeyboardCloseButtonTapped))
+        WCUtilityClass().addToolbarOnTextField(view: self.view, textField: self.priceTextField, action: #selector(self.priceKeyboardCloseButtonTapped))
         self.priceTextField.delegate = self
         self.priceTextField.keyboardType = .numberPad
         
