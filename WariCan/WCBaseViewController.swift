@@ -8,6 +8,7 @@
 import GoogleMobileAds
 import RealmSwift
 
+import AppTrackingTransparency
 import UIKit
 
 // MARK: 初期画面（イベント選択画面）のVC
@@ -26,6 +27,13 @@ class WCBaseViewController: UIViewController {
         
         self.setupAd()
         self.setupTableView()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if #available(iOS 14, *) {
+            ATTrackingManager.requestTrackingAuthorization(completionHandler: { _ in })
+        }
     }
     
     private func setupAd() {
