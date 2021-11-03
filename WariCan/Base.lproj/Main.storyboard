@@ -32,10 +32,10 @@
                                 <rect key="frame" x="0.0" y="246.5" width="414" height="403"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EIS-fl-crI" userLabel="Event Top View">
-                                        <rect key="frame" x="20" y="0.0" width="374" height="80.5"/>
+                                        <rect key="frame" x="20" y="0.0" width="374" height="60.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="イベント一覧" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="CNk-EX-NmT">
-                                                <rect key="frame" x="98" y="25" width="178" height="30"/>
+                                                <rect key="frame" x="98" y="15" width="178" height="30"/>
                                                 <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="30"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -48,7 +48,7 @@
                                         </constraints>
                                     </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5EH-kO-GsW">
-                                        <rect key="frame" x="20" y="80.5" width="374" height="322.5"/>
+                                        <rect key="frame" x="20" y="60.5" width="374" height="342.5"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <connections>
                                             <outlet property="dataSource" destination="BYZ-38-t0r" id="L2i-m7-T3t"/>
@@ -64,7 +64,7 @@
                                     <constraint firstItem="5EH-kO-GsW" firstAttribute="centerX" secondItem="K2r-tB-6Rd" secondAttribute="centerX" id="NFw-ZS-ngz"/>
                                     <constraint firstItem="5EH-kO-GsW" firstAttribute="top" secondItem="EIS-fl-crI" secondAttribute="bottom" id="Ncx-tz-SuH"/>
                                     <constraint firstAttribute="bottom" secondItem="5EH-kO-GsW" secondAttribute="bottom" id="RGG-Qb-7mc"/>
-                                    <constraint firstItem="5EH-kO-GsW" firstAttribute="height" secondItem="K2r-tB-6Rd" secondAttribute="height" multiplier="0.8" id="WNv-i6-P3M"/>
+                                    <constraint firstItem="5EH-kO-GsW" firstAttribute="height" secondItem="K2r-tB-6Rd" secondAttribute="height" multiplier="0.85" id="WNv-i6-P3M"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wari Can¥" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="30" translatesAutoresizingMaskIntoConstraints="NO" id="8Yy-Gy-1Og">
@@ -203,7 +203,7 @@
                                         <rect key="frame" x="0.0" y="246.5" width="414" height="403"/>
                                         <subviews>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JEu-IA-uHu" userLabel="People Table View">
-                                                <rect key="frame" x="20" y="80.5" width="374" height="322.5"/>
+                                                <rect key="frame" x="20" y="60.5" width="374" height="342.5"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <connections>
                                                     <outlet property="dataSource" destination="m1L-OB-zdc" id="RkD-5u-ZUy"/>
@@ -211,22 +211,22 @@
                                                 </connections>
                                             </tableView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vyA-dc-xoo" userLabel="Event Top View">
-                                                <rect key="frame" x="20" y="0.0" width="374" height="80.5"/>
+                                                <rect key="frame" x="20" y="0.0" width="374" height="60.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="参加者は？" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="Ljf-nY-l7f" userLabel="People Label">
-                                                        <rect key="frame" x="112" y="25" width="150" height="30"/>
+                                                        <rect key="frame" x="112" y="15" width="150" height="30"/>
                                                         <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="30"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="＊2人以上必要です" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Mxi-j2-U0N" userLabel="People Warning Label">
-                                                        <rect key="frame" x="100" y="55" width="174.5" height="20"/>
+                                                        <rect key="frame" x="100" y="45" width="174" height="20"/>
                                                         <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="20"/>
                                                         <color key="textColor" systemColor="systemRedColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4yk-1O-WTJ" userLabel="Add People Button" customClass="WCCustomUIButton" customModule="WariCan" customModuleProvider="target">
-                                                        <rect key="frame" x="267" y="14" width="52" height="52"/>
+                                                        <rect key="frame" x="267" y="4" width="52" height="52"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="4yk-1O-WTJ" secondAttribute="height" multiplier="1:1" id="RWf-Jc-Buo"/>
@@ -272,7 +272,7 @@
                                             <constraint firstItem="JEu-IA-uHu" firstAttribute="top" secondItem="vyA-dc-xoo" secondAttribute="bottom" id="Bme-6r-2Sn"/>
                                             <constraint firstAttribute="bottom" secondItem="JEu-IA-uHu" secondAttribute="bottom" id="WGj-T8-RUg"/>
                                             <constraint firstItem="JEu-IA-uHu" firstAttribute="leading" secondItem="geS-5c-fXT" secondAttribute="leading" constant="20" id="YXR-eL-UGZ"/>
-                                            <constraint firstItem="JEu-IA-uHu" firstAttribute="height" secondItem="geS-5c-fXT" secondAttribute="height" multiplier="0.8" id="aG4-eh-Anm"/>
+                                            <constraint firstItem="JEu-IA-uHu" firstAttribute="height" secondItem="geS-5c-fXT" secondAttribute="height" multiplier="0.85" id="aG4-eh-Anm"/>
                                             <constraint firstItem="vyA-dc-xoo" firstAttribute="top" secondItem="geS-5c-fXT" secondAttribute="top" id="eeQ-eh-qbm"/>
                                             <constraint firstItem="JEu-IA-uHu" firstAttribute="centerX" secondItem="geS-5c-fXT" secondAttribute="centerX" id="fMQ-yK-WKT"/>
                                         </constraints>
@@ -562,10 +562,10 @@
                                         <rect key="frame" x="0.0" y="246.5" width="414" height="403"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ldk-lb-HeR" userLabel="Event Top View">
-                                                <rect key="frame" x="20" y="0.0" width="374" height="80.5"/>
+                                                <rect key="frame" x="20" y="0.0" width="374" height="60.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="支払い履歴" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="fKN-mJ-01P">
-                                                        <rect key="frame" x="112" y="25" width="150" height="30"/>
+                                                        <rect key="frame" x="112" y="15" width="150" height="30"/>
                                                         <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="30"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -578,7 +578,7 @@
                                                 </constraints>
                                             </view>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zP3-mx-qkm" userLabel="Payment Table View">
-                                                <rect key="frame" x="20" y="80.5" width="374" height="322.5"/>
+                                                <rect key="frame" x="20" y="60.5" width="374" height="342.5"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <connections>
                                                     <outlet property="dataSource" destination="q3D-XR-HA2" id="s12-ab-hWw"/>
@@ -590,7 +590,7 @@
                                             <constraint firstItem="zP3-mx-qkm" firstAttribute="centerX" secondItem="yJv-zN-CXw" secondAttribute="centerX" id="2vz-Ek-lxA"/>
                                             <constraint firstItem="Ldk-lb-HeR" firstAttribute="top" secondItem="yJv-zN-CXw" secondAttribute="top" id="5NM-80-JiQ"/>
                                             <constraint firstAttribute="bottom" secondItem="zP3-mx-qkm" secondAttribute="bottom" id="756-RG-Kq8"/>
-                                            <constraint firstItem="zP3-mx-qkm" firstAttribute="height" secondItem="yJv-zN-CXw" secondAttribute="height" multiplier="0.8" id="8QS-Yz-72r"/>
+                                            <constraint firstItem="zP3-mx-qkm" firstAttribute="height" secondItem="yJv-zN-CXw" secondAttribute="height" multiplier="0.85" id="8QS-Yz-72r"/>
                                             <constraint firstItem="Ldk-lb-HeR" firstAttribute="centerX" secondItem="yJv-zN-CXw" secondAttribute="centerX" id="Vaw-0z-C8u"/>
                                             <constraint firstItem="Ldk-lb-HeR" firstAttribute="leading" secondItem="yJv-zN-CXw" secondAttribute="leading" constant="20" id="drc-Ij-Yar"/>
                                             <constraint firstItem="zP3-mx-qkm" firstAttribute="leading" secondItem="yJv-zN-CXw" secondAttribute="leading" constant="20" id="sjv-hC-JVn"/>
