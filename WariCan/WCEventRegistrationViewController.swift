@@ -64,6 +64,11 @@ class WCEventRegistrationViewController: UIViewController {
     // 参加者追加モーダルを表示　参加者名のフィールドに入る文字はnameFieldTextで指定
     private func showModalView(nameFieldText: String) {
         self.nameRegisterTextField.text = nameFieldText
+        // 入力済みの場合は、全選択されるように指定
+        self.nameRegisterTextField.selectAll(self.nameRegisterTextField.text)
+        // モーダルを開いたときにフォーカスが当たっているように指定
+        self.nameRegisterTextField.becomeFirstResponder()
+        
         self.nameRegisterModalView.isHidden = false
     }
     
