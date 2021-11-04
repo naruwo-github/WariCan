@@ -24,6 +24,10 @@
 		0538204A2630408800E5B835 /* WCRealmHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053820492630408800E5B835 /* WCRealmHelper.swift */; };
 		053C5817261C975E0068185D /* WCEventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053C5816261C975E0068185D /* WCEventDetailViewController.swift */; };
 		0561C39F26E61DF600C8CB4F /* WCUtilityClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0561C39E26E61DF600C8CB4F /* WCUtilityClass.swift */; };
+		0593A773273407EC00006C6A /* RegisterPersonModalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0593A772273407EC00006C6A /* RegisterPersonModalView.xib */; };
+		0593A7752734080500006C6A /* RegisterPersonModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0593A7742734080500006C6A /* RegisterPersonModalView.swift */; };
+		0593A7772734092500006C6A /* RegisterPaymentModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0593A7762734092500006C6A /* RegisterPaymentModalView.swift */; };
+		0593A7792734096100006C6A /* RegisterPaymentModalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0593A7782734096000006C6A /* RegisterPaymentModalView.xib */; };
 		059835D626323F60004C8089 /* WCCustomUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059835D526323F60004C8089 /* WCCustomUIButton.swift */; };
 		05A7F1A526075DC200C05D38 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A7F1A426075DC200C05D38 /* R.generated.swift */; };
 		05DCC10C26075A0C00297E2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DCC10B26075A0C00297E2F /* AppDelegate.swift */; };
@@ -77,6 +81,10 @@
 		053820492630408800E5B835 /* WCRealmHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCRealmHelper.swift; sourceTree = "<group>"; };
 		053C5816261C975E0068185D /* WCEventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCEventDetailViewController.swift; sourceTree = "<group>"; };
 		0561C39E26E61DF600C8CB4F /* WCUtilityClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCUtilityClass.swift; sourceTree = "<group>"; };
+		0593A772273407EC00006C6A /* RegisterPersonModalView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterPersonModalView.xib; sourceTree = "<group>"; };
+		0593A7742734080500006C6A /* RegisterPersonModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPersonModalView.swift; sourceTree = "<group>"; };
+		0593A7762734092500006C6A /* RegisterPaymentModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPaymentModalView.swift; sourceTree = "<group>"; };
+		0593A7782734096000006C6A /* RegisterPaymentModalView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterPaymentModalView.xib; sourceTree = "<group>"; };
 		059835D526323F60004C8089 /* WCCustomUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCCustomUIButton.swift; sourceTree = "<group>"; };
 		05A7F1A426075DC200C05D38 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		05DCC10826075A0C00297E2F /* WariCan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WariCan.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -173,8 +181,8 @@
 			isa = PBXGroup;
 			children = (
 				0561C39D26E61D1900C8CB4F /* BaseView */,
-				0519F06B26212F4100C9F71D /* EventDetailView */,
 				0519F06A26212F2000C9F71D /* EventRegistrationView */,
+				0519F06B26212F4100C9F71D /* EventDetailView */,
 			);
 			name = TableViewCell;
 			sourceTree = "<group>";
@@ -186,6 +194,17 @@
 				0519F09A262151FF00C9F71D /* WCEventCell.xib */,
 			);
 			name = BaseView;
+			sourceTree = "<group>";
+		};
+		0593A7712734075E00006C6A /* ModalView */ = {
+			isa = PBXGroup;
+			children = (
+				0593A7742734080500006C6A /* RegisterPersonModalView.swift */,
+				0593A772273407EC00006C6A /* RegisterPersonModalView.xib */,
+				0593A7762734092500006C6A /* RegisterPaymentModalView.swift */,
+				0593A7782734096000006C6A /* RegisterPaymentModalView.xib */,
+			);
+			name = ModalView;
 			sourceTree = "<group>";
 		};
 		059835D126323F4D004C8089 /* CustomClass */ = {
@@ -268,8 +287,8 @@
 			children = (
 				05DCC10F26075A0C00297E2F /* WCBaseViewController.swift */,
 				05FA6B3F261431E00054531B /* WCEventRegistrationViewController.swift */,
-				05DCC11126075A0C00297E2F /* Main.storyboard */,
 				053C5816261C975E0068185D /* WCEventDetailViewController.swift */,
+				05DCC11126075A0C00297E2F /* Main.storyboard */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -277,6 +296,7 @@
 		05FA6B48261466AA0054531B /* Parts */ = {
 			isa = PBXGroup;
 			children = (
+				0593A7712734075E00006C6A /* ModalView */,
 				059835D126323F4D004C8089 /* CustomClass */,
 				0519F099262151DC00C9F71D /* TableViewCell */,
 			);
@@ -422,8 +442,10 @@
 				05DCC11326075A0C00297E2F /* Main.storyboard in Resources */,
 				0519F09B262151FF00C9F71D /* WCEventCell.xib in Resources */,
 				0519F07F2621304600C9F71D /* WCPaymentCell.xib in Resources */,
+				0593A7792734096100006C6A /* RegisterPaymentModalView.xib in Resources */,
 				0519F084262130B100C9F71D /* WCPayerCell.xib in Resources */,
 				0519F089262130D500C9F71D /* WCDebtorCell.xib in Resources */,
+				0593A773273407EC00006C6A /* RegisterPersonModalView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -605,7 +627,9 @@
 				0538204526303F5400E5B835 /* WCParticipantModel.swift in Sources */,
 				05A7F1A526075DC200C05D38 /* R.generated.swift in Sources */,
 				0561C39F26E61DF600C8CB4F /* WCUtilityClass.swift in Sources */,
+				0593A7772734092500006C6A /* RegisterPaymentModalView.swift in Sources */,
 				0519F07526212FF300C9F71D /* WCPayerCell.swift in Sources */,
+				0593A7752734080500006C6A /* RegisterPersonModalView.swift in Sources */,
 				0538204A2630408800E5B835 /* WCRealmHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
