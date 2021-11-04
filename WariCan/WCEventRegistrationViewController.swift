@@ -73,6 +73,10 @@ class WCEventRegistrationViewController: UIViewController {
     }
     
     @IBAction private func addPeopleButtonTapped(_ sender: Any) {
+        let personModalVC = R.storyboard.modal.addPersonModalViewController()!
+        personModalVC.modalTransitionStyle = .crossDissolve
+        personModalVC.modalPresentationStyle = .fullScreen
+        self.present(personModalVC, animated: true)
         // ボタン経由で表示する場合は何も入力されてない状態にする
         self.showModalView(nameFieldText: "")
     }

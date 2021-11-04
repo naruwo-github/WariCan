@@ -210,6 +210,11 @@ class WCEventDetailViewController: UIViewController, UITextFieldDelegate {
     
     // 「支払いを追加」ボタン
     @IBAction private func addPaymentButtonTapped(_ sender: Any) {
+        let personModalVC = R.storyboard.modal.addPaymentModalViewController()!
+        personModalVC.modalTransitionStyle = .partialCurl
+        personModalVC.modalPresentationStyle = .fullScreen
+        self.present(personModalVC, animated: true)
+        
         self.paymentModalView.isHidden = false
         self.typeTextField.text = ""
         self.priceTextField.text = ""
