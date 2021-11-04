@@ -24,6 +24,9 @@
 		0538204A2630408800E5B835 /* WCRealmHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053820492630408800E5B835 /* WCRealmHelper.swift */; };
 		053C5817261C975E0068185D /* WCEventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053C5816261C975E0068185D /* WCEventDetailViewController.swift */; };
 		0561C39F26E61DF600C8CB4F /* WCUtilityClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0561C39E26E61DF600C8CB4F /* WCUtilityClass.swift */; };
+		0593A77C2734128F00006C6A /* Modal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0593A77B2734128F00006C6A /* Modal.storyboard */; };
+		0593A77E273412DF00006C6A /* AddPersonModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0593A77D273412DF00006C6A /* AddPersonModalViewController.swift */; };
+		0593A780273412F600006C6A /* AddPaymentModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0593A77F273412F600006C6A /* AddPaymentModalViewController.swift */; };
 		059835D626323F60004C8089 /* WCCustomUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059835D526323F60004C8089 /* WCCustomUIButton.swift */; };
 		05A7F1A526075DC200C05D38 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A7F1A426075DC200C05D38 /* R.generated.swift */; };
 		05DCC10C26075A0C00297E2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DCC10B26075A0C00297E2F /* AppDelegate.swift */; };
@@ -77,6 +80,9 @@
 		053820492630408800E5B835 /* WCRealmHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCRealmHelper.swift; sourceTree = "<group>"; };
 		053C5816261C975E0068185D /* WCEventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCEventDetailViewController.swift; sourceTree = "<group>"; };
 		0561C39E26E61DF600C8CB4F /* WCUtilityClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCUtilityClass.swift; sourceTree = "<group>"; };
+		0593A77B2734128F00006C6A /* Modal.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Modal.storyboard; sourceTree = "<group>"; };
+		0593A77D273412DF00006C6A /* AddPersonModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPersonModalViewController.swift; sourceTree = "<group>"; };
+		0593A77F273412F600006C6A /* AddPaymentModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPaymentModalViewController.swift; sourceTree = "<group>"; };
 		059835D526323F60004C8089 /* WCCustomUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCCustomUIButton.swift; sourceTree = "<group>"; };
 		05A7F1A426075DC200C05D38 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		05DCC10826075A0C00297E2F /* WariCan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WariCan.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -188,6 +194,16 @@
 			name = BaseView;
 			sourceTree = "<group>";
 		};
+		0593A77A2734126E00006C6A /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				0593A77D273412DF00006C6A /* AddPersonModalViewController.swift */,
+				0593A77F273412F600006C6A /* AddPaymentModalViewController.swift */,
+				0593A77B2734128F00006C6A /* Modal.storyboard */,
+			);
+			name = Modal;
+			sourceTree = "<group>";
+		};
 		059835D126323F4D004C8089 /* CustomClass */ = {
 			isa = PBXGroup;
 			children = (
@@ -268,8 +284,9 @@
 			children = (
 				05DCC10F26075A0C00297E2F /* WCBaseViewController.swift */,
 				05FA6B3F261431E00054531B /* WCEventRegistrationViewController.swift */,
-				05DCC11126075A0C00297E2F /* Main.storyboard */,
 				053C5816261C975E0068185D /* WCEventDetailViewController.swift */,
+				05DCC11126075A0C00297E2F /* Main.storyboard */,
+				0593A77A2734126E00006C6A /* Modal */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -417,6 +434,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				05FD0D2326187620006C34CA /* WCPeopleCell.xib in Resources */,
+				0593A77C2734128F00006C6A /* Modal.storyboard in Resources */,
 				05DCC11826075A0E00297E2F /* LaunchScreen.storyboard in Resources */,
 				05DCC11526075A0E00297E2F /* Assets.xcassets in Resources */,
 				05DCC11326075A0C00297E2F /* Main.storyboard in Resources */,
@@ -595,12 +613,14 @@
 				0519F07A2621300900C9F71D /* WCDebtorCell.swift in Sources */,
 				05FD0D1E261875A8006C34CA /* WCPeopleCell.swift in Sources */,
 				05DCC11026075A0C00297E2F /* WCBaseViewController.swift in Sources */,
+				0593A77E273412DF00006C6A /* AddPersonModalViewController.swift in Sources */,
 				05DCC10C26075A0C00297E2F /* AppDelegate.swift in Sources */,
 				0538204026303DAE00E5B835 /* WCPaymentModel.swift in Sources */,
 				0538203B26303CD300E5B835 /* WCEventModel.swift in Sources */,
 				05FA6B40261431E00054531B /* WCEventRegistrationViewController.swift in Sources */,
 				05DCC10E26075A0C00297E2F /* SceneDelegate.swift in Sources */,
 				05272A582642CF25009AAA95 /* WCStringHelper.swift in Sources */,
+				0593A780273412F600006C6A /* AddPaymentModalViewController.swift in Sources */,
 				0519F06D26212F6F00C9F71D /* WCPaymentCell.swift in Sources */,
 				0538204526303F5400E5B835 /* WCParticipantModel.swift in Sources */,
 				05A7F1A526075DC200C05D38 /* R.generated.swift in Sources */,
