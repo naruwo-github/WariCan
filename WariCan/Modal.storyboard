@@ -16,9 +16,88 @@
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vMX-nz-96k" userLabel="White Base View">
+                                <rect key="frame" x="57" y="298" width="300" height="200"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NHO-1V-xLi" userLabel="Center Line View">
+                                        <rect key="frame" x="0.0" y="99" width="300" height="2"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="2" id="pn2-LG-gbU"/>
+                                        </constraints>
+                                    </view>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="名前は？" textAlignment="center" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="w9z-iG-VRN" userLabel="People Name Text Field">
+                                        <rect key="frame" x="40" y="54" width="220" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="220" id="JbC-0g-ZBG"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="25"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tQq-t2-yj9" userLabel="Add Button" customClass="WCCustomUIButton" customModule="WariCan" customModuleProvider="target">
+                                        <rect key="frame" x="40" y="111" width="220" height="50"/>
+                                        <color key="backgroundColor" systemColor="systemTealColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="220" id="hfS-Lk-2Cf"/>
+                                            <constraint firstAttribute="height" constant="50" id="zpm-jF-7jP"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="25"/>
+                                        <state key="normal" title="追加">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="25"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="enableShadow" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                <real key="value" value="0.40000000000000002"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                <real key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                <size key="value" width="2" height="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="addPersonButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="bXg-Jz-YIL"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="61y-IH-szf"/>
+                                    <constraint firstAttribute="width" constant="300" id="B6r-4Z-qBT"/>
+                                    <constraint firstAttribute="trailing" secondItem="NHO-1V-xLi" secondAttribute="trailing" id="GsJ-Tq-UdI"/>
+                                    <constraint firstItem="NHO-1V-xLi" firstAttribute="centerX" secondItem="vMX-nz-96k" secondAttribute="centerX" id="I8N-AY-uPZ"/>
+                                    <constraint firstItem="NHO-1V-xLi" firstAttribute="centerY" secondItem="vMX-nz-96k" secondAttribute="centerY" id="IMn-H0-ZIP"/>
+                                    <constraint firstItem="w9z-iG-VRN" firstAttribute="centerX" secondItem="vMX-nz-96k" secondAttribute="centerX" id="bae-Gd-6J1"/>
+                                    <constraint firstItem="NHO-1V-xLi" firstAttribute="top" secondItem="w9z-iG-VRN" secondAttribute="bottom" constant="10" id="iN8-pu-Z6J"/>
+                                    <constraint firstItem="NHO-1V-xLi" firstAttribute="leading" secondItem="vMX-nz-96k" secondAttribute="leading" id="r1f-IK-8Cy"/>
+                                    <constraint firstItem="tQq-t2-yj9" firstAttribute="top" secondItem="NHO-1V-xLi" secondAttribute="bottom" constant="10" id="th6-pb-Mhf"/>
+                                    <constraint firstItem="tQq-t2-yj9" firstAttribute="centerX" secondItem="vMX-nz-96k" secondAttribute="centerX" id="y3t-FB-JjN"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" systemColor="systemPurpleColor"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="0.30188109543149833" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="vMX-nz-96k" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="fIl-63-3y0"/>
+                            <constraint firstItem="vMX-nz-96k" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" constant="-50" id="rmz-KN-ySa"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="nameTextField" destination="w9z-iG-VRN" id="vqX-gP-gl1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -40,9 +119,17 @@
             <point key="canvasLocation" x="897" y="86"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="tQq-t2-yj9">
+            <size key="intrinsicContentSize" width="50" height="37"/>
+        </designable>
+    </designables>
     <resources>
-        <systemColor name="systemPurpleColor">
-            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

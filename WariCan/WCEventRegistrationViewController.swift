@@ -20,10 +20,6 @@ class WCEventRegistrationViewController: UIViewController {
     @IBOutlet private weak var backButton: WCCustomUIButton!
     @IBOutlet private weak var bottomBannerView: GADBannerView!
     
-    @IBOutlet private weak var nameRegisterModalView: UIView!
-    @IBOutlet private weak var nameRegisterTextField: UITextField!
-    @IBOutlet private weak var addButton: WCCustomUIButton!
-    
     // 参加者のリスト（この画面内ではDBに保存せず一時的にクラス内部で保持）
     private var participantList: [String] = []
     // 参加者名の編集中を表すフラグ
@@ -36,7 +32,6 @@ class WCEventRegistrationViewController: UIViewController {
         self.setupAd()
         self.setupButtonsLayout()
         WCUtilityClass().addToolbarOnTextField(view: self.view, textField: self.eventTitleTextField, action: #selector(self.eventTitleKeyboardCloseButtonTapped))
-        WCUtilityClass().addToolbarOnTextField(view: self.view, textField: self.nameRegisterTextField, action: #selector(self.nameRegisterKeyboardCloseButtonTapped))
         self.peopleTableView.register(UINib(resource: R.nib.wcPeopleCell), forCellReuseIdentifier: "PeopleCell")
     }
     
@@ -56,29 +51,33 @@ class WCEventRegistrationViewController: UIViewController {
         self.eventTitleTextField.resignFirstResponder()
     }
     
-    @objc private func nameRegisterKeyboardCloseButtonTapped() {
-        self.nameRegisterTextField.endEditing(true)
-        self.nameRegisterTextField.resignFirstResponder()
-    }
-    
-    // 参加者追加モーダルを表示　参加者名のフィールドに入る文字はnameFieldTextで指定
-    private func showModalView(nameFieldText: String) {
-        self.nameRegisterTextField.text = nameFieldText
-        // 入力済みの場合は、全選択されるように指定
-        self.nameRegisterTextField.selectAll(self.nameRegisterTextField.text)
-        // モーダルを開いたときにフォーカスが当たっているように指定
-        self.nameRegisterTextField.becomeFirstResponder()
-        
-        self.nameRegisterModalView.isHidden = false
+    private func addPersonAction(personNameTextField: UITextField) {
+        if (personNameTextField.text ?? "").isEmpty {
+            // 参加者ラベルが空なら、追加しない、何もしない
+        } else {
+            if self.peopleNameEdittingFlag {
+                self.peopleNameEdittingFlag = false
+                // 既存の参加者名の編集中である場合
+                self.participantList[self.edittingIndex] = personNameTextField.text!
+            } else {
+                // 新規の参加者を追加する場合
+                self.participantList.append(personNameTextField.text!)
+            }
+            personNameTextField.resignFirstResponder()
+            self.peopleWarningLabel.isHidden = true
+            self.peopleTableView.reloadData()
+        }
     }
     
     @IBAction private func addPeopleButtonTapped(_ sender: Any) {
         let personModalVC = R.storyboard.modal.addPersonModalViewController()!
-        personModalVC.modalTransitionStyle = .crossDissolve
-        personModalVC.modalPresentationStyle = .fullScreen
+        personModalVC.setup(
+            action: { personNameTextField in
+                self.addPersonAction(personNameTextField: personNameTextField)
+            },
+            text: ""
+        )
         self.present(personModalVC, animated: true)
-        // ボタン経由で表示する場合は何も入力されてない状態にする
-        self.showModalView(nameFieldText: "")
     }
     
     @IBAction private func startButtonTapped(_ sender: Any) {
@@ -117,25 +116,6 @@ class WCEventRegistrationViewController: UIViewController {
         let vc = R.storyboard.main.wcBaseViewController()!
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true, completion: nil)
-    }
-    
-    @IBAction private func addButtonTapped(_ sender: Any) {
-        if (self.nameRegisterTextField.text ?? "").isEmpty {
-            // 参加者ラベルが空なら、追加しない、何もしない
-        } else {
-            if self.peopleNameEdittingFlag {
-                self.peopleNameEdittingFlag = false
-                // 既存の参加者名の編集中である場合
-                self.participantList[self.edittingIndex] = self.nameRegisterTextField.text!
-            } else {
-                // 新規の参加者を追加する場合
-                self.participantList.append(self.nameRegisterTextField.text!)
-            }
-            self.nameRegisterTextField.resignFirstResponder()
-            self.peopleWarningLabel.isHidden = true
-            self.nameRegisterModalView.isHidden = true
-            self.peopleTableView.reloadData()
-        }
     }
     
     // 「名前は？」フィールドがタップされたとき
@@ -178,7 +158,15 @@ extension WCEventRegistrationViewController: UITableViewDelegate, UITableViewDat
         
         self.peopleNameEdittingFlag = true
         self.edittingIndex = indexPath.row
-        self.showModalView(nameFieldText: cell.getName())
+        
+        let personModalVC = R.storyboard.modal.addPersonModalViewController()!
+        personModalVC.setup(
+            action: { personNameTextField in
+                self.addPersonAction(personNameTextField: personNameTextField)
+            },
+            text: cell.getName()
+        )
+        self.present(personModalVC, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

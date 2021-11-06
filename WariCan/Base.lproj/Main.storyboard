@@ -343,106 +343,22 @@
                                             <action selector="backButtonTapped:" destination="m1L-OB-zdc" eventType="touchUpInside" id="jfC-4f-Z6O"/>
                                         </connections>
                                     </button>
-                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hbx-Wa-4wy" userLabel="Gray Opaque View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                        <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0pk-sy-Gt3" userLabel="White Base View">
-                                                <rect key="frame" x="57" y="348" width="300" height="200"/>
-                                                <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RDF-Jp-Vbw" userLabel="Center Line View">
-                                                        <rect key="frame" x="0.0" y="99" width="300" height="2"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="2" id="ght-Lv-Ss1"/>
-                                                        </constraints>
-                                                    </view>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="名前は？" textAlignment="center" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="YwG-ev-aAB" userLabel="People Name Text Field">
-                                                        <rect key="frame" x="40" y="54" width="220" height="35"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="220" id="QZy-DN-MlK"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="25"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ujG-71-ot7" userLabel="Add Button" customClass="WCCustomUIButton" customModule="WariCan" customModuleProvider="target">
-                                                        <rect key="frame" x="40" y="111" width="220" height="50"/>
-                                                        <color key="backgroundColor" systemColor="systemTealColor"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="50" id="AVD-iw-d4k"/>
-                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="220" id="Ely-h3-oIP"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="25"/>
-                                                        <state key="normal" title="追加">
-                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        </state>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="25"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="enableShadow" value="YES"/>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                                                <real key="value" value="0.40000000000000002"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                                                <real key="value" value="4"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
-                                                                <size key="value" width="2" height="2"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="addButtonTapped:" destination="m1L-OB-zdc" eventType="touchUpInside" id="nkZ-CQ-9D7"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="200" id="30i-jS-sPr"/>
-                                                    <constraint firstItem="RDF-Jp-Vbw" firstAttribute="top" secondItem="YwG-ev-aAB" secondAttribute="bottom" constant="10" id="7Uf-j2-5BI"/>
-                                                    <constraint firstAttribute="trailing" secondItem="RDF-Jp-Vbw" secondAttribute="trailing" id="ReR-ZS-iHH"/>
-                                                    <constraint firstAttribute="width" constant="300" id="XkW-hW-5Vy"/>
-                                                    <constraint firstItem="RDF-Jp-Vbw" firstAttribute="leading" secondItem="0pk-sy-Gt3" secondAttribute="leading" id="fSe-Rd-mRE"/>
-                                                    <constraint firstItem="RDF-Jp-Vbw" firstAttribute="centerX" secondItem="0pk-sy-Gt3" secondAttribute="centerX" id="iTa-OH-xGB"/>
-                                                    <constraint firstItem="RDF-Jp-Vbw" firstAttribute="centerY" secondItem="0pk-sy-Gt3" secondAttribute="centerY" id="kML-E3-TGg"/>
-                                                    <constraint firstItem="YwG-ev-aAB" firstAttribute="centerX" secondItem="0pk-sy-Gt3" secondAttribute="centerX" id="kYz-Eb-40J"/>
-                                                    <constraint firstItem="ujG-71-ot7" firstAttribute="top" secondItem="RDF-Jp-Vbw" secondAttribute="bottom" constant="10" id="pMt-RX-fl8"/>
-                                                    <constraint firstItem="ujG-71-ot7" firstAttribute="centerX" secondItem="0pk-sy-Gt3" secondAttribute="centerX" id="rxr-dn-6f6"/>
-                                                </constraints>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <integer key="value" value="20"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </view>
-                                        </subviews>
-                                        <color key="backgroundColor" white="0.66666666666666663" alpha="0.30304945383640314" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstItem="0pk-sy-Gt3" firstAttribute="centerY" secondItem="Hbx-Wa-4wy" secondAttribute="centerY" id="fQh-Re-PMs"/>
-                                            <constraint firstItem="0pk-sy-Gt3" firstAttribute="centerX" secondItem="Hbx-Wa-4wy" secondAttribute="centerX" id="tfF-YC-n60"/>
-                                        </constraints>
-                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" red="0.3921568627" green="0.82352941180000006" blue="1" alpha="0.19945197710000001" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="jmc-wf-mgR" firstAttribute="centerX" secondItem="o5l-ab-wMw" secondAttribute="centerX" id="0uy-AZ-JfV"/>
                                     <constraint firstItem="VYx-sQ-wBb" firstAttribute="centerX" secondItem="o5l-ab-wMw" secondAttribute="centerX" id="8Rs-Gv-zkM"/>
                                     <constraint firstItem="JQ2-GJ-beo" firstAttribute="top" secondItem="geS-5c-fXT" secondAttribute="bottom" constant="25" id="AGH-dk-2cK"/>
-                                    <constraint firstItem="Hbx-Wa-4wy" firstAttribute="top" secondItem="o5l-ab-wMw" secondAttribute="top" id="DNJ-c5-n9A"/>
                                     <constraint firstItem="jmc-wf-mgR" firstAttribute="centerY" secondItem="B7c-kT-enA" secondAttribute="centerY" id="FJW-8H-sUa"/>
                                     <constraint firstItem="JQ2-GJ-beo" firstAttribute="centerX" secondItem="o5l-ab-wMw" secondAttribute="centerX" id="GLK-gI-Fje"/>
                                     <constraint firstItem="w5d-KP-sVX" firstAttribute="centerX" secondItem="o5l-ab-wMw" secondAttribute="centerX" id="MfW-qS-nbl"/>
-                                    <constraint firstItem="Hbx-Wa-4wy" firstAttribute="centerX" secondItem="o5l-ab-wMw" secondAttribute="centerX" id="TMk-v1-fda"/>
                                     <constraint firstItem="geS-5c-fXT" firstAttribute="leading" secondItem="o5l-ab-wMw" secondAttribute="leading" id="UYE-or-U0G"/>
-                                    <constraint firstItem="Hbx-Wa-4wy" firstAttribute="centerY" secondItem="o5l-ab-wMw" secondAttribute="centerY" id="Vu2-m2-Fal"/>
                                     <constraint firstItem="geS-5c-fXT" firstAttribute="centerX" secondItem="o5l-ab-wMw" secondAttribute="centerX" id="cv9-IT-JJ5"/>
                                     <constraint firstItem="VYx-sQ-wBb" firstAttribute="top" secondItem="JQ2-GJ-beo" secondAttribute="bottom" constant="10" id="fVZ-DY-Km7"/>
                                     <constraint firstItem="geS-5c-fXT" firstAttribute="centerY" secondItem="o5l-ab-wMw" secondAttribute="centerY" id="fYV-u6-WzR"/>
                                     <constraint firstItem="geS-5c-fXT" firstAttribute="height" secondItem="o5l-ab-wMw" secondAttribute="height" multiplier="0.45" id="hOo-BX-Jly"/>
                                     <constraint firstItem="geS-5c-fXT" firstAttribute="top" secondItem="B7c-kT-enA" secondAttribute="bottom" constant="30" id="pWl-dg-9kq"/>
                                     <constraint firstItem="B7c-kT-enA" firstAttribute="top" secondItem="w5d-KP-sVX" secondAttribute="bottom" constant="15" id="vv2-9F-kvw"/>
-                                    <constraint firstItem="Hbx-Wa-4wy" firstAttribute="leading" secondItem="o5l-ab-wMw" secondAttribute="leading" id="yAV-JC-Jc1"/>
                                     <constraint firstItem="B7c-kT-enA" firstAttribute="centerX" secondItem="o5l-ab-wMw" secondAttribute="centerX" id="ycK-0Q-5DI"/>
                                 </constraints>
                             </view>
@@ -467,13 +383,10 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="addButton" destination="ujG-71-ot7" id="9E2-Pt-rra"/>
                         <outlet property="addPeopleButton" destination="4yk-1O-WTJ" id="yP7-T1-MiL"/>
                         <outlet property="backButton" destination="VYx-sQ-wBb" id="COf-G9-JVK"/>
                         <outlet property="bottomBannerView" destination="YjM-tR-eGH" id="PdH-tH-23S"/>
                         <outlet property="eventTitleTextField" destination="B7c-kT-enA" id="8di-go-UJd"/>
-                        <outlet property="nameRegisterModalView" destination="Hbx-Wa-4wy" id="Jor-Ph-dOa"/>
-                        <outlet property="nameRegisterTextField" destination="YwG-ev-aAB" id="lxC-tT-Wmd"/>
                         <outlet property="peopleTableView" destination="JEu-IA-uHu" id="FfX-4r-e8p"/>
                         <outlet property="peopleWarningLabel" destination="Mxi-j2-U0N" id="ZIp-b8-cDZ"/>
                         <outlet property="startButton" destination="JQ2-GJ-beo" id="4Jd-ec-YQx"/>
@@ -932,9 +845,6 @@
             <size key="intrinsicContentSize" width="150" height="37"/>
         </designable>
         <designable name="byU-iV-oBc">
-            <size key="intrinsicContentSize" width="50" height="37"/>
-        </designable>
-        <designable name="ujG-71-ot7">
             <size key="intrinsicContentSize" width="50" height="37"/>
         </designable>
     </designables>
