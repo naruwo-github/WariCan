@@ -169,8 +169,4 @@ extension WCEventRegistrationViewController: UITableViewDelegate, UITableViewDat
         self.present(personModalVC, animated: true)
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 55
-    }
-    
 }
