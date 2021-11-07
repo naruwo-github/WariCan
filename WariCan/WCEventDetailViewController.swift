@@ -37,33 +37,6 @@ class WCEventDetailViewController: UIViewController, UITextFieldDelegate {
         
         self.paymentTableView.register(UINib(resource: R.nib.wcPaymentCell), forCellReuseIdentifier: "PaymentCell")
         self.setWariCanResultText()
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
-    
-    @objc private func keyboardWillShow(notification: NSNotification) {
-        guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
-        
-        let diffHeight = keyboardSize.height - 150
-        if self.view.frame.origin.y == 0 {
-            self.view.frame.origin.y -= diffHeight
-        } else {
-            let suggestionHeight = self.view.frame.origin.y + diffHeight
-            self.view.frame.origin.y -= suggestionHeight
-        }
-    }
-    
-    @objc private func keyboardWillHide() {
-        if self.view.frame.origin.y != 0 {
-            self.view.frame.origin.y = 0
-        }
     }
     
     public func setup(eventData: Event) {
@@ -177,12 +150,18 @@ class WCEventDetailViewController: UIViewController, UITextFieldDelegate {
     @IBAction private func addPaymentButtonTapped(_ sender: Any) {
         let personModalVC = R.storyboard.modal.addPaymentModalViewController()!
         personModalVC.modalPresentationStyle = .fullScreen
-        personModalVC.setup(eventData: self.eventData, payerCellIndex: self.payerCellIndex, debtorCellIndexList: self.debtorCellIndexList, refreshParentAction: { [unowned self] in
-            self.paymentTableView.reloadData()
-            self.setWariCanResultText()
-        }, showInterstitialAction: { [unowned self] in
-            self.showInterstitialAd()
-        })
+        personModalVC.setup(
+            eventData: self.eventData,
+            payerCellIndex: self.payerCellIndex,
+            debtorCellIndexList: self.debtorCellIndexList,
+            refreshParentAction: { [unowned self] in
+                self.paymentTableView.reloadData()
+                self.setWariCanResultText()
+            },
+            showInterstitialAction: { [unowned self] in
+                self.showInterstitialAd()
+            }
+        )
         self.present(personModalVC, animated: true)
     }
     
