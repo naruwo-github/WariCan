@@ -24,17 +24,6 @@ class WCEventDetailViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet private weak var paymentTableView: UITableView! // tag=0
     @IBOutlet private weak var resultLabel: UILabel!
     @IBOutlet private weak var bottomBannerView: GADBannerView!
-    // 支払い追加モーダル上の要素
-    @IBOutlet private weak var paymentModalView: UIView!
-    @IBOutlet private weak var debtorWarningLabel: UILabel!
-    @IBOutlet private weak var payerTableView: UITableView! // tag=1
-    @IBOutlet private weak var debtorTableView: UITableView! // tag=2
-    @IBOutlet private weak var typeTextField: UITextField!
-    @IBOutlet private weak var typeWarningLabel: UILabel!
-    @IBOutlet private weak var priceTextField: UITextField!
-    @IBOutlet private weak var priceWarningLabel: UILabel!
-    @IBOutlet private weak var addButton: WCCustomUIButton!
-    @IBOutlet private weak var closeButton: WCCustomUIButton!
     
     private var interstitial: GADInterstitialAd?
     private var payerCellIndex: Int = 0 // 支払い主のセルのインデックス（この値は一つだけ）
@@ -46,13 +35,7 @@ class WCEventDetailViewController: UIViewController, UITextFieldDelegate {
         self.tripTitleLabel.text = self.eventData.title
         self.setupAd()
         
-        WCUtilityClass().addToolbarOnTextField(view: self.view, textField: self.typeTextField, action: #selector(self.typeKeyboardCloseButtonTapped))
-        self.typeTextField.delegate = self
-        WCUtilityClass().addToolbarOnTextField(view: self.view, textField: self.priceTextField, action: #selector(self.priceKeyboardCloseButtonTapped))
-        self.priceTextField.delegate = self
-        self.priceTextField.keyboardType = .numberPad
-        
-        self.setupTableViews()
+        self.paymentTableView.register(UINib(resource: R.nib.wcPaymentCell), forCellReuseIdentifier: "PaymentCell")
         self.setWariCanResultText()
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
@@ -87,26 +70,8 @@ class WCEventDetailViewController: UIViewController, UITextFieldDelegate {
         self.eventData = eventData
     }
     
-    @objc private func typeKeyboardCloseButtonTapped() {
-        self.typeTextField.endEditing(true)
-        self.typeTextField.resignFirstResponder()
-    }
-    
-    @objc private func priceKeyboardCloseButtonTapped() {
-        self.priceTextField.endEditing(true)
-        self.priceTextField.resignFirstResponder()
-    }
-    
-    private func setupTableViews() {
-        self.paymentTableView.register(UINib(resource: R.nib.wcPaymentCell), forCellReuseIdentifier: "PaymentCell")
-        self.payerTableView.register(UINib(resource: R.nib.wcPayerCell), forCellReuseIdentifier: "PayerCell")
-        self.debtorTableView.register(UINib(resource: R.nib.wcDebtorCell), forCellReuseIdentifier: "DebtorCell")
-    }
-    
     private func refreshTableViews() {
         self.paymentTableView.reloadData()
-        self.payerTableView.reloadData()
-        self.debtorTableView.reloadData()
         self.setWariCanResultText()
     }
     
@@ -211,69 +176,14 @@ class WCEventDetailViewController: UIViewController, UITextFieldDelegate {
     // 「支払いを追加」ボタン
     @IBAction private func addPaymentButtonTapped(_ sender: Any) {
         let personModalVC = R.storyboard.modal.addPaymentModalViewController()!
-        personModalVC.modalTransitionStyle = .partialCurl
         personModalVC.modalPresentationStyle = .fullScreen
-        self.present(personModalVC, animated: true)
-        
-        self.paymentModalView.isHidden = false
-        self.typeTextField.text = ""
-        self.priceTextField.text = ""
-        self.typeWarningLabel.isHidden = true
-        self.priceWarningLabel.isHidden = true
-    }
-    
-    // 「追加」ボタン
-    @IBAction private func addButtonTapped(_ sender: Any) {
-        // 警告ラベルたちは非表示にする
-        self.typeWarningLabel.isHidden = true
-        self.priceWarningLabel.isHidden = true
-        self.debtorWarningLabel.isHidden = true
-        
-        // typeとpriceが両方入っていて、
-        // かつ「誰の？」が一人以上チェックされていれば、OK
-        if !(self.typeTextField.text ?? "").isEmpty
-            && !(self.priceTextField.text ?? "").isEmpty
-            && self.debtorCellIndexList.count > 0 {
-            self.paymentModalView.isHidden = true
-            
-            // ***支払いデータを追加・保存する処理***
-            let payment = Payment()
-            payment.payerName = self.eventData.participants[self.payerCellIndex].name
-            self.debtorCellIndexList.forEach({
-                let debtor = Participant()
-                debtor.name = self.eventData.participants[$0].name
-                payment.debtor.append(debtor)
-            })
-            payment.typeName = self.typeTextField.text!
-            payment.price = Double(self.priceTextField.text!)!
-            WCRealmHelper.init().addPaymentToEvent(event: self.eventData, payment: payment)
-            // ********************************
-            
-            self.refreshTableViews()
-            // インタースティシャル広告を一定確率で表示
+        personModalVC.setup(eventData: self.eventData, payerCellIndex: self.payerCellIndex, debtorCellIndexList: self.debtorCellIndexList, refreshParentAction: { [unowned self] in
+            self.paymentTableView.reloadData()
+            self.setWariCanResultText()
+        }, showInterstitialAction: { [unowned self] in
             self.showInterstitialAd()
-        }
-        
-        // 警告ラベルを表示させる処理
-        if (self.typeTextField.text ?? "").isEmpty {
-            self.typeWarningLabel.isHidden = false
-        }
-        if (self.priceTextField.text ?? "").isEmpty {
-            self.priceWarningLabel.isHidden = false
-        }
-        if self.debtorCellIndexList.count == 0 {
-            self.debtorWarningLabel.isHidden = false
-        }
-        // キーボードを閉じる処理
-        self.typeTextField.resignFirstResponder()
-        self.priceTextField.resignFirstResponder()
-    }
-    
-    // 「戻る」ボタン
-    @IBAction private func closeButtonTapped(_ sender: Any) {
-        self.typeTextField.resignFirstResponder()
-        self.priceTextField.resignFirstResponder()
-        self.paymentModalView.isHidden = true
+        })
+        self.present(personModalVC, animated: true)
     }
     
     // 「＊初期画面へ」ボタン
@@ -281,16 +191,6 @@ class WCEventDetailViewController: UIViewController, UITextFieldDelegate {
         let vc = R.storyboard.main.wcBaseViewController()!
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true, completion: nil)
-    }
-    
-    // 「何の代金？」フィールドをタップした時
-    @IBAction func typeFieldFocused(_ sender: Any) {
-        self.typeWarningLabel.isHidden = true
-    }
-    
-    // 「いくら？」フィールドをタップした時
-    @IBAction func priceFieldFocused(_ sender: Any) {
-        self.priceWarningLabel.isHidden = true
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -339,87 +239,27 @@ extension WCEventDetailViewController {
 extension WCEventDetailViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch tableView.tag {
-        case 0:                 // 支払いのテーブルビュー
-            return self.eventData.payments.count// self.paymentCount
-        case 1:                 // 「誰が？」のテーブルビュー
-            return self.eventData.participants.count
-        case 2:                 // 「誰の？」のテーブルビュー
-            return self.eventData.participants.count
-        default: fatalError()   // ここにはこない想定
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        switch tableView.tag {
-        case 0:                 // 支払いのテーブルビュー
-        // TODO: 編集画面に遷移する
-        print()
-        case 1:                 // 「誰が？」のテーブルビュー
-            self.payerCellIndex = indexPath.row
-        case 2:                 // 「誰の？」のテーブルビュー
-            if self.debtorCellIndexList.contains(indexPath.row) {
-                self.debtorCellIndexList.removeAll(where: { $0 == indexPath.row })
-            } else {
-                self.debtorCellIndexList.append(indexPath.row)
-            }
-        default: fatalError()   // ここにはこない想定
-        }
-        
-        self.refreshTableViews()
+        return self.eventData.payments.count// self.paymentCount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch tableView.tag {
-        case 0:                 // 支払いのテーブルビュー
-            let cell = tableView.dequeueReusableCell(withIdentifier: "PaymentCell") as! WCPaymentCell
-            let payment = self.eventData.payments[indexPath.row]
-            cell.setupPayment(payer: payment.payerName, debtorCount: payment.debtor.count.description, type: payment.typeName, price: Int(payment.price).description)
-            return cell
-        case 1:                 // 「誰が？」のテーブルビュー
-            let cell = tableView.dequeueReusableCell(withIdentifier: "PayerCell") as! WCPayerCell
-            cell.setupPayer(payer: self.eventData.participants[indexPath.row].name)
-            // 支払い主ならチェックマークを表示
-            if self.payerCellIndex == indexPath.row {
-                cell.accessoryType = .checkmark
-            } else {
-                cell.accessoryType = .none
-            }
-            return cell
-        case 2:                 // 「誰の？」のテーブルビュー
-            let cell = tableView.dequeueReusableCell(withIdentifier: "DebtorCell") as! WCDebtorCell
-            cell.setupDebtor(debtor: self.eventData.participants[indexPath.row].name)
-            // 支払われている人ならチェックマークを表示
-            if self.debtorCellIndexList.contains(indexPath.row) {
-                cell.accessoryType = .checkmark
-            } else {
-                cell.accessoryType = .none
-            }
-            return cell
-        default: fatalError()   // ここにはこない想定
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PaymentCell") as! WCPaymentCell
+        let payment = self.eventData.payments[indexPath.row]
+        cell.setupPayment(payer: payment.payerName, debtorCount: payment.debtor.count.description, type: payment.typeName, price: Int(payment.price).description)
+        return cell
     }
     
     // TODO: 誰が、誰ののターブルビューでは、削除がうつらないようにしたい
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        switch tableView.tag {
-        case 0:         // 支払いのテーブルビューのみ削除処理が可能
-            if editingStyle == UITableViewCell.EditingStyle.delete {
-                WCRealmHelper.init().delete(object: self.eventData.payments[indexPath.row])
-                tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.automatic)
-            }
-        case 1, 2: print("削除はしない")      // 「誰が？」&「誰の？」のテーブルビュー
-        default: fatalError()   // ここにはこない想定
+        if editingStyle == UITableViewCell.EditingStyle.delete {
+            WCRealmHelper.init().delete(object: self.eventData.payments[indexPath.row])
+            tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.automatic)
         }
         self.refreshTableViews()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        switch tableView.tag {
-        case 0: return 70       // 支払いのテーブルビュー
-        case 1, 2: return 50       // 「誰が？」&「誰の？」のテーブルビュー
-        default: fatalError()   // ここにはこない想定
-        }
+        return 70
     }
  
 }
