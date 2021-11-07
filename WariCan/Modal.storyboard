@@ -87,18 +87,18 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lG8-xJ-rSg" userLabel="Bottom Banner View" customClass="GADBannerView">
-                                <rect key="frame" x="0.0" y="812" width="414" height="50"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="YdX-c3-DNT"/>
-                                </constraints>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W8H-vH-Bs6" userLabel="Top Banner View" customClass="GADBannerView">
                                 <rect key="frame" x="0.0" y="44" width="414" height="50"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Y9P-fk-QeY"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lG8-xJ-rSg" userLabel="Bottom Banner View" customClass="GADBannerView">
+                                <rect key="frame" x="0.0" y="812" width="414" height="50"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="YdX-c3-DNT"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -134,9 +134,39 @@
                     <view key="view" contentMode="scaleToFill" id="JnK-pS-x93">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2ff-2g-6IP" userLabel="Top Banner View" customClass="GADBannerView">
+                                <rect key="frame" x="0.0" y="44" width="414" height="50"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="LtU-YC-5sO"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z0f-Am-2An" userLabel="Bottom Banner View" customClass="GADBannerView">
+                                <rect key="frame" x="0.0" y="812" width="414" height="50"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="sFP-zC-1Sc"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="MuM-BJ-nng"/>
-                        <color key="backgroundColor" systemColor="systemYellowColor"/>
+                        <color key="backgroundColor" white="0.66666666669999997" alpha="0.30188109540000002" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="MuM-BJ-nng" firstAttribute="trailing" secondItem="2ff-2g-6IP" secondAttribute="trailing" id="D5h-un-GID"/>
+                            <constraint firstItem="2ff-2g-6IP" firstAttribute="top" secondItem="MuM-BJ-nng" secondAttribute="top" id="Kpx-GU-1Re"/>
+                            <constraint firstItem="2ff-2g-6IP" firstAttribute="centerX" secondItem="JnK-pS-x93" secondAttribute="centerX" id="MdF-Oj-OgF"/>
+                            <constraint firstItem="z0f-Am-2An" firstAttribute="centerX" secondItem="JnK-pS-x93" secondAttribute="centerX" id="QIf-ax-WLE"/>
+                            <constraint firstItem="z0f-Am-2An" firstAttribute="leading" secondItem="JnK-pS-x93" secondAttribute="leading" id="VYR-I9-BPk"/>
+                            <constraint firstAttribute="trailing" secondItem="z0f-Am-2An" secondAttribute="trailing" id="Xnu-Gh-Bsh"/>
+                            <constraint firstItem="2ff-2g-6IP" firstAttribute="leading" secondItem="JnK-pS-x93" secondAttribute="leading" id="mba-Hj-A6y"/>
+                            <constraint firstItem="MuM-BJ-nng" firstAttribute="bottom" secondItem="z0f-Am-2An" secondAttribute="bottom" id="nFB-pi-4Bb"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="bottomBannerAdView" destination="z0f-Am-2An" id="eeY-JL-oOd"/>
+                        <outlet property="topBannerAdView" destination="2ff-2g-6IP" id="5T5-AF-U0a"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VUq-rD-0ah" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -154,9 +184,6 @@
         </systemColor>
         <systemColor name="systemTealColor">
             <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemYellowColor">
-            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

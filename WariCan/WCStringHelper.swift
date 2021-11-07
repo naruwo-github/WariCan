@@ -25,4 +25,8 @@ class WCStringHelper {
     public let personModalTopBannerAdId = "ca-app-pub-6492692627915720/2857433405"
     public let personModalBottomBannerAdId = "ca-app-pub-6492692627915720/5292025054"
     
+    // MARK: 支払い情報入力モーダル画面で使う文字列
+    public let paymentModalTopBannerAdId = "ca-app-pub-6492692627915720/3990729289"
+    public let paymentModalBottomBannerAdId = "ca-app-pub-6492692627915720/2677647619"
+    
 }
