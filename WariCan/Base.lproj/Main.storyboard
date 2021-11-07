@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
@@ -14,28 +14,28 @@
             <objects>
                 <viewController storyboardIdentifier="WCBaseViewController" id="BYZ-38-t0r" customClass="WCBaseViewController" customModule="WariCan" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d6g-Ie-1x1" userLabel="Background View">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                 <color key="backgroundColor" red="0.39215686274509803" green="0.82352941176470584" blue="1" alpha="0.19945197705401491" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o4H-ru-dbP" userLabel="Bottom Banner View" customClass="GADBannerView">
-                                <rect key="frame" x="0.0" y="812" width="414" height="50"/>
+                                <rect key="frame" x="0.0" y="728" width="375" height="50"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="mHS-U9-CXg"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K2r-tB-6Rd" userLabel="Center View">
-                                <rect key="frame" x="0.0" y="246.5" width="414" height="403"/>
+                                <rect key="frame" x="0.0" y="223.33333333333334" width="375" height="365.33333333333326"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EIS-fl-crI" userLabel="Event Top View">
-                                        <rect key="frame" x="20" y="0.0" width="374" height="60.5"/>
+                                        <rect key="frame" x="20" y="0.0" width="335" height="54.666666666666664"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="イベント一覧" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="CNk-EX-NmT">
-                                                <rect key="frame" x="98" y="15" width="178" height="30"/>
+                                                <rect key="frame" x="78.666666666666686" y="12.333333333333314" width="178" height="30"/>
                                                 <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="30"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -48,7 +48,7 @@
                                         </constraints>
                                     </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5EH-kO-GsW">
-                                        <rect key="frame" x="20" y="60.5" width="374" height="342.5"/>
+                                        <rect key="frame" x="20" y="54.666666666666657" width="335" height="310.66666666666674"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <connections>
                                             <outlet property="dataSource" destination="BYZ-38-t0r" id="L2i-m7-T3t"/>
@@ -68,19 +68,19 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wari Can¥" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="30" translatesAutoresizingMaskIntoConstraints="NO" id="8Yy-Gy-1Og">
-                                <rect key="frame" x="65.5" y="131.5" width="283" height="50"/>
+                                <rect key="frame" x="46" y="108.33333333333331" width="283" height="50"/>
                                 <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="50"/>
                                 <color key="textColor" systemColor="systemTealColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="〜らくらくワリカンアプリ〜" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZZf-pV-qzw">
-                                <rect key="frame" x="77" y="191.5" width="260" height="20"/>
+                                <rect key="frame" x="57.666666666666657" y="168.33333333333334" width="260" height="20"/>
                                 <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="20"/>
                                 <color key="textColor" systemColor="systemTealColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MX4-y1-VH9" userLabel="Start Button" customClass="WCCustomUIButton" customModule="WariCan" customModuleProvider="target">
-                                <rect key="frame" x="97" y="674.5" width="220" height="50"/>
+                                <rect key="frame" x="77.666666666666686" y="613.66666666666663" width="220" height="50"/>
                                 <color key="backgroundColor" systemColor="systemTealColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="I1S-qS-RjZ"/>
@@ -113,7 +113,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="Ibl-tj-cKn" userLabel="Result Label">
-                                <rect key="frame" x="94.5" y="744.5" width="225" height="35"/>
+                                <rect key="frame" x="75" y="683.66666666666663" width="225" height="35"/>
                                 <attributedString key="attributedText">
                                     <fragment>
                                         <string key="content">＊セルをタップすると詳細画面へ
@@ -168,20 +168,20 @@
             <objects>
                 <viewController storyboardIdentifier="WCEventRegistrationViewController" id="m1L-OB-zdc" customClass="WCEventRegistrationViewController" customModule="WariCan" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gsR-dU-FCo">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o5l-ab-wMw" userLabel="Background View">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="イベント名は？" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="w5d-KP-sVX" userLabel="Event Title Label">
-                                        <rect key="frame" x="103" y="121.5" width="208" height="30"/>
+                                        <rect key="frame" x="83.666666666666686" y="98.333333333333329" width="208" height="29.999999999999986"/>
                                         <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="30"/>
                                         <color key="textColor" systemColor="systemTealColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ワリキャン旅行" textAlignment="center" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="B7c-kT-enA" userLabel="Event Title Text Field">
-                                        <rect key="frame" x="97" y="166.5" width="220" height="50"/>
+                                        <rect key="frame" x="77.666666666666686" y="143.33333333333334" width="220" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="SCH-9e-3Q0"/>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="220" id="zj0-v9-qCs"/>
@@ -194,16 +194,16 @@
                                         </connections>
                                     </textField>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="＊入力してください" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="jmc-wf-mgR" userLabel="Top Warning Label">
-                                        <rect key="frame" x="117.5" y="181.5" width="179" height="20"/>
+                                        <rect key="frame" x="98" y="158.33333333333334" width="179" height="20"/>
                                         <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="20"/>
                                         <color key="textColor" systemColor="systemRedColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="geS-5c-fXT" userLabel="Center View">
-                                        <rect key="frame" x="0.0" y="246.5" width="414" height="403"/>
+                                        <rect key="frame" x="0.0" y="223.33333333333334" width="375" height="365.33333333333326"/>
                                         <subviews>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JEu-IA-uHu" userLabel="People Table View">
-                                                <rect key="frame" x="20" y="60.5" width="374" height="342.5"/>
+                                                <rect key="frame" x="20" y="54.666666666666657" width="335" height="310.66666666666674"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <connections>
                                                     <outlet property="dataSource" destination="m1L-OB-zdc" id="RkD-5u-ZUy"/>
@@ -211,22 +211,22 @@
                                                 </connections>
                                             </tableView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vyA-dc-xoo" userLabel="Event Top View">
-                                                <rect key="frame" x="20" y="0.0" width="374" height="60.5"/>
+                                                <rect key="frame" x="20" y="0.0" width="335" height="54.666666666666664"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="参加者は？" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="Ljf-nY-l7f" userLabel="People Label">
-                                                        <rect key="frame" x="112" y="15" width="150" height="30"/>
+                                                        <rect key="frame" x="92.666666666666686" y="12.333333333333314" width="150" height="30"/>
                                                         <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="30"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="＊2人以上必要です" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Mxi-j2-U0N" userLabel="People Warning Label">
-                                                        <rect key="frame" x="100" y="45" width="174" height="20"/>
+                                                        <rect key="frame" x="80.666666666666686" y="42.333333333333343" width="174" height="20"/>
                                                         <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="20"/>
                                                         <color key="textColor" systemColor="systemRedColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4yk-1O-WTJ" userLabel="Add People Button" customClass="WCCustomUIButton" customModule="WariCan" customModuleProvider="target">
-                                                        <rect key="frame" x="267" y="4" width="52" height="52"/>
+                                                        <rect key="frame" x="247.66666666666669" y="1.3333333333333144" width="52" height="52"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="4yk-1O-WTJ" secondAttribute="height" multiplier="1:1" id="RWf-Jc-Buo"/>
@@ -278,7 +278,7 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JQ2-GJ-beo" userLabel="Start Button" customClass="WCCustomUIButton" customModule="WariCan" customModuleProvider="target">
-                                        <rect key="frame" x="97" y="674.5" width="220" height="50"/>
+                                        <rect key="frame" x="77.666666666666686" y="613.66666666666663" width="220" height="50"/>
                                         <color key="backgroundColor" systemColor="systemTealColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="d5x-jG-egV"/>
@@ -311,7 +311,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VYx-sQ-wBb" userLabel="Back Button" customClass="WCCustomUIButton" customModule="WariCan" customModuleProvider="target">
-                                        <rect key="frame" x="142" y="734.5" width="130" height="40"/>
+                                        <rect key="frame" x="122.66666666666669" y="673.66666666666663" width="130" height="40"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="130" id="948-XG-NRL"/>
@@ -363,14 +363,14 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YjM-tR-eGH" userLabel="Bottom Banner View" customClass="GADBannerView">
-                                <rect key="frame" x="0.0" y="812" width="414" height="50"/>
+                                <rect key="frame" x="0.0" y="728" width="375" height="50"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="3PC-nt-j6f"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mjh-xG-1Uw" userLabel="Top Banner View" customClass="GADBannerView">
-                                <rect key="frame" x="0.0" y="44" width="414" height="50"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="50"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="QFg-51-W4K"/>
@@ -414,26 +414,26 @@
             <objects>
                 <viewController storyboardIdentifier="WCEventDetailViewController" id="q3D-XR-HA2" customClass="WCEventDetailViewController" customModule="WariCan" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Y2v-cO-14b">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rEH-4C-TlI" userLabel="Background View">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ワリカン旅行" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="26h-oD-DWY">
-                                        <rect key="frame" x="57" y="96.5" width="300" height="50"/>
+                                        <rect key="frame" x="37.666666666666657" y="73.333333333333329" width="300" height="50"/>
                                         <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="50"/>
                                         <color key="textColor" systemColor="systemTealColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yJv-zN-CXw" userLabel="Center View">
-                                        <rect key="frame" x="0.0" y="166.5" width="414" height="403"/>
+                                        <rect key="frame" x="0.0" y="143.33333333333334" width="375" height="365.33333333333326"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ldk-lb-HeR" userLabel="Event Top View">
-                                                <rect key="frame" x="20" y="0.0" width="374" height="60.5"/>
+                                                <rect key="frame" x="20" y="0.0" width="335" height="54.666666666666664"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="支払い履歴" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="fKN-mJ-01P">
-                                                        <rect key="frame" x="112" y="15" width="150" height="30"/>
+                                                        <rect key="frame" x="92.666666666666686" y="12.333333333333314" width="150" height="30"/>
                                                         <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="30"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -446,7 +446,7 @@
                                                 </constraints>
                                             </view>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zP3-mx-qkm" userLabel="Payment Table View">
-                                                <rect key="frame" x="20" y="60.5" width="374" height="342.5"/>
+                                                <rect key="frame" x="20" y="54.666666666666657" width="335" height="310.66666666666674"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <connections>
                                                     <outlet property="dataSource" destination="q3D-XR-HA2" id="s12-ab-hWw"/>
@@ -466,10 +466,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yED-Cs-Hk1" userLabel="Buttons View">
-                                        <rect key="frame" x="0.0" y="569.5" width="414" height="80"/>
+                                        <rect key="frame" x="0.0" y="508.66666666666674" width="375" height="80"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="auE-be-Sej" userLabel="Back To Base Button">
-                                                <rect key="frame" x="15" y="28" width="72" height="24"/>
+                                                <rect key="frame" x="-4.6666666666666679" y="27.999999999999943" width="72.333333333333329" height="24"/>
                                                 <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="12"/>
                                                 <state key="normal" title="＊初期画面へ">
                                                     <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -479,14 +479,14 @@
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ycz-2l-XWe" userLabel="Button Under Line View">
-                                                <rect key="frame" x="15" y="52" width="72" height="1"/>
+                                                <rect key="frame" x="-4.6666666666666679" y="51.999999999999943" width="72.333333333333329" height="1"/>
                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="75Y-sZ-Qrk"/>
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VnS-oa-1dv" userLabel="Add Payment Button" customClass="WCCustomUIButton" customModule="WariCan" customModuleProvider="target">
-                                                <rect key="frame" x="97" y="15" width="220" height="50"/>
+                                                <rect key="frame" x="77.666666666666686" y="14.999999999999943" width="220" height="50"/>
                                                 <color key="backgroundColor" systemColor="systemTealColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="3Ol-v5-tCq"/>
@@ -531,13 +531,13 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ワリカン結果！" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="vIx-qN-AzF">
-                                        <rect key="frame" x="102" y="659.5" width="210" height="30"/>
+                                        <rect key="frame" x="82.666666666666686" y="598.66666666666663" width="210" height="30"/>
                                         <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="30"/>
                                         <color key="textColor" systemColor="systemTealColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="GKf-2G-o0u" userLabel="Result Label">
-                                        <rect key="frame" x="65" y="699.5" width="284" height="80"/>
+                                        <rect key="frame" x="45.666666666666657" y="638.66666666666663" width="283.66666666666674" height="80"/>
                                         <string key="text">割り勘太郎→割り勘二郎 1400
 割り勘太郎→割り勘三郎 700
 割り勘三郎→割り勘二郎 1800
@@ -546,20 +546,12 @@
                                         <color key="textColor" systemColor="systemTealColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d1Y-Jr-Vno" userLabel="Bottom Banner View" customClass="GADBannerView">
-                                        <rect key="frame" x="0.0" y="846" width="414" height="50"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="nBJ-dh-Lf0"/>
-                                        </constraints>
-                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" red="0.3921568627" green="0.82352941180000006" blue="1" alpha="0.19945197710000001" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="vIx-qN-AzF" firstAttribute="top" secondItem="yED-Cs-Hk1" secondAttribute="bottom" constant="10" id="5Bn-C6-rhc"/>
                                     <constraint firstItem="yED-Cs-Hk1" firstAttribute="leading" secondItem="rEH-4C-TlI" secondAttribute="leading" id="5jm-Z0-ZB7"/>
                                     <constraint firstItem="GKf-2G-o0u" firstAttribute="centerX" secondItem="rEH-4C-TlI" secondAttribute="centerX" id="8Pm-g9-hYk"/>
-                                    <constraint firstAttribute="bottom" secondItem="d1Y-Jr-Vno" secondAttribute="bottom" id="AAI-Sv-8H2"/>
                                     <constraint firstItem="GKf-2G-o0u" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="rEH-4C-TlI" secondAttribute="leading" constant="20" id="BtG-Tw-Kto"/>
                                     <constraint firstItem="yJv-zN-CXw" firstAttribute="leading" secondItem="rEH-4C-TlI" secondAttribute="leading" id="CPL-9m-DfQ"/>
                                     <constraint firstItem="yJv-zN-CXw" firstAttribute="centerY" secondItem="rEH-4C-TlI" secondAttribute="centerY" constant="-80" id="F31-NQ-cas"/>
@@ -570,12 +562,17 @@
                                     <constraint firstItem="26h-oD-DWY" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="rEH-4C-TlI" secondAttribute="leading" constant="20" id="h5Z-Ki-DmL"/>
                                     <constraint firstItem="yED-Cs-Hk1" firstAttribute="top" secondItem="yJv-zN-CXw" secondAttribute="bottom" id="jr8-f5-g1c"/>
                                     <constraint firstItem="vIx-qN-AzF" firstAttribute="centerX" secondItem="rEH-4C-TlI" secondAttribute="centerX" id="pma-2d-vUA"/>
-                                    <constraint firstItem="d1Y-Jr-Vno" firstAttribute="top" relation="greaterThanOrEqual" secondItem="GKf-2G-o0u" secondAttribute="bottom" id="q7a-bC-0iG"/>
+                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="GKf-2G-o0u" secondAttribute="bottom" constant="50" id="q7a-bC-0iG"/>
                                     <constraint firstItem="26h-oD-DWY" firstAttribute="centerX" secondItem="rEH-4C-TlI" secondAttribute="centerX" id="qvA-dN-F9M"/>
-                                    <constraint firstItem="d1Y-Jr-Vno" firstAttribute="centerX" secondItem="rEH-4C-TlI" secondAttribute="centerX" id="rVI-M8-fLe"/>
                                     <constraint firstItem="yJv-zN-CXw" firstAttribute="centerX" secondItem="rEH-4C-TlI" secondAttribute="centerX" id="sT6-tX-wPH"/>
-                                    <constraint firstItem="d1Y-Jr-Vno" firstAttribute="leading" secondItem="rEH-4C-TlI" secondAttribute="leading" id="zbj-uO-NqQ"/>
                                     <constraint firstItem="yJv-zN-CXw" firstAttribute="top" secondItem="26h-oD-DWY" secondAttribute="bottom" constant="20" id="zi4-c1-lWI"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d1Y-Jr-Vno" userLabel="Bottom Banner View" customClass="GADBannerView">
+                                <rect key="frame" x="0.0" y="728" width="375" height="50"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="nBJ-dh-Lf0"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -584,6 +581,10 @@
                         <constraints>
                             <constraint firstItem="rEH-4C-TlI" firstAttribute="leading" secondItem="cLn-y8-g5C" secondAttribute="leading" id="6G5-ZA-FQE"/>
                             <constraint firstItem="rEH-4C-TlI" firstAttribute="trailing" secondItem="cLn-y8-g5C" secondAttribute="trailing" id="AW9-sN-pdZ"/>
+                            <constraint firstItem="d1Y-Jr-Vno" firstAttribute="centerX" secondItem="Y2v-cO-14b" secondAttribute="centerX" id="Doc-IJ-qds"/>
+                            <constraint firstItem="cLn-y8-g5C" firstAttribute="bottom" secondItem="d1Y-Jr-Vno" secondAttribute="bottom" id="WG6-Cy-8WY"/>
+                            <constraint firstItem="d1Y-Jr-Vno" firstAttribute="leading" secondItem="cLn-y8-g5C" secondAttribute="leading" id="Xcw-gV-shN"/>
+                            <constraint firstItem="d1Y-Jr-Vno" firstAttribute="trailing" secondItem="cLn-y8-g5C" secondAttribute="trailing" id="Z8R-ad-cX6"/>
                             <constraint firstAttribute="bottom" secondItem="rEH-4C-TlI" secondAttribute="bottom" id="bHE-RR-pAf"/>
                             <constraint firstItem="rEH-4C-TlI" firstAttribute="top" secondItem="Y2v-cO-14b" secondAttribute="top" id="qgq-sA-rNJ"/>
                         </constraints>

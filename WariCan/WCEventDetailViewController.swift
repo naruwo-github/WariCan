@@ -239,7 +239,7 @@ extension WCEventDetailViewController {
 extension WCEventDetailViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.eventData.payments.count// self.paymentCount
+        return self.eventData.payments.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -249,7 +249,6 @@ extension WCEventDetailViewController: UITableViewDelegate, UITableViewDataSourc
         return cell
     }
     
-    // TODO: 誰が、誰ののターブルビューでは、削除がうつらないようにしたい
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCell.EditingStyle.delete {
             WCRealmHelper.init().delete(object: self.eventData.payments[indexPath.row])

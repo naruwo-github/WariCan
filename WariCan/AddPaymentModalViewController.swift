@@ -230,23 +230,5 @@ extension AddPaymentModalViewController: UITableViewDelegate, UITableViewDataSou
         default: fatalError()   // ここにはこない想定
         }
     }
-    
-    // TODO: 誰が、誰ののターブルビューでは、削除がうつらないようにしたい
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        switch tableView.tag {
-        case 1, 2: print("削除はしない")      // 「誰が？」&「誰の？」のテーブルビュー
-        default: fatalError()   // ここにはこない想定
-        }
-        self.refreshParentAction()
-        self.payerTableView.reloadData()
-        self.debtorTableView.reloadData()
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        switch tableView.tag {
-        case 1, 2: return 50       // 「誰が？」&「誰の？」のテーブルビュー
-        default: fatalError()   // ここにはこない想定
-        }
-    }
  
 }
