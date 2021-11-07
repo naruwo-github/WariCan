@@ -369,17 +369,28 @@
                                     <constraint firstAttribute="height" constant="50" id="3PC-nt-j6f"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mjh-xG-1Uw" userLabel="Top Banner View" customClass="GADBannerView">
+                                <rect key="frame" x="0.0" y="44" width="414" height="50"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="QFg-51-W4K"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="8oa-B3-iqo"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="8oa-B3-iqo" firstAttribute="bottom" secondItem="YjM-tR-eGH" secondAttribute="bottom" id="A65-f6-abt"/>
+                            <constraint firstItem="Mjh-xG-1Uw" firstAttribute="trailing" secondItem="8oa-B3-iqo" secondAttribute="trailing" id="LRk-mC-Psb"/>
                             <constraint firstItem="YjM-tR-eGH" firstAttribute="leading" secondItem="8oa-B3-iqo" secondAttribute="leading" id="bhW-Qb-7L0"/>
                             <constraint firstItem="o5l-ab-wMw" firstAttribute="top" secondItem="gsR-dU-FCo" secondAttribute="top" id="for-He-rGg"/>
                             <constraint firstItem="o5l-ab-wMw" firstAttribute="trailing" secondItem="8oa-B3-iqo" secondAttribute="trailing" id="hbM-qR-WLO"/>
+                            <constraint firstItem="Mjh-xG-1Uw" firstAttribute="top" secondItem="8oa-B3-iqo" secondAttribute="top" id="j0W-LP-bHO"/>
                             <constraint firstAttribute="bottom" secondItem="o5l-ab-wMw" secondAttribute="bottom" id="mDi-DC-wtI"/>
                             <constraint firstItem="YjM-tR-eGH" firstAttribute="centerX" secondItem="gsR-dU-FCo" secondAttribute="centerX" id="oy5-lr-Ebx"/>
+                            <constraint firstItem="Mjh-xG-1Uw" firstAttribute="leading" secondItem="8oa-B3-iqo" secondAttribute="leading" id="s1p-Lp-Lq4"/>
                             <constraint firstItem="o5l-ab-wMw" firstAttribute="leading" secondItem="8oa-B3-iqo" secondAttribute="leading" id="t7k-oR-niN"/>
+                            <constraint firstItem="Mjh-xG-1Uw" firstAttribute="centerX" secondItem="gsR-dU-FCo" secondAttribute="centerX" id="vYh-Ee-DPA"/>
                         </constraints>
                     </view>
                     <connections>
@@ -390,6 +401,7 @@
                         <outlet property="peopleTableView" destination="JEu-IA-uHu" id="FfX-4r-e8p"/>
                         <outlet property="peopleWarningLabel" destination="Mxi-j2-U0N" id="ZIp-b8-cDZ"/>
                         <outlet property="startButton" destination="JQ2-GJ-beo" id="4Jd-ec-YQx"/>
+                        <outlet property="topBannerView" destination="Mjh-xG-1Uw" id="VwG-Gu-DLw"/>
                         <outlet property="topWarningLabel" destination="jmc-wf-mgR" id="UAr-JV-fvw"/>
                     </connections>
                 </viewController>

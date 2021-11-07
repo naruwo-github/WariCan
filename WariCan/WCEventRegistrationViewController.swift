@@ -18,6 +18,8 @@ class WCEventRegistrationViewController: UIViewController {
     @IBOutlet private weak var peopleTableView: UITableView!
     @IBOutlet private weak var startButton: WCCustomUIButton!
     @IBOutlet private weak var backButton: WCCustomUIButton!
+    
+    @IBOutlet private weak var topBannerView: GADBannerView!
     @IBOutlet private weak var bottomBannerView: GADBannerView!
     
     // 参加者のリスト（この画面内ではDBに保存せず一時的にクラス内部で保持）
@@ -36,6 +38,10 @@ class WCEventRegistrationViewController: UIViewController {
     }
     
     private func setupAd() {
+        self.topBannerView.adUnitID = WCStringHelper.init().eventRegistrationVCTopBannerAdId
+        self.topBannerView.rootViewController = self
+        self.topBannerView.load(GADRequest())
+        
         self.bottomBannerView.adUnitID = WCStringHelper.init().eventRegistrationVCBottomBannerAdId
         self.bottomBannerView.rootViewController = self
         self.bottomBannerView.load(GADRequest())
@@ -71,12 +77,9 @@ class WCEventRegistrationViewController: UIViewController {
     
     @IBAction private func addPeopleButtonTapped(_ sender: Any) {
         let personModalVC = R.storyboard.modal.addPersonModalViewController()!
-        personModalVC.setup(
-            action: { personNameTextField in
-                self.addPersonAction(personNameTextField: personNameTextField)
-            },
-            text: ""
-        )
+        personModalVC.setup(action: { personNameTextField in
+            self.addPersonAction(personNameTextField: personNameTextField)
+        }, text: "")
         self.present(personModalVC, animated: true)
     }
     
@@ -160,12 +163,9 @@ extension WCEventRegistrationViewController: UITableViewDelegate, UITableViewDat
         self.edittingIndex = indexPath.row
         
         let personModalVC = R.storyboard.modal.addPersonModalViewController()!
-        personModalVC.setup(
-            action: { personNameTextField in
-                self.addPersonAction(personNameTextField: personNameTextField)
-            },
-            text: cell.getName()
-        )
+        personModalVC.setup(action: { personNameTextField in
+            self.addPersonAction(personNameTextField: personNameTextField)
+        }, text: cell.getName())
         self.present(personModalVC, animated: true)
     }
     

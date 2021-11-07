@@ -87,16 +87,40 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lG8-xJ-rSg" userLabel="Bottom Banner View" customClass="GADBannerView">
+                                <rect key="frame" x="0.0" y="812" width="414" height="50"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="YdX-c3-DNT"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W8H-vH-Bs6" userLabel="Top Banner View" customClass="GADBannerView">
+                                <rect key="frame" x="0.0" y="44" width="414" height="50"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Y9P-fk-QeY"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="0.30188109543149833" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="W8H-vH-Bs6" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="5NA-V0-Tiv"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="lG8-xJ-rSg" secondAttribute="bottom" id="Gwv-uu-Bvk"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="lG8-xJ-rSg" secondAttribute="trailing" id="Hc0-93-H3Z"/>
+                            <constraint firstItem="lG8-xJ-rSg" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="aB4-9h-5eI"/>
+                            <constraint firstItem="W8H-vH-Bs6" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="aYt-6n-G4j"/>
+                            <constraint firstItem="W8H-vH-Bs6" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="dRV-c8-gth"/>
+                            <constraint firstItem="W8H-vH-Bs6" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="dwv-Qc-OzK"/>
                             <constraint firstItem="vMX-nz-96k" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="fIl-63-3y0"/>
+                            <constraint firstItem="lG8-xJ-rSg" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="i1V-Wr-xGD"/>
                             <constraint firstItem="vMX-nz-96k" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" constant="-50" id="rmz-KN-ySa"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bottomBannerAdView" destination="lG8-xJ-rSg" id="hbO-Oe-N1h"/>
                         <outlet property="nameTextField" destination="w9z-iG-VRN" id="vqX-gP-gl1"/>
+                        <outlet property="topBannerAdView" destination="W8H-vH-Bs6" id="00K-M5-l0H"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
