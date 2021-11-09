@@ -65,4 +65,10 @@ final class WCRealmHelper {
         }
     }
     
+    // 既存イベントのある支払い情報の更新
+    func updatePayment(event: Event, updatedPayment: Payment, payment: Payment) {
+        self.delete(object: updatedPayment)
+        self.addPaymentToEvent(event: event, payment: payment)
+    }
+    
 }

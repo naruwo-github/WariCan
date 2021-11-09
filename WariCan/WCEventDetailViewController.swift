@@ -146,11 +146,12 @@ class WCEventDetailViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    // 「支払いを追加」ボタン
-    @IBAction private func addPaymentButtonTapped(_ sender: Any) {
+    // 支払い情報入力画面へ遷移する処理
+    private func moveToPaymentModal(updatedPayment: Payment?) {
         let personModalVC = R.storyboard.modal.addPaymentModalViewController()!
         personModalVC.modalPresentationStyle = .fullScreen
         personModalVC.setup(
+            updatedPayment: updatedPayment,
             eventData: self.eventData,
             payerCellIndex: self.payerCellIndex,
             debtorCellIndexList: self.debtorCellIndexList,
@@ -163,6 +164,11 @@ class WCEventDetailViewController: UIViewController, UITextFieldDelegate {
             }
         )
         self.present(personModalVC, animated: true)
+    }
+    
+    // 「支払いを追加」ボタン
+    @IBAction private func addPaymentButtonTapped(_ sender: Any) {
+        self.moveToPaymentModal(updatedPayment: nil)
     }
     
     // 「＊初期画面へ」ボタン
@@ -234,6 +240,10 @@ extension WCEventDetailViewController: UITableViewDelegate, UITableViewDataSourc
             tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.automatic)
         }
         self.refreshTableViews()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.moveToPaymentModal(updatedPayment: self.eventData.payments[indexPath.row])
     }
     
 }

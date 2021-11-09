@@ -10,6 +10,9 @@ import UIKit
 
 class AddPaymentModalViewController: UIViewController, UITextFieldDelegate {
     
+    // この値がnilでない場合は、既存の支払い履歴の更新処理をする
+    private var updatedPayment: Payment?
+    
     private var eventData: Event!
     private var payerCellIndex: Int!
     private var debtorCellIndexList: [Int]!
@@ -29,7 +32,15 @@ class AddPaymentModalViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet private weak var addButton: WCCustomUIButton!
     @IBOutlet private weak var closeButton: WCCustomUIButton!
     
-    public func setup(eventData: Event, payerCellIndex: Int, debtorCellIndexList: [Int], refreshParentAction: @escaping (() -> Void), showInterstitialAction: @escaping (() -> Void)) {
+    public func setup(
+        updatedPayment: Payment?,
+        eventData: Event,
+        payerCellIndex: Int,
+        debtorCellIndexList: [Int],
+        refreshParentAction: @escaping (() -> Void),
+        showInterstitialAction: @escaping (() -> Void)
+    ) {
+        self.updatedPayment = updatedPayment
         self.eventData = eventData
         self.payerCellIndex = payerCellIndex
         self.debtorCellIndexList = debtorCellIndexList
@@ -51,6 +62,7 @@ class AddPaymentModalViewController: UIViewController, UITextFieldDelegate {
         
         self.setupTableViews()
         self.setupAd()
+        self.setupUpdatedPayment()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -85,6 +97,21 @@ class AddPaymentModalViewController: UIViewController, UITextFieldDelegate {
     @objc private func priceKeyboardCloseButtonTapped() {
         self.priceTextField.endEditing(true)
         self.priceTextField.resignFirstResponder()
+    }
+    
+    private func setupUpdatedPayment() {
+        guard let _updatedPayment = self.updatedPayment else {
+            return
+        }
+        // 既存の支払い情報の降臨処理の場合
+        // 支払い主
+        self.payerCellIndex = self.eventData.payments.index(of: _updatedPayment)
+        // 被支払い者たち
+        // TODO: ここ指定するのは少々面倒
+        // 何代かどうかを表すテキスト
+        self.typeTextField.text = _updatedPayment.typeName
+        // 金額を表す値
+        self.priceTextField.text = Int(_updatedPayment.price).description
     }
     
     private func setupAd() {
@@ -128,7 +155,14 @@ class AddPaymentModalViewController: UIViewController, UITextFieldDelegate {
             })
             payment.typeName = self.typeTextField.text!
             payment.price = Double(self.priceTextField.text!)!
-            WCRealmHelper.init().addPaymentToEvent(event: self.eventData, payment: payment)
+            
+            if self.updatedPayment == nil {
+                // 支払い情報新規作成処理
+                WCRealmHelper.init().addPaymentToEvent(event: self.eventData, payment: payment)
+            } else {
+                // 支払い情報更新処理
+                WCRealmHelper.init().updatePayment(event: self.eventData, updatedPayment: self.updatedPayment!, payment: payment)
+            }
             // ********************************
             
             self.refreshParentAction()
@@ -136,6 +170,8 @@ class AddPaymentModalViewController: UIViewController, UITextFieldDelegate {
             self.debtorTableView.reloadData()
             // インタースティシャル広告を一定確率で表示
             self.showInterstitialAction()
+            
+            self.closeVC()
         }
         
         // 警告ラベルを表示させる処理
@@ -148,8 +184,6 @@ class AddPaymentModalViewController: UIViewController, UITextFieldDelegate {
         if self.debtorCellIndexList.count == 0 {
             self.debtorWarningLabel.isHidden = false
         }
-        
-        self.closeVC()
     }
     
     // 「戻る」ボタン
@@ -158,12 +192,12 @@ class AddPaymentModalViewController: UIViewController, UITextFieldDelegate {
     }
     
     // 「何の代金？」フィールドをタップした時
-    @IBAction func typeFieldFocused(_ sender: Any) {
+    @IBAction private func typeFieldFocused(_ sender: Any) {
         self.typeWarningLabel.isHidden = true
     }
     
     // 「いくら？」フィールドをタップした時
-    @IBAction func priceFieldFocused(_ sender: Any) {
+    @IBAction private func priceFieldFocused(_ sender: Any) {
         self.priceWarningLabel.isHidden = true
     }
     
@@ -183,7 +217,8 @@ extension AddPaymentModalViewController: UITableViewDelegate, UITableViewDataSou
             return self.eventData.participants.count
         case 2:                 // 「誰の？」のテーブルビュー
             return self.eventData.participants.count
-        default: fatalError()   // ここにはこない想定
+        default:
+            fatalError()   // ここにはこない想定
         }
     }
     
@@ -197,7 +232,8 @@ extension AddPaymentModalViewController: UITableViewDelegate, UITableViewDataSou
             } else {
                 self.debtorCellIndexList.append(indexPath.row)
             }
-        default: fatalError()   // ここにはこない想定
+        default:
+            fatalError()   // ここにはこない想定
         }
         
         self.refreshParentAction()
@@ -227,7 +263,8 @@ extension AddPaymentModalViewController: UITableViewDelegate, UITableViewDataSou
                 cell.accessoryType = .none
             }
             return cell
-        default: fatalError()   // ここにはこない想定
+        default:
+            fatalError()   // ここにはこない想定
         }
     }
  
