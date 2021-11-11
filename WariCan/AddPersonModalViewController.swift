@@ -45,6 +45,15 @@ class AddPersonModalViewController: UIViewController {
         self.dismiss(animated: true)
     }
     
+    @IBAction private func addPersonAgainButtonTapped(_ sender: Any) {
+        self.addPersonButtonAction?(self.nameTextField)
+        self.nameTextField.text = ""
+    }
+    
+    @IBAction private func closeButtonTapped(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
+    
     private func setupAd() {
         self.topBannerAdView.adUnitID = WCStringHelper.init().personModalTopBannerAdId
         self.topBannerAdView.rootViewController = self
