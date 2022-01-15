@@ -49,11 +49,11 @@ PODS:
   - R.swift (6.1.0):
     - R.swift.Library (~> 5.3.0)
   - R.swift.Library (5.3.0)
-  - Realm (10.21.0):
-    - Realm/Headers (= 10.21.0)
-  - Realm/Headers (10.21.0)
-  - RealmSwift (10.21.0):
-    - Realm (= 10.21.0)
+  - Realm (10.21.1):
+    - Realm/Headers (= 10.21.1)
+  - Realm/Headers (10.21.1)
+  - RealmSwift (10.21.1):
+    - Realm (= 10.21.1)
   - SwiftLint (0.45.1)
 
 DEPENDENCIES:
@@ -85,8 +85,8 @@ SPEC CHECKSUMS:
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
   R.swift: ec98ff71c4ab2f6fd01dd077e5afd15e63a4834c
   R.swift.Library: 0fc583cb55a99e28901299cc451614cad1161962
-  Realm: 55220cda83aabd773740d18518e05fdbe00b87cc
-  RealmSwift: 129dce1dd6b5d9194a37f568aaf32a6c10d1a803
+  Realm: 44b41c3ae39e3ecfded71a04434bfde066c7b317
+  RealmSwift: dbf9a4eb06e0c929d51c4ef2e8f951bca541feab
   SwiftLint: 06ac37e4d38c7068e0935bb30cda95f093bec761
 
 PODFILE CHECKSUM: 2407e7d7e919ba3b241f4c825ba31413384e2c66
