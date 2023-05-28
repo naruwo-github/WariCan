@@ -40,9 +40,9 @@
 		05FA6B40261431E00054531B /* WCEventRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FA6B3F261431E00054531B /* WCEventRegistrationViewController.swift */; };
 		05FD0D1E261875A8006C34CA /* WCPeopleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FD0D1D261875A8006C34CA /* WCPeopleCell.swift */; };
 		05FD0D2326187620006C34CA /* WCPeopleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05FD0D2226187620006C34CA /* WCPeopleCell.xib */; };
-		91D2C699DC9772D438DBAF65 /* Pods_WariCan_WariCanUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB70DA6401338DD61B4720A9 /* Pods_WariCan_WariCanUITests.framework */; };
-		D6DF75CDC5841819FA43C615 /* Pods_WariCanTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43B8B0736ED93EE5164A12B7 /* Pods_WariCanTests.framework */; };
-		E897E4FCD5B67F497CFB6F5F /* Pods_WariCan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45E0966D803293ECF519CA94 /* Pods_WariCan.framework */; };
+		459DC44CE0BD003974B4887E /* Pods_WariCan_WariCanUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42D48F049BEE36D9646AFCE1 /* Pods_WariCan_WariCanUITests.framework */; };
+		8E2CD809483F6DADDA0011A2 /* Pods_WariCanTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AB152DC815696A33B7F56C1 /* Pods_WariCanTests.framework */; };
+		A00DC72D754AF79697D508F7 /* Pods_WariCan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10C7B6422314BDBE86CDFFF6 /* Pods_WariCan.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +63,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00D60FC4C21A302F16BAD18F /* Pods-WariCan-WariCanUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WariCan-WariCanUITests.debug.xcconfig"; path = "Target Support Files/Pods-WariCan-WariCanUITests/Pods-WariCan-WariCanUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		0519F06C26212F6F00C9F71D /* WCPaymentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCPaymentCell.swift; sourceTree = "<group>"; };
 		0519F07426212FF300C9F71D /* WCPayerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCPayerCell.swift; sourceTree = "<group>"; };
 		0519F0792621300900C9F71D /* WCDebtorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCDebtorCell.swift; sourceTree = "<group>"; };
@@ -102,15 +103,14 @@
 		05FA6B3F261431E00054531B /* WCEventRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCEventRegistrationViewController.swift; sourceTree = "<group>"; };
 		05FD0D1D261875A8006C34CA /* WCPeopleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCPeopleCell.swift; sourceTree = "<group>"; };
 		05FD0D2226187620006C34CA /* WCPeopleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WCPeopleCell.xib; sourceTree = "<group>"; };
-		074E84C69243A68EF20D5136 /* Pods-WariCanTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WariCanTests.debug.xcconfig"; path = "Target Support Files/Pods-WariCanTests/Pods-WariCanTests.debug.xcconfig"; sourceTree = "<group>"; };
-		43B8B0736ED93EE5164A12B7 /* Pods_WariCanTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WariCanTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		45E0966D803293ECF519CA94 /* Pods_WariCan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WariCan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5BF916C6F4591E25A4A237D4 /* Pods-WariCan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WariCan.release.xcconfig"; path = "Target Support Files/Pods-WariCan/Pods-WariCan.release.xcconfig"; sourceTree = "<group>"; };
-		6D1B048357473C9F91A0B189 /* Pods-WariCan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WariCan.debug.xcconfig"; path = "Target Support Files/Pods-WariCan/Pods-WariCan.debug.xcconfig"; sourceTree = "<group>"; };
-		9661740E5A327CD30F47D52F /* Pods-WariCan-WariCanUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WariCan-WariCanUITests.debug.xcconfig"; path = "Target Support Files/Pods-WariCan-WariCanUITests/Pods-WariCan-WariCanUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		9A2131E5DD565EE0DE612D97 /* Pods-WariCan-WariCanUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WariCan-WariCanUITests.release.xcconfig"; path = "Target Support Files/Pods-WariCan-WariCanUITests/Pods-WariCan-WariCanUITests.release.xcconfig"; sourceTree = "<group>"; };
-		CB70DA6401338DD61B4720A9 /* Pods_WariCan_WariCanUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WariCan_WariCanUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FED8BB12FA61ECBA1CA4C613 /* Pods-WariCanTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WariCanTests.release.xcconfig"; path = "Target Support Files/Pods-WariCanTests/Pods-WariCanTests.release.xcconfig"; sourceTree = "<group>"; };
+		0AB152DC815696A33B7F56C1 /* Pods_WariCanTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WariCanTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		10C7B6422314BDBE86CDFFF6 /* Pods_WariCan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WariCan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		17FA7244EBB54D9B8ED4E1E3 /* Pods-WariCanTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WariCanTests.debug.xcconfig"; path = "Target Support Files/Pods-WariCanTests/Pods-WariCanTests.debug.xcconfig"; sourceTree = "<group>"; };
+		301C67ED224BC2F82AF10AEB /* Pods-WariCan-WariCanUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WariCan-WariCanUITests.release.xcconfig"; path = "Target Support Files/Pods-WariCan-WariCanUITests/Pods-WariCan-WariCanUITests.release.xcconfig"; sourceTree = "<group>"; };
+		42D48F049BEE36D9646AFCE1 /* Pods_WariCan_WariCanUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WariCan_WariCanUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		613865D52D760FB92F7D8BF4 /* Pods-WariCanTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WariCanTests.release.xcconfig"; path = "Target Support Files/Pods-WariCanTests/Pods-WariCanTests.release.xcconfig"; sourceTree = "<group>"; };
+		BD698028FBFD7FBA68ADB8AA /* Pods-WariCan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WariCan.debug.xcconfig"; path = "Target Support Files/Pods-WariCan/Pods-WariCan.debug.xcconfig"; sourceTree = "<group>"; };
+		D2377A5C530D3DB1F5E6BFFE /* Pods-WariCan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WariCan.release.xcconfig"; path = "Target Support Files/Pods-WariCan/Pods-WariCan.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,7 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E897E4FCD5B67F497CFB6F5F /* Pods_WariCan.framework in Frameworks */,
+				A00DC72D754AF79697D508F7 /* Pods_WariCan.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,7 +126,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D6DF75CDC5841819FA43C615 /* Pods_WariCanTests.framework in Frameworks */,
+				8E2CD809483F6DADDA0011A2 /* Pods_WariCanTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,7 +134,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				91D2C699DC9772D438DBAF65 /* Pods_WariCan_WariCanUITests.framework in Frameworks */,
+				459DC44CE0BD003974B4887E /* Pods_WariCan_WariCanUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,7 +232,7 @@
 				05DCC12C26075A0F00297E2F /* WariCanUITests */,
 				05DCC10926075A0C00297E2F /* Products */,
 				D32D4D8B1958D2073F0D0BAC /* Pods */,
-				9B2E6FFAC57080E9DC9AD760 /* Frameworks */,
+				4B77EA8869216CB68B2E4564 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -300,12 +300,12 @@
 			name = Parts;
 			sourceTree = "<group>";
 		};
-		9B2E6FFAC57080E9DC9AD760 /* Frameworks */ = {
+		4B77EA8869216CB68B2E4564 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				45E0966D803293ECF519CA94 /* Pods_WariCan.framework */,
-				CB70DA6401338DD61B4720A9 /* Pods_WariCan_WariCanUITests.framework */,
-				43B8B0736ED93EE5164A12B7 /* Pods_WariCanTests.framework */,
+				10C7B6422314BDBE86CDFFF6 /* Pods_WariCan.framework */,
+				42D48F049BEE36D9646AFCE1 /* Pods_WariCan_WariCanUITests.framework */,
+				0AB152DC815696A33B7F56C1 /* Pods_WariCanTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -313,12 +313,12 @@
 		D32D4D8B1958D2073F0D0BAC /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				6D1B048357473C9F91A0B189 /* Pods-WariCan.debug.xcconfig */,
-				5BF916C6F4591E25A4A237D4 /* Pods-WariCan.release.xcconfig */,
-				9661740E5A327CD30F47D52F /* Pods-WariCan-WariCanUITests.debug.xcconfig */,
-				9A2131E5DD565EE0DE612D97 /* Pods-WariCan-WariCanUITests.release.xcconfig */,
-				074E84C69243A68EF20D5136 /* Pods-WariCanTests.debug.xcconfig */,
-				FED8BB12FA61ECBA1CA4C613 /* Pods-WariCanTests.release.xcconfig */,
+				BD698028FBFD7FBA68ADB8AA /* Pods-WariCan.debug.xcconfig */,
+				D2377A5C530D3DB1F5E6BFFE /* Pods-WariCan.release.xcconfig */,
+				00D60FC4C21A302F16BAD18F /* Pods-WariCan-WariCanUITests.debug.xcconfig */,
+				301C67ED224BC2F82AF10AEB /* Pods-WariCan-WariCanUITests.release.xcconfig */,
+				17FA7244EBB54D9B8ED4E1E3 /* Pods-WariCanTests.debug.xcconfig */,
+				613865D52D760FB92F7D8BF4 /* Pods-WariCanTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -330,13 +330,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 05DCC13226075A0F00297E2F /* Build configuration list for PBXNativeTarget "WariCan" */;
 			buildPhases = (
-				097B368158BA1DFFEFACD54A /* [CP] Check Pods Manifest.lock */,
+				89D021F6D05CC0276DE3EAB6 /* [CP] Check Pods Manifest.lock */,
 				05A7F19A26075D5000C05D38 /* R.swift Script */,
 				05DCC10426075A0C00297E2F /* Sources */,
 				05DCC10526075A0C00297E2F /* Frameworks */,
 				05DCC10626075A0C00297E2F /* Resources */,
-				9D7F00A2EF95152EC1F241F6 /* [CP] Embed Pods Frameworks */,
 				05716DF626381F5C00770AE1 /* SwiftLint Run Script */,
+				D7857DA838E5BC044E6C9F78 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -351,7 +351,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 05DCC13526075A0F00297E2F /* Build configuration list for PBXNativeTarget "WariCanTests" */;
 			buildPhases = (
-				A94D881EACF3841CF3251F73 /* [CP] Check Pods Manifest.lock */,
+				12F3FC3253AB5D7C50CB38A8 /* [CP] Check Pods Manifest.lock */,
 				05DCC11A26075A0F00297E2F /* Sources */,
 				05DCC11B26075A0F00297E2F /* Frameworks */,
 				05DCC11C26075A0F00297E2F /* Resources */,
@@ -370,11 +370,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 05DCC13826075A0F00297E2F /* Build configuration list for PBXNativeTarget "WariCanUITests" */;
 			buildPhases = (
-				190960DB7F9CEC28D6DE96F7 /* [CP] Check Pods Manifest.lock */,
+				4DA15AEBA2800A7626EE7455 /* [CP] Check Pods Manifest.lock */,
 				05DCC12526075A0F00297E2F /* Sources */,
 				05DCC12626075A0F00297E2F /* Frameworks */,
 				05DCC12726075A0F00297E2F /* Resources */,
-				D96B03C2ABC12D1FBA98A350 /* [CP] Embed Pods Frameworks */,
+				D2E8B8C6C7E3704D1CB65191 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -494,74 +494,13 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				$SRCROOT/R.generated.swift,
+				"$SRCROOT/R.generated.swift",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/R.generated.swift\"\n";
 		};
-		097B368158BA1DFFEFACD54A /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-WariCan-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		190960DB7F9CEC28D6DE96F7 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-WariCan-WariCanUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9D7F00A2EF95152EC1F241F6 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-WariCan/Pods-WariCan-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-WariCan/Pods-WariCan-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WariCan/Pods-WariCan-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A94D881EACF3841CF3251F73 /* [CP] Check Pods Manifest.lock */ = {
+		12F3FC3253AB5D7C50CB38A8 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -583,7 +522,51 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D96B03C2ABC12D1FBA98A350 /* [CP] Embed Pods Frameworks */ = {
+		4DA15AEBA2800A7626EE7455 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WariCan-WariCanUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		89D021F6D05CC0276DE3EAB6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WariCan-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D2E8B8C6C7E3704D1CB65191 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -598,6 +581,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WariCan-WariCanUITests/Pods-WariCan-WariCanUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D7857DA838E5BC044E6C9F78 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WariCan/Pods-WariCan-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WariCan/Pods-WariCan-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WariCan/Pods-WariCan-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -801,19 +801,19 @@
 		};
 		05DCC13326075A0F00297E2F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6D1B048357473C9F91A0B189 /* Pods-WariCan.debug.xcconfig */;
+			baseConfigurationReference = BD698028FBFD7FBA68ADB8AA /* Pods-WariCan.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.8.2;
+				CURRENT_PROJECT_VERSION = 1.8.3;
 				DEVELOPMENT_TEAM = UMBT5JZV43;
 				INFOPLIST_FILE = WariCan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.8.2;
+				MARKETING_VERSION = 1.8.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.channaru0711.WariCan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -823,19 +823,19 @@
 		};
 		05DCC13426075A0F00297E2F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5BF916C6F4591E25A4A237D4 /* Pods-WariCan.release.xcconfig */;
+			baseConfigurationReference = D2377A5C530D3DB1F5E6BFFE /* Pods-WariCan.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.8.2;
+				CURRENT_PROJECT_VERSION = 1.8.3;
 				DEVELOPMENT_TEAM = UMBT5JZV43;
 				INFOPLIST_FILE = WariCan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.8.2;
+				MARKETING_VERSION = 1.8.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.channaru0711.WariCan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -845,7 +845,7 @@
 		};
 		05DCC13626075A0F00297E2F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 074E84C69243A68EF20D5136 /* Pods-WariCanTests.debug.xcconfig */;
+			baseConfigurationReference = 17FA7244EBB54D9B8ED4E1E3 /* Pods-WariCanTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -868,7 +868,7 @@
 		};
 		05DCC13726075A0F00297E2F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FED8BB12FA61ECBA1CA4C613 /* Pods-WariCanTests.release.xcconfig */;
+			baseConfigurationReference = 613865D52D760FB92F7D8BF4 /* Pods-WariCanTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -891,7 +891,7 @@
 		};
 		05DCC13926075A0F00297E2F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9661740E5A327CD30F47D52F /* Pods-WariCan-WariCanUITests.debug.xcconfig */;
+			baseConfigurationReference = 00D60FC4C21A302F16BAD18F /* Pods-WariCan-WariCanUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -912,7 +912,7 @@
 		};
 		05DCC13A26075A0F00297E2F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9A2131E5DD565EE0DE612D97 /* Pods-WariCan-WariCanUITests.release.xcconfig */;
+			baseConfigurationReference = 301C67ED224BC2F82AF10AEB /* Pods-WariCan-WariCanUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
